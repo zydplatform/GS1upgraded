@@ -20,8 +20,9 @@ $(document).ready(function () {
                    let user = result.userName;
                    let userResponse = result.response;
                    let userMessage = result.message;
-
-                   console.log(token);
+                   localStorage.setItem('myToken', token);
+                   const activeToken = localStorage.getItem('myToken');
+                   console.log(activeToken);
 
                    }
                
@@ -32,28 +33,35 @@ $(document).ready(function () {
         //register new user 
 
         //register new business profile
-    $("#register").on('click', function (e) {
-            let username = $('#userName').val().trim();
-            let password = $('#password').val().trim();
-            
+    $("#addbusiness").on('click', function (e) {
+            let businessName = $('#businessName').val().trim();
+            let businessOwnerShip = $('#businessOwnerShip').val().trim();
+            let physicalAdress = $('#physicalAdress').val().trim();
+            let businessEmail = $('#businessEmail').val().trim();
+            let registrationNumber = $('#registrationNumber').val().trim();
+            let tinNumber = $('#tinNumber').val().trim();
+            let postalAdress = $('#postalAdress').val().trim();
+
             e.preventDefault();
             $.ajax({
 
-                url: "http://83.136.248.89:1701/authenticate",
+                url: "http://83.136.248.89:1701/businessProfiles",
                 type: "POST",
+                headers:{
+                    'Authorization': 'Bearer ${access_token}',
+                },
                 contentType: 'application/json',
                 data: JSON.stringify({
-                  "userName" : username,
-                  "password" : password
+                  "businessName" : businessName,
+                  "businessOwnerShip" : businessOwnerShip,
+                  "physicalAdress" : physicalAdress,
+                  "businessEmail" : businessEmail,
+                  "registrationNumber" : registrationNumber,
+                  "tinNumber" : tinNumber,
+                  "postalAdress" : postalAdress
                 }), 
                 success: function( result ) {
-                   let token = result.jwt;
-                   let user = result.userName;
-                   let userResponse = result.response;
-                   let userMessage = result.message;
-
-                   console.log(token);
-
+                   console.log(result)
                    }
                
             })
