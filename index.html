@@ -130,40 +130,7 @@
   <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
   <script src="assets/js/argon.js?v=1.2.0"></script>
-<script type="text/javascript">
- 
-  $(document).ready(function () {
-        $("#submit").on('click', function (e) {
-            let username = $('#userName').val().trim();
-            let password = $('#password').val().trim();
-            
-            e.preventDefault();
-            $.ajax({
-
-                url: "http://83.136.248.89:1701/authenticate",
-                type: "POST",
-                contentType: 'application/json',
-                data: JSON.stringify({
-                  "userName" : username,
-                  "password" : password
-                }), 
-                success: function( result ) {
-                   let token = result.jwt;
-                   let user = result.userName;
-                   let userResponse = result.response;
-                   let userMessage = result.message;
-
-                   console.log(user);
-
-                   }
-               
-            })
-
-          });
-        
-      });
-
-</script>
+  <script src="assets/gs1.js"></script>
   
 </html>
 </body>
