@@ -79,7 +79,7 @@
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">
+                          <a class="nav-link" href="viewproduct.html">
                             <i class="ni ni-tag text-primary"></i>
                             <span class="nav-link-text">View Products</span>
                           </a>
@@ -300,83 +300,109 @@
       </div>
     </div>
     <div class="card-body px-lg-5 py-lg-5">
-      <div class="col-md-6 offset-md-3">
-              <h2 class="text-lead">Business Registration</h2>
-            </div>
-      <div class="col-md-6 offset-md-3">
-
-              <form role="form">
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="businessName" name="businessName" placeholder="businessName" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <select class="form-control"  id="businessOwnerShip" name="businessOwnerShip" required>  
-     
-                    <option value="Government">Government</option>
-                    <option value="Corporate">Corporate</option>
-                    <option value="SoleProprietorship">SoleProprietorship</option>
-                    <option value="LimitedByShares">LimitedByShares</option>
-                    
-                  </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="physicalAdress" name="physicalAdress" placeholder="physicalAddress" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="email" class="form-control" id="businessEmail" name="businessEmail" placeholder="businessEmail" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="registrationNumber" name="registrationNumber" placeholder="registrationNumber" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                     <input type="text" class="form-control" id="tinNumber" name="tinNumber" placeholder="tinNumber" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="postalAdress" name="postalAdress" placeholder="postalAdress" required>
-                  </div>
-                </div>
-                
-                <div class="text-center">
-                  <button type="submit" class="btn btn-danger mt-4" id="addbusiness">Add Business</button>
-                  <button type="submit" class="btn btn-warning mt-4"><a href="clientdashboard.html" style="color: white;">Back</a></button>
-                </div>
-              </form>
+      <div class="col-md-10 offset-md-1">
+        <button class="btn btn-default"><a href="businesses.html" style="color: white;">Add Product</a></button>
+        <button class="btn btn-default"><a href="addbusinesslines.html" style="color: white;">Add Business Line</a></button>
+        <button class="btn btn-default"><a href="addbusinesstypes.html" style="color: white;">Add Business Type</a></button>
+        <button class="btn btn-default"><a href="addbusinessowner.html" style="color: white;">Add Business Owner</a></button>
+        <button class="btn btn-default"><a href="addcountry.html" style="color: white;">Add Country</a></button>
+        <button class="btn btn-default"><a href="adddistrict.html" style="color: white;">Add District</a></button>
+        <hr>
+        <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table table-bordered table-striped">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Business Name</th>
+                    <th scope="col">Registration No.</th>
+                    <th scope="col">Business Line</th>
+                    <th scope="col">Business Type</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      Planet Systems
+                    </th>
+                    <td>
+                      44454567576
+                    </td>
+                    <td>
+                      IT Industry
+                    </td>
+                    <td>
+                       Software Entreprise
+                    </td>
+                    <td><button class="btn btn-warning">Update</button><button class="btn btn-warning">Delete</button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      Planet Systems
+                    </th>
+                    <td>
+                      44454567576
+                    </td>
+                    <td>
+                      IT Industry
+                    </td>
+                    <td>
+                       Software Entreprise
+                    </td>
+                    <td><button class="btn btn-warning">Update</button><button class="btn btn-warning">Delete</button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      Planet Systems
+                    </th>
+                    <td>
+                      44454567576
+                    </td>
+                    <td>
+                      IT Industry
+                    </td>
+                    <td>
+                       Software Entreprise
+                    </td>
+                    <td><button class="btn btn-warning">Update</button><button class="btn btn-warning">Delete</button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      Planet Systems
+                    </th>
+                    <td>
+                      44454567576
+                    </td>
+                    <td>
+                      IT Industry
+                    </td>
+                    <td>
+                       Software Entreprise
+                    </td>
+                    <td><button class="btn btn-warning">Update</button><button class="btn btn-warning">Delete</button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      Planet Systems
+                    </th>
+                    <td>
+                      44454567576
+                    </td>
+                    <td>
+                      IT Industry
+                    </td>
+                    <td>
+                       Software Entreprise
+                    </td>
+                    <td><button class="btn btn-warning">Update</button><button class="btn btn-warning">Delete</button></td>
+                  </tr>
+                  
+                  
+                </tbody>
+              </table>
             </div>
           </div>
+        </div>
       <!-- Footer -->
       <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">
