@@ -48,7 +48,7 @@ $(document).ready(function () {
                 url: "http://83.136.248.89:1701/businessProfiles",
                 type: "POST",
                 headers:{
-                    'Authorization': 'Bearer ${access_token}',
+                    'Authorization': 'Bearer ${activeToken}',
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
