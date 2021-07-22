@@ -55,8 +55,7 @@ $(document).ready(function () {
        
   //login user to get token
         $("#submit").on('click', function (e) {
-                        
-            debugger
+          
             validateUsername();
             validatePassword();
         if ((usernameError == true && passwordError == true)){
@@ -394,6 +393,15 @@ $("#addbusinesstype").on('click', function (e) {
 
 
 
+//logout
+$('#logout').on('click', function (e) {
+  e.preventDefault();
+  localStorage.removeItem('myToken');
+  if(localStorage.getItem('myToken') ==null){
+    window.location.href ="../index.html";
+  }
+
+});
 
 
 
