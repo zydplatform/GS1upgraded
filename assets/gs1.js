@@ -164,7 +164,7 @@ $(document).ready(function () {
                 url: "http://83.136.248.89:1701/countries",
                 type: "POST",
                 headers:{
-                    Authorization: 'Bearer '+activeToken,
+                    Authorization: 'Bearer '+activeToken
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -180,6 +180,20 @@ $(document).ready(function () {
 
           });
         //get country
+                   // console.log(activeToken);
+
+        $.ajax({
+        url: 'http://83.136.248.89:1701/countries/all',
+        type: "GET",
+        headers: {
+            Authorization: 'Bearer '+activeToken
+        },
+        dataType: 'json',
+        success: function (result) {
+          // console.log(result);
+         
+        }
+    });
 
         //add business line
       $("#addbusinessline").on('click', function (e) {
@@ -211,6 +225,20 @@ $(document).ready(function () {
           });
         //get business line
 
+                   // console.log(activeToken);
+
+        $.ajax({
+        url: 'http://83.136.248.89:1701/businessLines/all',
+        type: "GET",
+        headers: {
+            Authorization: 'Bearer '+activeToken
+        },
+        dataType: 'json',
+        success: function (result) {
+          // console.log(result);
+         
+        }
+    });
         //add business type
 $("#addbusinesstype").on('click', function (e) {
             let code = $('#code').val().trim();
@@ -240,7 +268,20 @@ $("#addbusinesstype").on('click', function (e) {
 
           });
         //get business type
+                   // console.log(activeToken);
 
+        $.ajax({
+        url: 'http://83.136.248.89:1701/businessTypes/all',
+        type: "GET",
+        headers: {
+            Authorization: 'Bearer '+activeToken
+        },
+        dataType: 'json',
+        success: function (result) {
+          // console.log(result);
+         
+        }
+    });
         //add district
         $("#adddistrict").on('click', function (e) {
             let districtCode = $('#districtCode').val().trim();
@@ -271,6 +312,20 @@ $("#addbusinesstype").on('click', function (e) {
           });
 
         //get district
+                   // console.log(activeToken);
+
+        $.ajax({
+        url: 'http://83.136.248.89:1701/districts/all',
+        type: "GET",
+        headers: {
+            Authorization: 'Bearer '+activeToken
+        },
+        dataType: 'json',
+        success: function (result) {
+          // console.log(result);
+         
+        }
+    });
 
         //add business owners
 
@@ -306,6 +361,21 @@ $("#addbusinesstype").on('click', function (e) {
           });
 
         //get all item catalogue
+
+                   // console.log(activeToken);
+
+        $.ajax({
+        url: 'http://83.136.248.89:1701/itemCatelogues/all',
+        type: "GET",
+        headers: {
+            Authorization: 'Bearer '+activeToken
+        },
+        dataType: 'json',
+        success: function (result) {
+          console.log(result);
+         
+        }
+    });
 
         //add business contacts
 
