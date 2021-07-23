@@ -55,18 +55,20 @@ $(document).ready(function () {
        
   //login user to get token
         $("#submit").on('click', function (e) {
-
+          
+            e.preventDefault();     
             validateUsername();
             validatePassword();
-        if ((usernameError == true && passwordError == true)){
+        if ((usernameError == true && passwordError == true))
+        {
             return true;
         }
+
+        else{
           let username = $('#userName').val().trim();
           let password = $('#password').val().trim();   
-          e.preventDefault();     
+
             $.ajax({
-
-
                 url: "http://83.136.248.89:1701/authenticate",
                 type: "POST",
                 contentType: 'application/json',
@@ -84,7 +86,7 @@ $(document).ready(function () {
                    localStorage.getItem('myToken');
                    console.log(localStorage.getItem('myToken'))
                    
-                   if(localStorage.getItem('myToken') == null){
+                   if(localStorage.getItem('myToken') == "null"){
                       return false;
                    }
                    else{
@@ -93,11 +95,12 @@ $(document).ready(function () {
                    }
                
             })
+          }
 
           });
 
         //Active user token
-        const activeToken = localStorage.getItem('myToken');
+        
 
         //register new user 
 
@@ -120,7 +123,7 @@ $(document).ready(function () {
                 url: "http://83.136.248.89:1701/businessProfiles",
                 type: "POST",
                 headers:{
-                    'Authorization': 'Bearer '+activeToken
+                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -146,7 +149,7 @@ $(document).ready(function () {
         url: 'http://83.136.248.89:1701/businessProfiles/all',
         type: "GET",
         headers: {
-            'Authorization': $`Bearer ${localStorage.getItem("myToken")}`
+            'Authorization': 'Bearer '+localStorage.getItem('myToken')
         },
         dataType: 'json',
         success: function (result) {
@@ -168,7 +171,7 @@ $(document).ready(function () {
                 url: "http://83.136.248.89:1701/countries",
                 type: "POST",
                 headers:{
-                    Authorization: 'Bearer '+activeToken
+                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -190,7 +193,7 @@ $(document).ready(function () {
         url: 'http://83.136.248.89:1701/countries/all',
         type: "GET",
         headers: {
-            'Authorization': 'Bearer '+activeToken
+            'Authorization': 'Bearer '+localStorage.getItem('myToken')
         },
         dataType: 'json',
         success: function (result) {
@@ -211,7 +214,7 @@ $(document).ready(function () {
                 url: "http://83.136.248.89:1701/businessLines",
                 type: "POST",
                 headers:{
-                    'Authorization': 'Bearer '+activeToken
+                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -233,7 +236,7 @@ $(document).ready(function () {
         url: 'http://83.136.248.89:1701/businessLines/all',
         type: "GET",
         headers: {
-            'Authorization': 'Bearer '+activeToken
+            'Authorization': 'Bearer '+localStorage.getItem('myToken')
         },
         dataType: 'json',
         success: function (result) {
@@ -253,7 +256,7 @@ $("#addbusinesstype").on('click', function (e) {
                 url: "http://83.136.248.89:1701/businessTypes",
                 type: "POST",
                 headers:{
-                    'Authorization': 'Bearer '+activeToken
+                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -274,7 +277,7 @@ $("#addbusinesstype").on('click', function (e) {
         url: 'http://83.136.248.89:1701/businessTypes/all',
         type: "GET",
         headers: {
-            'Authorization': 'Bearer '+activeToken
+            'Authorization': 'Bearer '+localStorage.getItem('myToken')
         },
         dataType: 'json',
         success: function (result) {
@@ -294,7 +297,7 @@ $("#addbusinesstype").on('click', function (e) {
                 url: "http://83.136.248.89:1701/districts",
                 type: "POST",
                 headers:{
-                    'Authorization': 'Bearer '+activeToken
+                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -316,7 +319,7 @@ $("#addbusinesstype").on('click', function (e) {
         url: 'http://83.136.248.89:1701/districts/all',
         type: "GET",
         headers: {
-            'Authorization': 'Bearer '+activeToken
+            'Authorization': 'Bearer '+localStorage.getItem('myToken')
         },
         dataType: 'json',
         success: function (result) {
@@ -341,7 +344,7 @@ $("#addbusinesstype").on('click', function (e) {
                 url: "http://83.136.248.89:1701/itemCatelogues",
                 type: "POST",
                 headers:{
-                    'Authorization': 'Bearer '+activeToken
+                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -364,7 +367,7 @@ $("#addbusinesstype").on('click', function (e) {
         url: 'http://83.136.248.89:1701/itemCatelogues/all',
         type: "GET",
         headers: {
-            'Authorization': 'Bearer '+activeToken
+            'Authorization': 'Bearer '+localStorage.getItem('myToken')
         },
         dataType: 'json',
         success: function (result) {
@@ -392,6 +395,7 @@ $("#addbusinesstype").on('click', function (e) {
 
 //logout
 $('#logout').on('click', function (e) {
+  debugger
   e.preventDefault();
   localStorage.removeItem('myToken');
   if(localStorage.getItem('myToken') ==null){
