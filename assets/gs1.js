@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  // token check
+  $('#tokencheck').hide();
  //Validate Username
     $('#usercheck').hide();    
     let usernameError = true;
@@ -59,6 +61,7 @@ $(document).ready(function () {
             e.preventDefault();     
             validateUsername();
             validatePassword();
+
         if ((usernameError == true && passwordError == true))
         {
             return true;
@@ -87,6 +90,8 @@ $(document).ready(function () {
                    console.log(localStorage.getItem('myToken'))
                    
                    if(localStorage.getItem('myToken') == "null"){
+                   $('#tokencheck').show();    
+                      
                       return false;
                    }
                    else{
