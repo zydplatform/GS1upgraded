@@ -16,7 +16,7 @@ $(document).ready(function () {
           return false;
       } 
       else if((usernameValue.length < 3)|| 
-              (usernameValue.length > 20)) {
+              (usernameValue.length > 100)) {
           $('#usercheck').show();
           $('#usercheck').html
 ("length of username must be between 3 and 20");
