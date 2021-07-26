@@ -57,7 +57,7 @@ $(document).ready(function () {
        
   //login user to get token
         $("#submit").on('click', function (e) {
-          
+          // debugger
             e.preventDefault();     
             validateUsername();
             validatePassword();
@@ -105,8 +105,8 @@ $(document).ready(function () {
           });
 
         //Active user token
-        
-
+        const token = localStorage.getItem('myToken');
+        console.log(token);
         //register new user 
 
        
@@ -127,10 +127,13 @@ $(document).ready(function () {
 
                 url: "http://83.136.248.89:1701/businessProfiles",
                 type: "POST",
+                dataType: "json",
+                Accept : 'application/json',
+                contentType: "application/json; charset=utf-8",
+                crossDomain: true,
                 headers:{
-                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
-                },
-                contentType: 'application/json',
+                        'Authorization': $`Bearer ${token}`   
+                       },
                 data: JSON.stringify({
                   "businessName" : businessName,
                   "businessOwnerShip" : businessOwnerShip,
@@ -138,6 +141,7 @@ $(document).ready(function () {
                   "registrationNumber" : registrationNumber
                 }), 
                 success: function( result ) {
+                  debugger
                    console.log(result)
 
                    }
@@ -148,16 +152,21 @@ $(document).ready(function () {
         //get all business profiles
 
         // var table = $(".display tbody");
+        // 'Authentication' => `Bearer ${token}`
+
 
 
         $.ajax({
-        url: 'http://83.136.248.89:1701/businessProfiles/all',
+        url: "http://83.136.248.89:1701/businessProfiles/all",
         type: "GET",
+        dataType: "json",
+        crossDomain: true,
+        cache: false,
+        contentType: "application/json",
         headers: {
-            'Authorization': 'Bearer '+localStorage.getItem('myToken')
+            "Authentication" : $`Bearer ${token}`
         },
-        dataType: 'json',
-        success: function (result) {
+        success: function (result) {    
           console.log(result);
          
         }
@@ -175,6 +184,9 @@ $(document).ready(function () {
 
                 url: "http://83.136.248.89:1701/countries",
                 type: "POST",
+                dataType: "json",
+                crossDomain: true,
+                cache: false,
                 headers:{
                     'Authorization': 'Bearer '+localStorage.getItem('myToken')
                 },
@@ -197,8 +209,11 @@ $(document).ready(function () {
         $.ajax({
         url: 'http://83.136.248.89:1701/countries/all',
         type: "GET",
+        dataType: "json",
+        crossDomain: true,
+        cache: false,
         headers: {
-            'Authorization': 'Bearer '+localStorage.getItem('myToken')
+            "Authentication" : $`Bearer ${token}`
         },
         dataType: 'json',
         success: function (result) {
@@ -218,8 +233,11 @@ $(document).ready(function () {
 
                 url: "http://83.136.248.89:1701/businessLines",
                 type: "POST",
+                dataType: "json",
+                crossDomain: true,
+                cache: false,
                 headers:{
-                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
+                    "Authentication" : $`Bearer ${token}`
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -240,8 +258,11 @@ $(document).ready(function () {
         $.ajax({
         url: 'http://83.136.248.89:1701/businessLines/all',
         type: "GET",
+        dataType: "json",
+        cache: false,
+        crossDomain: true,
         headers: {
-            'Authorization': 'Bearer '+localStorage.getItem('myToken')
+            "Authentication" : $`Bearer ${token}`
         },
         dataType: 'json',
         success: function (result) {
@@ -260,8 +281,11 @@ $("#addbusinesstype").on('click', function (e) {
 
                 url: "http://83.136.248.89:1701/businessTypes",
                 type: "POST",
+                dataType: "json",
+                crossDomain: true,
+                cache: false,
                 headers:{
-                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
+                    "Authentication" : $`Bearer ${token}`
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -281,8 +305,11 @@ $("#addbusinesstype").on('click', function (e) {
         $.ajax({
         url: 'http://83.136.248.89:1701/businessTypes/all',
         type: "GET",
+        dataType: "json",
+        crossDomain: true,
+        cache: false,
         headers: {
-            'Authorization': 'Bearer '+localStorage.getItem('myToken')
+            "Authentication" : $`Bearer ${token}`
         },
         dataType: 'json',
         success: function (result) {
@@ -301,8 +328,11 @@ $("#addbusinesstype").on('click', function (e) {
 
                 url: "http://83.136.248.89:1701/districts",
                 type: "POST",
+                dataType: "json",
+                crossDomain: true,
+                cache: false,
                 headers:{
-                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
+                    "Authentication" : $`Bearer ${token}`
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -323,8 +353,11 @@ $("#addbusinesstype").on('click', function (e) {
         $.ajax({
         url: 'http://83.136.248.89:1701/districts/all',
         type: "GET",
+        dataType: "json",
+        crossDomain: true,
+        cache: false,
         headers: {
-            'Authorization': 'Bearer '+localStorage.getItem('myToken')
+            "Authentication" : $`Bearer ${token}`
         },
         dataType: 'json',
         success: function (result) {
@@ -348,8 +381,11 @@ $("#addbusinesstype").on('click', function (e) {
 
                 url: "http://83.136.248.89:1701/itemCatelogues",
                 type: "POST",
+                dataType: "json",
+                crossDomain: true,
+                cache: false,
                 headers:{
-                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
+                    "Authentication" : $`Bearer ${token}`
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -371,8 +407,11 @@ $("#addbusinesstype").on('click', function (e) {
         $.ajax({
         url: 'http://83.136.248.89:1701/itemCatelogues/all',
         type: "GET",
+        dataType: "json",
+        crossDomain: true,
+        cache: false,
         headers: {
-            'Authorization': 'Bearer '+localStorage.getItem('myToken')
+            "Authentication" : $`Bearer ${token}`
         },
         dataType: 'json',
         success: function (result) {
