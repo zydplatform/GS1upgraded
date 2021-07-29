@@ -72,7 +72,7 @@ $(document).ready(function () {
           let password = $('#password').val().trim();   
 
             $.ajax({
-                url: "http://localhost:1701/authenticate",
+                url: "http://83.136.248.89:1701/authenticate",
                 type: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -125,7 +125,7 @@ $(document).ready(function () {
             e.preventDefault();
             $.ajax({
 
-                url: "http://localhost:1701/businessProfiles",
+                url: "http://83.136.248.89:1701/businessProfiles",
                 type: "POST",
                 dataType: "json",
                 Accept : 'application/json',
@@ -157,7 +157,7 @@ $(document).ready(function () {
 
 
         $.ajax({
-        url: "http://localhost:1701/businessProfiles/all",
+        url: "http://83.136.248.89:1701/businessProfiles/all",
         type: "GET",
         dataType: "json",
         crossDomain: true,
@@ -182,7 +182,7 @@ $(document).ready(function () {
             e.preventDefault();
             $.ajax({
 
-                url: "http://localhost:1701/countries",
+                url: "http://83.136.248.89:1701/countries",
                 type: "POST",
                 dataType: "json",
                 crossDomain: true,
@@ -207,7 +207,7 @@ $(document).ready(function () {
                    
 
         $.ajax({
-        url: 'http://localhost:1701/countries/all',
+        url: 'http://83.136.248.89:1701/countries/all',
         type: "GET",
         dataType: "json",
         crossDomain: true,
@@ -231,7 +231,7 @@ $(document).ready(function () {
             e.preventDefault();
             $.ajax({
 
-                url: "http://localhost:1701/businessLines",
+                url: "http://83.136.248.89:1701/businessLines",
                 type: "POST",
                 dataType: "json",
                 crossDomain: true,
@@ -256,7 +256,7 @@ $(document).ready(function () {
 
 
         $.ajax({
-        url: 'http://localhost:1701/businessLines/all',
+        url: 'http://83.136.248.89:1701/businessLines/all',
         type: "GET",
         dataType: "json",
         cache: false,
@@ -279,7 +279,7 @@ $("#addbusinesstype").on('click', function (e) {
             e.preventDefault();
             $.ajax({
 
-                url: "http://localhost:1701/businessTypes",
+                url: "http://83.136.248.89:1701/businessTypes",
                 type: "POST",
                 dataType: "json",
                 crossDomain: true,
@@ -303,7 +303,7 @@ $("#addbusinesstype").on('click', function (e) {
         //get business type
 
         $.ajax({
-        url: 'http://localhost:1701/businessTypes/all',
+        url: 'http://83.136.248.89:1701/businessTypes/all',
         type: "GET",
         dataType: "json",
         crossDomain: true,
@@ -326,7 +326,7 @@ $("#addbusinesstype").on('click', function (e) {
             e.preventDefault();
             $.ajax({
 
-                url: "http://localhost:1701/districts",
+                url: "http://83.136.248.89:1701/districts",
                 type: "POST",
                 dataType: "json",
                 crossDomain: true,
@@ -351,7 +351,7 @@ $("#addbusinesstype").on('click', function (e) {
         //get district
 
         $.ajax({
-        url: 'http://localhost:1701/districts/all',
+        url: 'http://83.136.248.89:1701/districts/all',
         type: "GET",
         dataType: "json",
         crossDomain: true,
@@ -379,7 +379,7 @@ $("#addbusinesstype").on('click', function (e) {
             e.preventDefault();
             $.ajax({
 
-                url: "http://localhost:1701/itemCatelogues",
+                url: "http://83.136.248.89:1701/itemCatelogues",
                 type: "POST",
                 dataType: "json",
                 crossDomain: true,
@@ -405,7 +405,7 @@ $("#addbusinesstype").on('click', function (e) {
 
 
         $.ajax({
-        url: 'http://localhost:1701/itemCatelogues/all',
+        url: 'http://83.136.248.89:1701/itemCatelogues/all',
         type: "GET",
         dataType: "json",
         crossDomain: true,
