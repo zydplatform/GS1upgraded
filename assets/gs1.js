@@ -56,7 +56,7 @@ $(document).ready(function () {
     }
        
   //login user to get token
-        $("#submit").on('click', function (e) {
+        $("#form1").on('submit', function (e) {
           // debugger
             e.preventDefault();     
             validateUsername();
@@ -67,8 +67,8 @@ $(document).ready(function () {
             return true;
         }
 
-        else{
-          let username = $('#userName').val().trim();
+        else{debugger
+          let userName = $('#userName').val().trim();
           let password = $('#password').val().trim();   
 
             $.ajax({
@@ -76,11 +76,11 @@ $(document).ready(function () {
                 type: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify({
-                  "userName" : username,
+                  "userName" : userName,
                   "password" : password
                 }), 
                 success: function( result ) {
-                  debugger
+                  
                    let token = result.jwt;
                    let user = result.userName;
                    let userResponse = result.response;
@@ -108,269 +108,174 @@ $(document).ready(function () {
         const token = localStorage.getItem('myToken');
         console.log(token);
         //register new user 
-
-       
-
-        //register new business profile
-    $("#addbusiness").on('click', function (e) {
-            let businessName = $('#businessName').val().trim();
-            let businessOwnerShip = $('#businessOwnerShip').val().trim();
-            let physicalAdress = $('#physicalAdress').val().trim();
-            let businessEmail = $('#businessEmail').val().trim();
-            let registrationNumber = $('#registrationNumber').val().trim();
-            let tinNumber = $('#tinNumber').val().trim();
-            let postalAdress = $('#postalAdress').val().trim();
-            
-
-            e.preventDefault();
-            $.ajax({
-
-                url: "http://83.136.248.89:1701/businessProfiles",
-                type: "POST",
-                dataType: "json",
-                Accept : 'application/json',
-                contentType: "application/json; charset=utf-8",
-                crossDomain: true,
-                headers:{
-                        'Authorization': $`Bearer ${token}`   
-                       },
-                data: JSON.stringify({
-                  "businessName" : businessName,
-                  "businessOwnerShip" : businessOwnerShip,
-                  "businessEmail" : businessEmail,
-                  "registrationNumber" : registrationNumber
-                }), 
-                success: function( result ) {
-                  debugger
-                   console.log(result)
-
-                   }
-               
-            })
-
-          });
-        //get all business profiles
-
-        // var table = $(".display tbody");
-        // 'Authentication' => `Bearer ${token}`
-
-
+// "Authorization" : 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE2Mjc5NDUzNDgsImlhdCI6MTYyNzkwOTM0OH0.UwbFrqWN0xF8gkCFHT_iR10BJUJnCIf4X0LmMZKvkM4'
+         //get district
 
         $.ajax({
-        url: "http://83.136.248.89:1701/businessProfiles/all",
+        url: 'http://83.136.248.89:1701/districts/all',
         type: "GET",
         dataType: "json",
-        crossDomain: true,
-        cache: false,
-        contentType: "application/json",
         headers: {
-            "Authentication" : $`Bearer ${token}`
-        },
-        success: function (result) {    
-          console.log(result);
-         
-        }
-    });
-
-        //get single business profile
-
-        //add country
-        $("#addcountry").on('click', function (e) {
-            let countryName = $('#countryName').val().trim();
-            let countryCode = $('#countryCode').val().trim();
-
-            e.preventDefault();
-            $.ajax({
-
-                url: "http://83.136.248.89:1701/countries",
-                type: "POST",
-                dataType: "json",
-                crossDomain: true,
-                cache: false,
-                headers:{
-                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
-                },
-                contentType: 'application/json',
-                data: JSON.stringify({
-                  "countryCode" : countryCode,
-                  "countryName" : countryName
-                }), 
-                success: function( result ) {
-                   console.log(result)
-
-                   }
-               
-            })
-
-          });
-        //get country
-                   
-
-        $.ajax({
-        url: 'http://83.136.248.89:1701/countries/all',
-        type: "GET",
-        dataType: "json",
-        crossDomain: true,
-        cache: false,
-        headers: {
-            "Authentication" : $`Bearer ${token}`
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
         },
         dataType: 'json',
         success: function (result) {
-          // console.log(result);
+          console.log(result);
+          // $('#myTable tr').empty();
+          for (var d in result.data) {
+          var data = result.data[d];
+          $('#myTable tbody').append($('<tr>')
+              .append($('<td>', { text: data.districtCode }))
+              .append($('<td>', { text: data.districtName }))
+              .append($('<td>', {html:'<button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button>'}))
+          )
+       }
          
         }
     });
 
-        //add business line
-      $("#addbusinessline").on('click', function (e) {
-            let code = $('#code').val().trim();
-            let businessLineName = $('#businessLineName').val().trim();
-           
 
-            e.preventDefault();
-            $.ajax({
+//get all item catalogue
 
-                url: "http://83.136.248.89:1701/businessLines",
-                type: "POST",
-                dataType: "json",
-                crossDomain: true,
-                cache: false,
-                headers:{
-                    "Authentication" : $`Bearer ${token}`
-                },
-                contentType: 'application/json',
-                data: JSON.stringify({
-                  "code" : code,
-                  "businessLineName" : businessLineName
-                }), 
-                success: function( result ) {
-                   console.log(result)
 
-                   }
-               
-            })
+        $.ajax({
+        url: 'http://83.136.248.89:1701/itemCatelogues/all',
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        },
+        dataType: 'json',
+        success: function (result) {
+          console.log(result);
+          var countItems = result.data.length;
+          $('#countItems').append(countItems);
+          // $('#prodTable tr').empty();
+          for (var d in result.data) {
+          var data = result.data[d];
+          $('#prodTable tbody').append($('<tr>')
+              .append($('<td>', { text: data.itemCode }))
+              .append($('<td>', { text: data.itemName }))
+              .append($('<td>', {html:'<button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button>'}))
+          )
+       }
+         
+        }
+    });
 
-          });
-        //get business line
+
+//get business type
+
+        $.ajax({
+        url: 'http://83.136.248.89:1701/businessTypes/all',
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        },
+        dataType: 'json',
+        success: function (result) {
+          console.log(result);
+          // $('#businesstypeTable tr').empty();
+          for (var d in result.data) {
+          var data = result.data[d];
+          $('#businesstypeTable tbody').append($('<tr>')
+              .append($('<td>', { text: data.code }))
+              .append($('<td>', { text: data.type }))
+              .append($('<td>', {html:'<button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button>'}))
+          )
+       }
+         
+        }
+    });
+
+
+  //get business line
 
 
         $.ajax({
         url: 'http://83.136.248.89:1701/businessLines/all',
         type: "GET",
         dataType: "json",
-        cache: false,
-        crossDomain: true,
         headers: {
-            "Authentication" : $`Bearer ${token}`
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
         },
         dataType: 'json',
         success: function (result) {
-          // console.log(result);
+          console.log(result);
+          // $('#businesslineTable tr').empty();
+          for (var d in result.data) {
+          var data = result.data[d];
+          $('#businesslineTable tbody').append($('<tr>')
+              .append($('<td>', { text: data.code }))
+              .append($('<td>', { text: data.businessLineName }))
+              .append($('<td>', {html:'<button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button>'}))
+          )
+       }
          
         }
     });
-        //add business type
-$("#addbusinesstype").on('click', function (e) {
-            let code = $('#code').val().trim();
-            let type = $('#type').val().trim();
-           
 
-            e.preventDefault();
-            $.ajax({
 
-                url: "http://83.136.248.89:1701/businessTypes",
-                type: "POST",
-                dataType: "json",
-                crossDomain: true,
-                cache: false,
-                headers:{
-                    "Authentication" : $`Bearer ${token}`
-                },
-                contentType: 'application/json',
-                data: JSON.stringify({
-                  "code" : code,
-                  "type" : type
-                }), 
-                success: function( result ) {
-                   console.log(result)
 
-                   }
-               
-            })
-
-          });
-        //get business type
+//get country
+                   
 
         $.ajax({
-        url: 'http://83.136.248.89:1701/businessTypes/all',
+        url: 'http://83.136.248.89:1701/countries/all',
         type: "GET",
         dataType: "json",
-        crossDomain: true,
-        cache: false,
         headers: {
-            "Authentication" : $`Bearer ${token}`
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
         },
         dataType: 'json',
         success: function (result) {
-          // console.log(result);
-         
+          // var count = result.data.length;
+          console.log(result);
+          // $('#count').append(count);countBusiness
+         // $('#countryTable tr').empty();
+          for (var d in result.data) {
+          var data = result.data[d];
+          $('#countryTable tbody').append($('<tr>')
+              .append($('<td>', { text: data.countryCode }))
+              .append($('<td>', { text: data.countryName }))
+              .append($('<td>', {html:'<button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button>'}))
+          )
+       }
         }
     });
-        //add district
-        $("#adddistrict").on('click', function (e) {
-            let districtCode = $('#districtCode').val().trim();
-            let districtName = $('#districtName').val().trim();
-           
+       
 
-            e.preventDefault();
-            $.ajax({
-
-                url: "http://83.136.248.89:1701/districts",
-                type: "POST",
-                dataType: "json",
-                crossDomain: true,
-                cache: false,
-                headers:{
-                    "Authentication" : $`Bearer ${token}`
-                },
-                contentType: 'application/json',
-                data: JSON.stringify({
-                  "districtCode" : districtCode,
-                  "districtName" : districtName
-                }), 
-                success: function( result ) {
-                   console.log(result)
-
-                   }
-               
-            })
-
-          });
-
-        //get district
-
-        $.ajax({
-        url: 'http://83.136.248.89:1701/districts/all',
+$.ajax({
+        url: "http://83.136.248.89:1701/businessProfiles/all",
         type: "GET",
         dataType: "json",
-        crossDomain: true,
-        cache: false,
         headers: {
-            "Authentication" : $`Bearer ${token}`
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
         },
-        dataType: 'json',
-        success: function (result) {
-          // console.log(result);
+        success: function (result) {    
+          console.log(result);
+          var countBusiness = result.data.length;
+          $('#countBusiness').append(countBusiness);
+          // $('#businessTable tbody').empty();
+       
+          for (var d in result.data) {
+          var data = result.data[d];
+          $('#businessTable tbody').append($('<tr>')
+              .append($('<td>', { text: data.businessName }))
+              .append($('<td>', { text: data.businessEmail }))
+              .append($('<td>', { text: data.businessOwnerShip }))
+              .append($('<td>', { text: data.registrationNumber }))
+              .append($('<td>', {html:'<button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button>'}))
+          )
+       }
          
         }
     });
 
-        //add business owners
 
-        //get business owners
 
-        //add item caatalogue
+ //add item caatalogue
       $("#addproduct").on('click', function (e) {
             let itemCode = $('#itemCode').val().trim();
             let itemName = $('#itemName').val().trim();
@@ -382,10 +287,9 @@ $("#addbusinesstype").on('click', function (e) {
                 url: "http://83.136.248.89:1701/itemCatelogues",
                 type: "POST",
                 dataType: "json",
-                crossDomain: true,
-                cache: false,
-                headers:{
-                    "Authentication" : $`Bearer ${token}`
+                headers:{'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    "Authorization" : 'Bearer '+localStorage.getItem('myToken')
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -401,42 +305,200 @@ $("#addbusinesstype").on('click', function (e) {
 
           });
 
-        //get all item catalogue
+      //add district
+        $("#adddistrict").on('click', function (e) {
+            let districtCode = $('#districtCode').val().trim();
+            let districtName = $('#districtName').val().trim();
+           
+
+            e.preventDefault();
+            $.ajax({
+
+                url: "http://83.136.248.89:1701/districts",
+                type: "POST",
+                dataType: "json",
+                headers:{'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+                },
+                contentType: 'application/json',
+                data: JSON.stringify({
+                  "districtCode" : districtCode,
+                  "districtName" : districtName
+                }), 
+                success: function( result ) {
+                   console.log(result)
+
+                   }
+               
+            })
+
+          });
+
+    //add business type
+$("#addbusinesstype").on('click', function (e) {
+            let code = $('#code').val().trim();
+            let type = $('#type').val().trim();
+           
+
+            e.preventDefault();
+            $.ajax({
+
+                url: "http://83.136.248.89:1701/businessTypes",
+                type: "POST",
+                dataType: "json",
+                headers:{'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+                },
+                contentType: 'application/json',
+                data: JSON.stringify({
+                  "code" : code,
+                  "type" : type
+                }), 
+                success: function( result ) {
+                   console.log(result)
+
+                   }
+               
+            })
+
+          });
 
 
-        $.ajax({
-        url: 'http://83.136.248.89:1701/itemCatelogues/all',
-        type: "GET",
-        dataType: "json",
-        crossDomain: true,
-        cache: false,
-        headers: {
-            "Authentication" : $`Bearer ${token}`
-        },
-        dataType: 'json',
-        success: function (result) {
-          console.log(result);
-         
-        }
-    });
+//add business type
+$("#addbusinessowner").on('click', function (e) {
+            let firstName = $('#firstName').val().trim();
+            let lastname = $('#lastname').val().trim();
+            let telephone = $('#telephone').val().trim();
+            let email = $('#email').val().trim();
+           
 
-        //add business contacts
+            e.preventDefault();
+            $.ajax({
 
-        //get business contacts
+                url: "http://83.136.248.89:1701/businessOwners",
+                type: "POST",
+                dataType: "json",
+                headers:{'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+                },
+                contentType: 'application/json',
+                data: JSON.stringify({
+                  "firstName":firstName,
+                  "lastname":lastname,
+                  "telephone":telephone,
+                  "email":email
+                }), 
+                success: function( result ) {
+                   console.log(result)
 
-        //add business products
+                   }
+               
+            })
 
-        //get business products
-
-        //add business product barcodes
-
-        //get business product barcodes
+          });
 
 
-        
+//add business line
+      $("#addbusinessline").on('click', function (e) {
+            let code = $('#code').val().trim();
+            let businessLineName = $('#businessLineName').val().trim();
+           
+
+            e.preventDefault();
+            $.ajax({
+
+                url: "http://83.136.248.89:1701/businessLines",
+                type: "POST",
+                dataType: "json",
+                headers:{'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+                },
+                contentType: 'application/json',
+                data: JSON.stringify({
+                  "code" : code,
+                  "businessLineName" : businessLineName
+                }), 
+                success: function( result ) {
+                   console.log(result)
+
+                   }
+               
+            })
+
+          });
+
+
+  //add country
+        $("#addcountry").on('click', function (e) {
+            let countryName = $('#countryName').val().trim();
+            let countryCode = $('#countryCode').val().trim();
+
+            e.preventDefault();
+            $.ajax({
+
+                url: "http://83.136.248.89:1701/countries",
+                type: "POST",
+                dataType: "json",
+                headers:{'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
+                },
+                contentType: 'application/json',
+                data: JSON.stringify({
+                  "countryCode" : countryCode,
+                  "countryName" : countryName
+                }), 
+                success: function( result ) {
+                   console.log(result)
+
+                   }
+               
+            })
+
+          });
 
 
 
+        //register new business profile
+    $("#addbusiness").on('click', function (e) {
+            let businessName = $('#businessName').val().trim();
+            let businessOwnerShip = $('#businessOwnerShip').val().trim();
+            let physicalAdress = $('#physicalAdress').val().trim();
+            let businessEmail = $('#businessEmail').val().trim();
+            let registrationNumber = $('#registrationNumber').val().trim();
+            let tinNumber = $('#tinNumber').val().trim();
+            let postalAdress = $('#postalAdress').val().trim();
+
+            e.preventDefault();
+            $.ajax({
+
+                url: "http://83.136.248.89:1701/businessProfiles",
+                type: "POST",
+                dataType: "json",
+                headers:{
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer '+localStorage.getItem('myToken')   
+                       },
+                data: JSON.stringify({
+                  "businessName" : businessName,
+                  "businessOwnerShip" : businessOwnerShip,
+                  "businessEmail" : businessEmail,
+                  "registrationNumber" : registrationNumber
+                }), 
+                success: function( result ) {
+                  // debugger
+                   console.log(result)
+
+                   }
+               
+            })
+
+          });
 //logout
 $('#logout').on('click', function (e) {
   debugger

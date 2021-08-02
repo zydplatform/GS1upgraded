@@ -26,10 +26,7 @@ crossorigin="anonymous|use-credentials">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    
 </head>
 
 <body>
@@ -284,7 +281,7 @@ crossorigin="anonymous|use-credentials">
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Businesses</h5>
-                      <span class="h2 font-weight-bold mb-0">0</span>
+                      <span class="h2 font-weight-bold mb-0" id="countBusiness"></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -303,7 +300,7 @@ crossorigin="anonymous|use-credentials">
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Products</h5>
-                      <span class="h2 font-weight-bold mb-0">0</span>
+                      <span class="h2 font-weight-bold mb-0" id="countItems"></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -366,16 +363,17 @@ crossorigin="anonymous|use-credentials">
         <hr>
         <div class="table-responsive">
               <!-- Projects table -->
-              <table class="table table-bordered table-striped" id="dataTable1">
+              <table class="table table-bordered table-striped" id="businessTable">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">businessName</th>
                     <th scope="col">businessEmail</th>
                     <th scope="col">businessOwnerShip</th>
                     <th scope="col">registrationNumber</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
-                <tbody class="display"></tbody>
+                <tbody class="display" id="businessTable"></tbody>
               </table>
             </div>
           </div>
@@ -419,6 +417,11 @@ crossorigin="anonymous|use-credentials">
   <script src="../assets/js/argon.js?v=1.2.0"></script>
 
   <script src="../assets/gs1.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  
 </body>
 
 </html>
