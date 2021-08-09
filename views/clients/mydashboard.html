@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="GS1 Standards Uganda">
+  <meta name="author" content="GS1 Standards Uganda">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+  <meta http-equiv="Access-Control-Allow-Headers" content="X-Requested-With" />
+
+  <title>GS1 Standards Uganda</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous|use-credentials">
+</script>
+  <!-- Favicon -->
+  <link rel="icon" href="../../assets/img/brand/newlogo1.png" type="image/png">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <!-- Icons -->
+  <link rel="stylesheet" href="../../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+  <link rel="stylesheet" href="../../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <!-- Page plugins -->
+  <!-- Argon CSS -->
+  <link rel="stylesheet" href="../../assets/css/argon.css?v=1.2.0" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    
+</head>
+
+<body>
+  <!-- Sidenav -->
+  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    <div class="scrollbar-inner">
+      <!-- Brand -->
+      <div class="sidenav-header  align-items-center">
+        <a class="navbar-brand" href="javascript:void(0)">
+          <img src="../../assets/img/brand/newlogo1.png" class="navbar-brand-img" alt="...">
+        </a>
+      </div>
+      <div class="navbar-inner">
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+          <!-- Nav items -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="clientdashboard.html">
+                <i class="ni ni-tv-2 text-primary"></i>
+                <span class="nav-link-text">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-examples4" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples4">
+                        <i class="fa fa-briefcase" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">Business</span>
+                    </a>
+                    <div class="collapse show" id="navbar-examples4">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link" href="clientdashboard.html">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">View Business</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="businesses.html">
+                            <i class="ni ni-tag text-primary"></i>
+                            <span class="nav-link-text">Add Business</span>
+                          </a>
+                        </li>
+                                  </ul>
+                    </div>
+                </li>
+                        <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-examples1" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples4">
+                        <i class="fa fa-briefcase" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">Products</span>
+                    </a>
+                    <div class="collapse show" id="navbar-examples1">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link" href="businessproducts.html">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Business Products</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="businessproductbarcodes.html">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Business Barcodes</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Assign Barcodes</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="viewproduct.html">
+                            <i class="ni ni-tag text-primary"></i>
+                            <span class="nav-link-text">View Products</span>
+                          </a>
+                        </li>
+                                  </ul>
+                    </div>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-examples5" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples4">
+                        <i class="fa fa-briefcase" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">Business Data</span>
+                    </a>
+                    <div class="collapse show" id="navbar-examples5">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link" href="businesslines.html">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Business Lines</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="businesstypes.html">
+                            <i class="ni ni-tag text-primary"></i>
+                            <span class="nav-link-text">Business Types</span>
+                          </a>
+                        </li>
+                                                <li class="nav-item">
+                          <a class="nav-link" href="countries.html">
+                            <i class="ni ni-tag text-primary"></i>
+                            <span class="nav-link-text">Countries</span>
+                          </a>
+                        </li>
+                                                <li class="nav-item">
+                          <a class="nav-link" href="districts.html">
+                            <i class="ni ni-tag text-primary"></i>
+                            <span class="nav-link-text">Districts</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                </li>
+                            <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-examples2" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples4">
+                        <i class="fa fa-briefcase" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">Payments</span>
+                    </a>
+                    <div class="collapse show" id="navbar-examples2">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Membership Payments</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <i class="ni ni-tag text-primary"></i>
+                            <span class="nav-link-text">Barcode Payments</span>
+                          </a>
+                        </li>
+                                  </ul>
+                    </div>
+                </li>
+
+                       <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-examples3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples4">
+                        <i class="fa fa-briefcase" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">Reports</span>
+                    </a>
+                    <div class="collapse show" id="navbar-examples3">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Business Report</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <i class="ni ni-tag text-primary"></i>
+                            <span class="nav-link-text">Products Registry</span>
+                          </a>
+                        </li>
+                                  </ul>
+                    </div>
+                </li>
+          </ul>
+         
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Search form -->
+          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+            <div class="form-group mb-0">
+              <div class="input-group input-group-alternative input-group-merge">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+                <input class="form-control" placeholder="Search" type="text">
+              </div>
+            </div>
+            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </form>
+          <!-- Navbar links -->
+          <ul class="navbar-nav align-items-center  ml-md-auto ">
+            <li class="nav-item d-xl-none">
+              <!-- Sidenav toggler -->
+              <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item d-sm-none">
+              <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
+                <i class="ni ni-zoom-split-in"></i>
+              </a>
+            </li>
+            </ul>
+          <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+            <li class="nav-item dropdown">
+              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="media align-items-center">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" src="../../assets/img/theme/uganda1.jpg">
+                  </span>
+                  <div class="media-body  ml-2  d-none d-lg-block">
+                    <span class="mb-0 text-sm  font-weight-bold">User Name</span>
+                  </div>
+                </div>
+              </a>
+              <div class="dropdown-menu  dropdown-menu-right ">
+                <div class="dropdown-header noti-title">
+                  <h6 class="text-overflow m-0">Welcome!</h6>
+                </div>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-single-02"></i>
+                  <span>My profile</span>
+                </a>
+                
+                <a href="" class="dropdown-item" id="logout">
+                  <i class="ni ni-user-run"></i>
+                  <span>Logout</span>
+                </a>
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header -->
+    <!-- Header -->
+    <div class="header bg-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">National Product Barcodes System</h6>
+              
+            </div>
+            
+          </div>
+          <!-- Card stats -->
+          <div class="row">
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Businesses</h5>
+                      <span class="h2 font-weight-bold mb-0" id="countBusiness"></span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                        <i class="ni ni-active-40"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Products</h5>
+                      <span class="h2 font-weight-bold mb-0" id="countItems"></span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                        <i class="ni ni-chart-pie-35"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Subscriptions</h5>
+                      <span class="h2 font-weight-bold mb-0">0</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                        <i class="ni ni-money-coins"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Barcodes</h5>
+                      <span class="h2 font-weight-bold mb-0">0</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                        <i class="ni ni-chart-bar-32"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body px-lg-5 py-lg-5">
+      <div class="col-md-10 offset-md-1">
+        <button class="btn btn-default"><a href="businesses.html" style="color: white;">Add Business</a></button>
+        <button class="btn btn-default"><a href="addbusinesslines.html" style="color: white;">Add Business Line</a></button>
+        <button class="btn btn-default"><a href="addbusinesstypes.html" style="color: white;">Add Business Type</a></button>
+        <button class="btn btn-default"><a href="addbusinessowner.html" style="color: white;">Add Business Owner</a></button>
+        <button class="btn btn-default"><a href="addcountry.html" style="color: white;">Add Country</a></button>
+        <button class="btn btn-default"><a href="adddistrict.html" style="color: white;">Add District</a></button>
+        <hr>
+        <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table table-bordered table-striped" id="businessTable">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">businessName</th>
+                    <th scope="col">businessEmail</th>
+                    <th scope="col">businessOwnerShip</th>
+                    <th scope="col">registrationNumber</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody class="display" id="businessTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      <!-- Footer -->
+      <footer class="footer pt-0">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6">
+            <div class="copyright text-center text-xl-left text-muted">
+            &copy; 2021 <a href="#" class="font-weight-bold ml-1" target="_blank">GS1StandardsUganda</a>
+          </div>
+          </div>
+          <div class="col-lg-6">
+            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+              <li class="nav-item">
+              <a href="#" class="nav-link" target="_blank">Website</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" target="_blank">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" target="_blank">Contact Us</a>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/vendor/js-cookie/js.cookie.js"></script>
+  <script src="../../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+  <script src="../../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+  <!-- Optional JS -->
+  <script src="../../assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="../../assets/vendor/chart.js/dist/Chart.extension.js"></script>
+  <!-- Argon JS -->
+  <script src="../../assets/js/argon.js?v=1.2.0"></script>
+
+  <script src="../../assets/gs1.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  
+</body>
+
+</html>

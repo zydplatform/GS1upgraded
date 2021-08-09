@@ -1,4 +1,10 @@
 $(document).ready(function () {
+ //included html files
+ var includes = $('[data-include]');
+  $.each(includes, function () {
+    var file =  $(this).data('include') + '.html'
+    $(this).load(file)
+  })
   // token check
   $('#tokencheck').hide();
  //Validate Username
