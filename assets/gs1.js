@@ -515,6 +515,17 @@ $('#logout').on('click', function (e) {
   }
 
 });
+// client logs out
+
+$('#clientlogout').on('click', function (e) {
+  debugger
+  e.preventDefault();
+  localStorage.removeItem('myToken');
+  if(localStorage.getItem('myToken') ==null){
+    window.location.href ="clientlogsin.html";
+  }
+
+});
 
 
 
