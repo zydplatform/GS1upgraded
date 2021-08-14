@@ -1,21 +1,20 @@
-<!--
-=========================================================
-* GS1 Standards Uganda Dashboard - v1.2.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
 <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <meta name="author" content="Creative Tim">
+  <meta name="description" content="GS1 Standards Uganda">
+  <meta name="author" content="GS1 Standards Uganda">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+  <meta http-equiv="Access-Control-Allow-Headers" content="X-Requested-With" />
+
   <title>GS1 Standards Uganda</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous|use-credentials">
+</script>
   <!-- Favicon -->
   <link rel="icon" href="../../assets/img/brand/newlogo1.png" type="image/png">
   <!-- Fonts -->
@@ -26,7 +25,9 @@
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="../../assets/css/argon.css?v=1.2.0" type="text/css">
-  <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+  
+   <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -48,13 +49,73 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="welcome.html">
+              <a class="nav-link active" href="mydashboard.html">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
-           
-                      
+            <li class="nav-item">
+                    <a class="nav-link" href="#navbar-examples4" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples4">
+                        <i class="fa fa-briefcase" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">Profile</span>
+                    </a>
+                    <div class="collapse show" id="navbar-examples4">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">User Details</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <i class="ni ni-tag text-primary"></i>
+                            <span class="nav-link-text">Business Details</span>
+                          </a>
+                        </li>
+                                  </ul>
+                    </div>
+                </li>
+                        <li class="nav-item">
+                    <a class="nav-link" href="#navbar-examples1" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples1">
+                        <i class="fa fa-briefcase" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">Products</span>
+                    </a>
+                  
+                  
+                    <div class="collapse show" id="navbar-examples1">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link" href="mydashboard.html">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Show Products</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="addclientproduct.html">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Add Product</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="requestclientbarcodes.html">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Get Barcodes</span>
+                          </a>
+                        </li>
+                         <li class="nav-item">
+                          <a class="nav-link" href="addclientbarcodes.html">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Add Barcodes</span>
+                          </a>
+                        </li>
+                        
+                                  </ul>
+                    </div>
+                </li>
+                           
+
+                       
           </ul>
          
         </div>
@@ -93,7 +154,12 @@
                 </div>
               </div>
             </li>
-            
+            <li class="nav-item d-sm-none">
+              <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
+                <i class="ni ni-zoom-split-in"></i>
+              </a>
+            </li>
+            </ul>
           <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
             <li class="nav-item dropdown">
               <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -115,12 +181,11 @@
                   <span>My profile</span>
                 </a>
                 
-                <div class="dropdown-divider"></div>
-                <a href="../index.html" class="dropdown-item">
+                <a href="" class="dropdown-item" id="logout">
                   <i class="ni ni-user-run"></i>
                   <span>Logout</span>
                 </a>
-              </div>
+              
             </li>
           </ul>
         </div>
@@ -133,42 +198,88 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0"></h6>
+              <h6 class="h2 text-white d-inline-block mb-0">National Product Barcodes System</h6>
               
             </div>
             
           </div>
-         
-    <!-- Page content -->
-    <div class="container-fluid mt--6">
-      <div class="row">
-        <div class="col-xl-12">
-          <div class="card bg-secondary">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <h6 class="h2 text-default d-inline-block mb-0">Business Registration</h6>
-               
-              
+          <!-- Card stats -->
+          <div class="row">
+           
+            <div class="col-xl-4 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Products</h5>
+                      <span class="h2 font-weight-bold mb-0" id="countItems"></span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                        <i class="ni ni-chart-pie-35"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Subscriptions</h5>
+                      <span class="h2 font-weight-bold mb-0">0</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                        <i class="ni ni-money-coins"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Barcodes</h5>
+                      <span class="h2 font-weight-bold mb-0">0</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                        <i class="ni ni-chart-bar-32"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-       <div class="text-center">
-                  <button type="button" class="btn btn-md btn-warning mt-4"  style="float: right;"><a href="clientbusinessowners.html" style="color: white;">Next <i class="fa fa-arrow-right"></i></a></button>
-                </div>
-      <div class="row">
-        <div class="col-xl-8">
-          <div class="card bg-secondary">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <div class="col-md-6 offset-md-3">
-              <h2 class="text-lead">Business Registration</h2>
+    </div>
+    <div class="card-body px-lg-5 py-lg-5">
+      <div class="col-md-10 offset-md-1">
+        <button class="btn btn-default"><a href="addclientproduct.html" style="color: white;">Add Product</a></button>
+        <button class="btn btn-default"><a href="mydashboard.html" style="color: white;">Show Products</a></button>
+        <button class="btn btn-default"><a href="requestclientbarcodes.html" style="color: white;">Get Barcodes</a></button>
+        <button class="btn btn-default"><a href="addclientbarcodes.html" style="color: white;">Add Barcodes</a></button>
+        <hr>
+        <div class="card-body px-lg-5 py-lg-5">
+      <div class="col-md-6 offset-md-3">
+              <h2 class="text-lead">Item Catalogue</h2>
             </div>
       <div class="col-md-6 offset-md-3">
 
               <form role="form">
-                <div class="form-group"><label>Business Name</label>
+                <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
@@ -176,98 +287,48 @@
                       <input type="text" class="form-control" id="businessName" name="businessName" placeholder="businessName" required>
                   </div>
                 </div>
-                <div class="form-group"><label>Business Ownership</label>
+                <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <select class="form-control"  id="businessOwnerShip" name="businessOwnerShip" required>  
-     
-                    <option value="Government">Government</option>
-                    <option value="Corporate">Corporate</option>
-                    <option value="SoleProprietorship">SoleProprietorship</option>
-                    <option value="LimitedByShares">LimitedByShares</option>
-                    
-                  </select>
+                    <input type="text" class="form-control" id="itemName" name="itemName" placeholder="itemName" required>
                   </div>
                 </div>
-                <div class="form-group"><label>Physical Address</label>
+                <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                      <input type="text" class="form-control" id="physicalAdress" name="physicalAdress" placeholder="physicalAddress" required>
+                    <input type="text" class="form-control" id="itemDescription" name="itemDescription" placeholder="itemDescription" required>
                   </div>
                 </div>
-                <div class="form-group"><label>Business Email</label>
+                <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                      <input type="email" class="form-control" id="businessEmail" name="businessEmail" placeholder="businessEmail" required>
+                    <input type="text" class="form-control" id="barcodeType" name="barcodeType" placeholder="barcodeType" required>
                   </div>
                 </div>
-                <div class="form-group"><label>Business Registration Number</label>
+                <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                      <input type="text" class="form-control" id="registrationNumber" name="registrationNumber" placeholder="registrationNumber" required>
+                    <input type="text" class="form-control" id="barcode" name="barcode" placeholder="barcode" required>
                   </div>
                 </div>
-                <div class="form-group"><label>TIN Number</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                     <input type="text" class="form-control" id="tinNumber" name="tinNumber" placeholder="tinNumber" required>
-                  </div>
-                </div>
-                <div class="form-group"><label>Postal Address</label>
-                  <div class="input-group input-group-merge input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="postalAdress" name="postalAdress" placeholder="postalAdress" required>
-                  </div>
-                </div>
-                <div class="form-group"><label>Country</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <select class="form-control"  id="country" name="country" required>  
-     
-                    <option value="Government" selected>Uganda</option>
-                    <option value="Corporate">Kenya</option>
-                    <option value="SoleProprietorship">Tanzania</option>
-                    <option value="LimitedByShares">Burundi</option>
-                    
-                  </select>
-                  </div>
-                </div>
-                <div class="form-group"><label>Company Description</label>
-                  <div class="input-group input-group-merge input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <textarea type="text" class="form-control" id="CompanyDescription" name="CompanyDescription" placeholder="Company Description" required></textarea>
-                  </div>
-                </div>
-                
+               
                 <div class="text-center">
-                  <button type="submit" class="btn btn-danger mt-4" id="addbusiness">Add Business</button>
-                  <button type="submit" class="btn btn-warning mt-4"><a href="welcome.html" style="color: white;">Back</a></button>
+                  <button type="submit" class="btn btn-danger mt-4" id="assignbarcodes">Assign Barcodes</button>
+                  <button type="submit" class="btn btn-warning mt-4"><a href="clientdashboard.html" style="color: white;">Back</a></button>
                 </div>
               </form>
             </div>
           </div>
-              </div>
-            </div>
           </div>
         </div>
-      </div>
-      </div>
       <!-- Footer -->
       <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">
@@ -294,6 +355,10 @@
     </div>
   </div>
   <!-- Argon Scripts -->
+  
+  <!-- Optional JS -->
+  <!-- Argon JS -->
+  
   <!-- Core -->
   <script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -305,6 +370,9 @@
   <script src="../../assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
   <script src="../../assets/js/argon.js?v=1.2.0"></script>
+
+  <script src="../../assets/gs1.js"></script>
+ 
 </body>
 
 </html>

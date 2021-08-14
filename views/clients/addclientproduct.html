@@ -76,7 +76,7 @@ crossorigin="anonymous|use-credentials">
                                   </ul>
                     </div>
                 </li>
-                       <li class="nav-item">
+                        <li class="nav-item">
                     <a class="nav-link" href="#navbar-examples1" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples1">
                         <i class="fa fa-briefcase" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">Products</span>
@@ -273,25 +273,38 @@ crossorigin="anonymous|use-credentials">
         <button class="btn btn-default"><a href="requestclientbarcodes.html" style="color: white;">Get Barcodes</a></button>
         <button class="btn btn-default"><a href="addclientbarcodes.html" style="color: white;">Add Barcodes</a></button>
         <hr>
-        <div class="table-responsive">
-              <!-- Projects table -->
-              <table class="table table-bordered table-striped" id="clientProductTable">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">itemName</th>
-                    <th scope="col">itemCode</th>
-                    
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody class="display" id="clientProductTable">
-                  <td>laptop Lenovo</td>
-                  <td>23232</td>
-                  
-                  <td><button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button></td>
-                </tbody>
-              </table>
+        <div class="card-body px-lg-5 py-lg-5">
+      <div class="col-md-6 offset-md-3">
+              <h2 class="text-lead">Item Catalogue</h2>
             </div>
+      <div class="col-md-6 offset-md-3">
+
+              <form role="form">
+                <div class="form-group">
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="itemCode" name="itemCode" placeholder="itemCode" required>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="itemName" name="itemName" placeholder="itemName" required>
+                  </div>
+                </div>
+               
+                <div class="text-center">
+                  <button type="submit" class="btn btn-danger mt-4" id="addproduct">Add Product</button>
+                  <button type="submit" class="btn btn-warning mt-4"><a href="viewproduct.html" style="color: white;">Back</a></button>
+                </div>
+              </form>
+            </div>
+          </div>
           </div>
         </div>
       <!-- Footer -->
