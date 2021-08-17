@@ -7,6 +7,7 @@ $(document).ready(function () {
   })
   // token check
   $('#tokencheck').hide();
+   $('#applicationCodecheck').hide();
  //Validate Username
     $('#usercheck').hide();    
     let usernameError = true;
@@ -34,6 +35,18 @@ $(document).ready(function () {
       }
     }
       
+      /*$("#emailAddress").validate({
+          rules: {
+            field: {
+              required: true,
+              email: true
+            }
+          },
+          message: {
+            required : "Email is required"
+          }
+
+        });*/
    // Validate Password
     $('#passcheck').hide();
     let passwordError = true;
@@ -63,7 +76,7 @@ $(document).ready(function () {
        
   //login user to get token
         $("#form1").on('submit', function (e) {
-          // debugger
+          debugger
             e.preventDefault();     
             validateUsername();
             validatePassword();
@@ -73,7 +86,7 @@ $(document).ready(function () {
             return true;
         }
 
-        else{debugger
+        else{
           let userName = $('#userName').val().trim();
           let password = $('#password').val().trim();   
 
@@ -101,7 +114,7 @@ $(document).ready(function () {
                       return false;
                    }
                    else{
-                    window.location.href ="views/clientdashboard.html";
+                    window.location.href ="views/clients/mydashboard.html";
                    }
                    }
                
@@ -110,21 +123,20 @@ $(document).ready(function () {
 
           });
 
-        //email subscription
+        //Active user token
+        const token = localStorage.getItem('myToken');
+        console.log(token);
+         //email subscription
 
         $("#emailAddressForm").on('submit', function (e) {
           // debugger
             e.preventDefault();     
-            validateUsername();
-            validatePassword();
-
-        
-       
-          let emailAdress = $('#emailAddress').val().trim();
-           
+               
+            let emailAdress = $('#emailAddress').val().trim();
+           if(emailAdress !== ""){
 
             $.ajax({
-                url: "http://83.136.248.89:1701/signup",
+                url: "http://83.136.248.89:1701/verifyEmail",
                 type: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -132,33 +144,84 @@ $(document).ready(function () {
                 }), 
                 success: function( result ) {
                   
-                   let applicationcode = result.applicationcode;
-                   let status = result.status;
-                   let emailResponse = result.response;
+                   let applicationCode = result.data.applicationCode;
+                   let status = result.data.status;
+                   let email = result.data.emailAdress;
                    let emailMessage = result.message;
-                   localStorage.setItem('applicationcode', applicationcode);
-                   localStorage.getItem('applicationcode');
-                   console.log(localStorage.getItem('applicationcode'))
+                   localStorage.setItem('applicationCode', applicationCode);
+                   const emailCode = localStorage.getItem('applicationCode');
                    
-                   if(localStorage.getItem('applicationcode') == "null"){
-                   $('#applicationcode').show();    
-                      
-                      return false;
-                   }
-                   else{
-                    window.location.href ="views/clientdashboard.html";
-                   }
+                   if(emailCode === "null"){
+                    return false;
+                   }else{
+                    window.location.href ="verificationcode.html";
+                    alert(emailCode);
+                    
+                  }
+                   
                    }
                
             })
-          
+          }
+          else{
+             $('#applicationCodecheck').show(); 
+
+          }
 
           });
 
-        //Active user token
-        const token = localStorage.getItem('myToken');
-        console.log(token);
+        //verify Email Code
+         $('#verifyEmailCode').on('click',function(){
+          // debugger
+                      let clientCode = $('#clientCode').val().trim();
+                      const emailCode = localStorage.getItem('applicationCode');
+                    if(emailCode === clientCode){
+                      window.location.href ="registerclient.html";
+                    }
+                    else
+                    {
+                      alert("client not verified")
+                    }
+                    });
         //register new user 
+          $("#registerClient").on('click', function (e) {
+            debugger
+            let firstName = $('#firstName').val().trim();
+            let lastName = $('#lastName').val().trim();
+            let phoneNumber = $('#phoneNumber').val().trim();
+            let emailAdress = $('#emailAdress').val().trim();
+            let nationalId = $('#nationalId').val().trim();
+            e.preventDefault();
+            $.ajax({
+
+                url: "http://83.136.248.89:1701/signup",
+                type: "POST",
+                dataType: "json",
+                contentType: 'application/json',
+                data: JSON.stringify({
+                  "firstName" : firstName,
+                  "lastName" : lastName,
+                  "phoneNumber" : phoneNumber,
+                  "emailAdress" : emailAdress,
+                  "nationalId" : nationalId
+                }), 
+                success: function( result ) {
+                  if(result.status === true){
+                    window.location.href = "../../index.html";
+                    alert("client succesfully registered! please login with the password value as password");
+                  }
+                  else{
+                    alert("client not succesfully registered");
+                  }
+
+                   }
+               
+            })
+
+          });
+
+          
+
 // "Authorization" : 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE2Mjc5NDUzNDgsImlhdCI6MTYyNzkwOTM0OH0.UwbFrqWN0xF8gkCFHT_iR10BJUJnCIf4X0LmMZKvkM4'
          //get district
 
@@ -556,18 +619,7 @@ $('#logout').on('click', function (e) {
   e.preventDefault();
   localStorage.removeItem('myToken');
   if(localStorage.getItem('myToken') ==null){
-    window.location.href ="../index.html";
-  }
-
-});
-// client logs out
-
-$('#clientlogout').on('click', function (e) {
-  debugger
-  e.preventDefault();
-  localStorage.removeItem('myToken');
-  if(localStorage.getItem('myToken') ==null){
-    window.location.href ="clientlogsin.html";
+    window.location.href ="../../index.html";
   }
 
 });

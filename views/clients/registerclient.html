@@ -72,7 +72,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="kfredrick@gmail.com" type="text" required readonly>
+                    <input class="form-control" placeholder="kigere@gmail.com" value="kigere@gmail.com" type="text" id="emailAdress" name="emailAdress" required >
                   </div>
                 </div>
                 <div class="form-group">
@@ -81,7 +81,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="First Name" type="text" required>
+                    <input class="form-control" placeholder="First Name" type="text" id="firstName" name="firstName" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -90,7 +90,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Last Name" type="text" required>
+                    <input class="form-control" placeholder="Last Name" type="text" id="lastName" name="lastName" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -99,7 +99,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="phone" type="text" required>
+                    <input class="form-control" placeholder="phone" type="text" id="phoneNumber" name="phoneNumber" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -108,12 +108,14 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="National Id" type="text" required>
+                    <input class="form-control" placeholder="National Id" type="text" name="nationalId" id="nationalId" required>
                   </div>
                 </div>
 
                 <div class="text-center">
-                  <button type="button" class="btn btn-block btn-warning mt-4"><a href="clientlogsin.html" style="color: white;"> Create Account</a></button>
+
+                  <button type="button" class="btn btn-block btn-warning mt-4" id="registerClient">Create Account</button><!-- 
+                  <button type="button" class="btn btn-block btn-warning mt-4"><a href="clientlogsin.html" style="color: white;"> Create Account</a></button> -->
                 </div>
               </form>
             </div>
@@ -156,6 +158,7 @@
   <script src="../../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
   <!-- Argon JS -->
   <script src="../../assets/js/argon.js?v=1.2.0"></script>
+  <script src="../../assets/gs1.js"></script>
 </body>
 
 </html>

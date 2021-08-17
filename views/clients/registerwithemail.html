@@ -65,6 +65,9 @@
               <div class="text-center text-muted mb-4">
                 <img src="../../assets/img/brand/newlogo1.png" style="width: 100px;">
               </div>
+              <h5 id="applicationCodecheck" style="color: red;" >
+                    Please Enter your Email !
+              </h5>
               <form role="form" id="emailAddressForm">
                 <div class="form-group mb-3">
                   <label>Enter your Email</label>
@@ -72,12 +75,13 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email" type="email" id="emailAddress" required>
+                    <input class="form-control" placeholder="Email" type="email" id="emailAddress" >
                   </div>
                 </div>
                 
                 <div class="text-center">
-                  <button type="button" class="btn btn-block btn-warning my-4"><a href="verificationcode.html" style="color: white;"> Next</a></button>
+                  <button id="emailAddressFormsubmit" type="submit" class="btn btn-block btn-warning my-4"> Next</button>
+                  <!-- <button type="submit" class="btn btn-block btn-warning my-4"><a href="verificationcode.html" style="color: white;"> Next</a></button> -->
                 </div>
               </form>
             </div>
@@ -120,6 +124,7 @@
   <script src="../../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
   <!-- Argon JS -->
   <script src="../../assets/js/argon.js?v=1.2.0"></script>
+  <script src="../../assets/gs1.js"></script>
 </body>
 
 </html>
