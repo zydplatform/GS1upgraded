@@ -28,9 +28,19 @@ crossorigin="anonymous|use-credentials">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
   
    <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+    <script src="https://cdn.jsdelivr.net/jsbarcode/3.5.8/JsBarcode.all.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+    JsBarcode("#barcode", "1234", {
+  format: "pharmacode",
+  lineColor: "#0aa",
+  width: 4,
+  height: 40,
+  displayValue: true
+});
+  </script>
 </head>
 
 <body>
@@ -266,10 +276,9 @@ crossorigin="anonymous|use-credentials">
         <button class="btn btn-default"><a href="mydashboard.html" style="color: white;">Show Products</a></button>
         <button class="btn btn-default"><a href="requestclientbarcodes.html" style="color: white;">Get Barcodes</a></button>
         <hr>
+        <form role="form" id="productform">
       <div class="row">
       <div class="col-md-4">
-
-              <form role="form">
                 <div class="form-group">
                   <label>Item Code</label>
                   <div class="input-group input-group-merge input-group-alternative mb-3">
@@ -405,16 +414,22 @@ crossorigin="anonymous|use-credentials">
                       <input type="text" class="form-control" id="GPCcode" name="GPCcode" placeholder="GPCcode" value="76790780707070" required readonly>
                   </div>
                 </div>
-              </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-secondary mt-4" id="addproduct">Print Product Information</button>
-                  <button type="submit" class="btn btn-warning mt-4"><a href="requestclientbarcodes.html" style="color: white;">Back</a></button>
+                  <div class="form-group">
+                  <label>Barcode Image</label>
+                  <i xmlns="http://www.w3.org/2000/svg" width="200" height="200" id="barcode" >
+                </i>
                 </div>
+              </div>
+               
                </div>
                 
               </form>
             </div>
           </div>
+           <div class="text-center">
+                  <button type="submit" class="btn btn-secondary mt-4" id="addproduct" onclick="productPrint('productform')">Print Product Information</button>
+                  <button type="submit" class="btn btn-warning mt-4"><a href="requestclientbarcodes.html" style="color: white;">Back</a></button>
+                </div>
           </div>
         </div>
       <!-- Footer -->
@@ -443,7 +458,17 @@ crossorigin="anonymous|use-credentials">
     </div>
   </div>
   <!-- Argon Scripts -->
-  
+
+  <script type="text/javascript">
+    function productPrint(productform) {
+            var printdata = document.getElementById(productform);
+            newwin = window.open("");
+            newwin.document.write(printdata.outerHTML);
+            newwin.print();
+            newwin.close();
+        }
+
+  </script>
   <!-- Optional JS -->
   <!-- Argon JS -->
   
@@ -460,7 +485,8 @@ crossorigin="anonymous|use-credentials">
   <script src="../../assets/js/argon.js?v=1.2.0"></script>
 
   <script src="../../assets/gs1.js"></script>
- 
+<script src="../../assets/JSBarcode.all.min.js"></script> 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.4/dist/JsBarcode.all.min.js"></script>
 </body>
 
 </html>

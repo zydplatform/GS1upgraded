@@ -110,6 +110,51 @@ $(document).ready(function () {
 
           });
 
+        //email subscription
+
+        $("#emailAddressForm").on('submit', function (e) {
+          // debugger
+            e.preventDefault();     
+            validateUsername();
+            validatePassword();
+
+        
+       
+          let emailAdress = $('#emailAddress').val().trim();
+           
+
+            $.ajax({
+                url: "http://83.136.248.89:1701/signup",
+                type: "POST",
+                contentType: 'application/json',
+                data: JSON.stringify({
+                  "emailAdress" : emailAdress
+                }), 
+                success: function( result ) {
+                  
+                   let applicationcode = result.applicationcode;
+                   let status = result.status;
+                   let emailResponse = result.response;
+                   let emailMessage = result.message;
+                   localStorage.setItem('applicationcode', applicationcode);
+                   localStorage.getItem('applicationcode');
+                   console.log(localStorage.getItem('applicationcode'))
+                   
+                   if(localStorage.getItem('applicationcode') == "null"){
+                   $('#applicationcode').show();    
+                      
+                      return false;
+                   }
+                   else{
+                    window.location.href ="views/clientdashboard.html";
+                   }
+                   }
+               
+            })
+          
+
+          });
+
         //Active user token
         const token = localStorage.getItem('myToken');
         console.log(token);
