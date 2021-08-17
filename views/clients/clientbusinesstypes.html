@@ -146,7 +146,12 @@
           <div class="card bg-secondary">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
-                <h6 class="h2 text-default d-inline-block mb-0">Business Registration</h6>
+                <h6 class="h2 text-default d-inline-block mb-0">Business Types</h6><hr>
+                <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" style="float: right;">
+  Add Business Types
+</button>
+
                
               
               </div>
@@ -154,22 +159,66 @@
           </div>
         </div>
       </div>
-       <div class="text-center">
-                  <button type="button" class="btn btn-md btn-warning mt-4"  style="float: right;"><a href="approval.html" style="color: white;">Next <i class="fa fa-arrow-right"></i></a></button>
-                </div>
+       
       <div class="row">
-        <div class="col-xl-8">
+        <div class="col-md-12">
           <div class="card bg-secondary">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
-                <div class="col-md-6 offset-md-3">
-              <!-- <h2 class="text-lead">Business Registration</h2> -->
-            </div>  <div class="col-md-6 offset-md-3">
-              <h2 class="text-lead">Business Types</h2>
-            </div>
-      <div class="col-md-6 offset-md-3">
 
-              <form role="form">
+                <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table table-bordered table-striped">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Business Type Name</th>
+                    <th scope="col">Business Type Code</th>
+                   
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                       IT Industry
+                    </th>
+                    <td>
+                      7790787
+                    </td>
+                    <td><button class="btn btn-warning">Update</button><button class="btn btn-warning">Delete</button></td>
+                  </tr>
+                   
+                  
+                </tbody>
+              </table>
+            </div>
+
+              <div class="text-center">
+                  <button type="button" class="btn btn-md btn-warning mt-4"><a href="approval.html" style="color: white;">Next <i class="fa fa-arrow-right"></i></a></button>
+                  <button type="submit" class="btn btn-danger mt-4"><a href="clientbusinesslines.html" style="color: white;">Back</a></button>
+                </div>
+            </div>
+          </div>
+          </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Business Types</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form role="form">
                 <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
@@ -189,18 +238,20 @@
                                
                 <div class="text-center">
                   <button type="submit" class="btn btn-danger mt-4" id="addbusinesstype">Add Business Type</button>
-                  <button type="submit" class="btn btn-warning mt-4"><a href="clientbusinesslines.html" style="color: white;">Back</a></button>
                 </div>
               </form>
-            </div>
-          </div>
-          </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
+    </div>
+
+  </div>
+
+</div>
+
+      
+      <!-- modal -->
       <!-- Footer -->
       <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">

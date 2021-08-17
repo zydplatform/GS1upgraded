@@ -103,12 +103,7 @@ crossorigin="anonymous|use-credentials">
                             <span class="nav-link-text">Get Barcodes</span>
                           </a>
                         </li>
-                         <li class="nav-item">
-                          <a class="nav-link" href="addclientbarcodes.html">
-                            <i class="ni ni-tag text-orange"></i>
-                            <span class="nav-link-text">Add Barcodes</span>
-                          </a>
-                        </li>
+                         
                         
                                   </ul>
                     </div>
@@ -232,7 +227,7 @@ crossorigin="anonymous|use-credentials">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Subscriptions</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Membership</h5>
                       <span class="h2 font-weight-bold mb-0">0</span>
                     </div>
                     <div class="col-auto">
@@ -267,20 +262,16 @@ crossorigin="anonymous|use-credentials">
       </div>
     </div>
     <div class="card-body px-lg-5 py-lg-5">
-      <div class="col-md-10 offset-md-1">
         <button class="btn btn-default"><a href="addclientproduct.html" style="color: white;">Add Product</a></button>
         <button class="btn btn-default"><a href="mydashboard.html" style="color: white;">Show Products</a></button>
         <button class="btn btn-default"><a href="requestclientbarcodes.html" style="color: white;">Get Barcodes</a></button>
-        <button class="btn btn-default"><a href="addclientbarcodes.html" style="color: white;">Add Barcodes</a></button>
         <hr>
-        <div class="card-body px-lg-5 py-lg-5">
-      <div class="col-md-6 offset-md-3">
-              <h2 class="text-lead">Item Catalogue</h2>
-            </div>
-      <div class="col-md-6 offset-md-3">
+      <div class="row">
+      <div class="col-md-6">
 
               <form role="form">
                 <div class="form-group">
+                  <label>Item Code</label>
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
@@ -290,6 +281,7 @@ crossorigin="anonymous|use-credentials">
                 </div>
                 
                 <div class="form-group">
+                  <label>Item Name</label>
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
@@ -297,11 +289,87 @@ crossorigin="anonymous|use-credentials">
                       <input type="text" class="form-control" id="itemName" name="itemName" placeholder="itemName" required>
                   </div>
                 </div>
-               
+                <div class="form-group">
+                  <label>Item Description</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="itemDescription" name="itemDescription" placeholder="itemDescription" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Brand Name</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="brandName" name="brandName" placeholder="brandName" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Usage Description</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="UsageDescription" name="UsageDescription" placeholder="Usage Description" required>
+                  </div>
+                </div>
+                
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Target Market</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="TargetMarket" name="TargetMarket" placeholder="Target Market" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Unit Descriptor</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="UnitDescriptor" name="UnitDescriptor" placeholder="Unit Descriptor" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Product Scope</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="ProductScope" name="ProductScope" placeholder="Product Scope" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Effective Date</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="EffectiveDate" name="EffectiveDate" placeholder="Effective Date" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Country Of Origin</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="CountryOfOrigin" name="CountryOfOrigin" placeholder="Country Of Origin" required>
+                  </div>
+                </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-danger mt-4" id="addproduct">Add Product</button>
                   <button type="submit" class="btn btn-warning mt-4"><a href="mydashboard.html" style="color: white;">Back</a></button>
                 </div>
+               </div>
+                
               </form>
             </div>
           </div>

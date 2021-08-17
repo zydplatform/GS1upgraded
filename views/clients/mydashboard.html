@@ -103,12 +103,7 @@ crossorigin="anonymous|use-credentials">
                             <span class="nav-link-text">Get Barcodes</span>
                           </a>
                         </li>
-                         <li class="nav-item">
-                          <a class="nav-link" href="addclientbarcodes.html">
-                            <i class="ni ni-tag text-orange"></i>
-                            <span class="nav-link-text">Add Barcodes</span>
-                          </a>
-                        </li>
+                        
                         
                                   </ul>
                     </div>
@@ -232,7 +227,7 @@ crossorigin="anonymous|use-credentials">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Subscriptions</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Membership</h5>
                       <span class="h2 font-weight-bold mb-0">0</span>
                     </div>
                     <div class="col-auto">
@@ -267,26 +262,41 @@ crossorigin="anonymous|use-credentials">
       </div>
     </div>
     <div class="card-body px-lg-5 py-lg-5">
-      <div class="col-md-10 offset-md-1">
+      <div class="col-md-12">
         <button class="btn btn-default"><a href="addclientproduct.html" style="color: white;">Add Product</a></button>
         <button class="btn btn-default"><a href="mydashboard.html" style="color: white;">Show Products</a></button>
         <button class="btn btn-default"><a href="requestclientbarcodes.html" style="color: white;">Get Barcodes</a></button>
-        <button class="btn btn-default"><a href="addclientbarcodes.html" style="color: white;">Add Barcodes</a></button>
         <hr>
         <div class="table-responsive">
               <!-- Projects table -->
               <table class="table table-bordered table-striped" id="clientProductTable">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">itemName</th>
                     <th scope="col">itemCode</th>
+                    <th scope="col">itemName</th>
+                    <th scope="col">itemDescription</th>
+                    <th scope="col">BrandName</th>
+                    <th scope="col">UsageDescription</th>
+                    <th scope="col">TargetMarket</th>
+                    <th scope="col">UnitDescriptor</th>
+                    <th scope="col">ProductScope</th>
+                    <th scope="col">EffectiveDate</th>
+                    <th scope="col">CountryofOrigin</th>
                     
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody class="display" id="clientProductTable">
-                  <td>laptop Lenovo</td>
-                  <td>23232</td>
+                  <td>98231</td>
+                  <td>TELMISARTAN</td>
+                  <td>MICARDIS 40</td>
+                  <td>MICARDIS 40</td>
+                  <td>ORAL SOLID ORDINARY SOLUTION</td>
+                  <td>Uganda</td>
+                  <td>40MG</td>
+                  <td></td>
+                  <td>15/08/2021</td>
+                  <td>Uganda</td>
                   
                   <td><button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button></td>
                 </tbody>
