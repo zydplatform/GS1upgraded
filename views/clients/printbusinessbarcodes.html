@@ -177,7 +177,7 @@ crossorigin="anonymous|use-credentials">
                   <span>My profile</span>
                 </a>
                 
-                <a href="clientlogsin.html" class="dropdown-item" id="logout" id="clientlogout">
+                <a href="clientlogsin.html" class="dropdown-item" id="clientlogout">
                   <i class="ni ni-user-run"></i>
                   <span>Logout</span>
                 </a>
@@ -262,49 +262,159 @@ crossorigin="anonymous|use-credentials">
       </div>
     </div>
     <div class="card-body px-lg-5 py-lg-5">
-      <div class="col-md-12">
         <button class="btn btn-default"><a href="addclientproduct.html" style="color: white;">Add Product</a></button>
         <button class="btn btn-default"><a href="mydashboard.html" style="color: white;">Show Products</a></button>
         <button class="btn btn-default"><a href="requestclientbarcodes.html" style="color: white;">Get Barcodes</a></button>
         <hr>
-        <div class="table-responsive">
-              <!-- Projects table -->
-              <table class="table table-bordered table-striped">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">Barcode</th>
-                    <th scope="col">Barcode Type</th>
-                    <th scope="col">GTIN</th>
-                    <th scope="col">GPCcode</th>
-                    <th scope="col">itemCode</th>
-                    <th scope="col">itemName</th>
-                    <th scope="col">Item Description</th>
-                    <th scope="col">BrandName</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                       00758448027
-                    </th>
-                    <td>
-                      EAN-13
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td>98231</td>
-                  <td>TELMISARTAN</td>
-                  <td>MICARDIS 40</td>
-                  <td>MICARDIS 40</td>
-                  <td>Pending</td>
-                  <td><button class="btn btn-sm btn-warning"><a href="printbusinessbarcodes.html" style="color: white;">View</a></button><button class="btn btn-sm btn-warning">Update</button><button class="btn btn-sm btn-warning">Delete</button></td>
-                  </tr>
-                  
-                </tbody>
-              </table>
+      <div class="row">
+      <div class="col-md-4">
+
+              <form role="form">
+                <div class="form-group">
+                  <label>Item Code</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="itemCode" name="itemCode" placeholder="itemCode" required readonly>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label>Item Name</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="itemName" name="itemName" placeholder="itemName" required readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Item Description</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="itemDescription" name="itemDescription" placeholder="itemDescription" required readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Brand Name</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="brandName" name="brandName" placeholder="brandName" required readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Usage Description</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="UsageDescription" name="UsageDescription" placeholder="Usage Description" required readonly>
+                  </div>
+                </div>
+                
+              </div>
+                <div class="col-md-4">
+               
+                <div class="form-group">
+                  <label>Target Market</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="TargetMarket" name="TargetMarket" placeholder="Target Market" required readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Unit Descriptor</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="UnitDescriptor" name="UnitDescriptor" placeholder="Unit Descriptor" required readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Product Scope</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="ProductScope" name="ProductScope" placeholder="Product Scope" required readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Effective Date</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="EffectiveDate" name="EffectiveDate" placeholder="Effective Date" required readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Barcode Type</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="BarcodeType" name="BarcodeType" placeholder="Barcode Type" required readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                
+                
+                <div class="form-group">
+                  <label>Barcode </label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="Barcode" name="Barcode" placeholder="Barcode" required readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Status</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="Status" name="Status" placeholder="Status" required readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>GTIN</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="GTIN" name="GTIN" placeholder="GTIN" required readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>GPCcode</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                      <input type="text" class="form-control" id="GPCcode" name="GPCcode" placeholder="GPCcode" required readonly>
+                  </div>
+                </div>
+              </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-danger mt-4" id="addproduct">Add Product</button>
+                  <button type="submit" class="btn btn-warning mt-4"><a href="mydashboard.html" style="color: white;">Back</a></button>
+                </div>
+               </div>
+                
+              </form>
             </div>
+          </div>
           </div>
         </div>
       <!-- Footer -->
