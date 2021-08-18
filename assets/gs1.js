@@ -107,6 +107,8 @@ $(document).ready(function () {
                    localStorage.setItem('myToken', token);
                    localStorage.getItem('myToken');
                    console.log(localStorage.getItem('myToken'))
+                   var showname = result.userName;
+                  $('#showname').append(showname);
                    
                    if(localStorage.getItem('myToken') == "null"){
                    $('#tokencheck').show();    
@@ -155,7 +157,7 @@ $(document).ready(function () {
                     return false;
                    }else{
                     window.location.href ="verificationcode.html";
-                    alert(emailCode);
+                    alert("Please use the given passcode for verification "+emailCode);
                     
                   }
                    
