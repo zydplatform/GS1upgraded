@@ -114,7 +114,7 @@ $(document).ready(function () {
                       return false;
                    }
                    else{
-                    window.location.href ="views/clients/mydashboard.html";
+                    window.location.href ="views/clients/welcome.html";
                    }
                    }
                
@@ -332,7 +332,35 @@ $(document).ready(function () {
 
 
 
-//get country
+//select and add country
+$("#country").load(function(){
+        var countryCode = $(this).val();
+
+        $.ajax({
+            url: 'http://83.136.248.89:1701/countries',
+            type: 'post',
+            data: {countryCode:countryCode},
+             headers:{'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
+                },
+            dataType: 'json',
+            success:function(response){
+
+                var len = response.countryName.length;
+                console.log(len)
+
+                $("#country").empty();
+                for( var i = 0; i<len; i++){
+                    var id = response[i]['id'];
+                    var countryName = response[i]['countryName'];
+                    
+                    $("#country").append("<option value='"+id+"'>"+countryName+"</option>");
+
+                }
+            }
+        });
+    });
                    
 
         $.ajax({
