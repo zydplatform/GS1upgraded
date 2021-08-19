@@ -116,7 +116,7 @@
                 </a>
                 
                 <div class="dropdown-divider"></div>
-                <a href="clientlogsin.html" class="dropdown-item" id="clientlogout">
+                <a href="#" class="dropdown-item" id="logout">
                   <i class="ni ni-user-run"></i>
                   <span>Logout</span>
                 </a>
@@ -237,23 +237,17 @@
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
                     <select class="form-control"  id="country" name="country" required>  
-                         
-                    <option value="Government" selected>Uganda</option>
-                    <option value="Corporate">Kenya</option>
-                    <option value="SoleProprietorship">Tanzania</option>
-                    <option value="LimitedByShares">Burundi</option>
-                    
                   </select>
                   </div>
                 </div>
-                <div class="form-group"><label>Company Description</label>
-                  <div class="input-group input-group-merge input-group-alternative">
+                <div class="form-group"><label>District</label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <textarea type="text" class="form-control" id="CompanyDescription" name="CompanyDescription" placeholder="Company Description" required></textarea>
+                    <select class="form-control"  id="district" name="district" required>  
+                  </select>
                   </div>
-                </div>
                 
                 <div class="text-center">
                   <button type="submit" class="btn btn-danger mt-4" id="addbusiness">Add Business</button>
@@ -305,6 +299,7 @@
   <script src="../../assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
   <script src="../../assets/js/argon.js?v=1.2.0"></script>
+   <script src="../../assets/gs1.js"></script>
 </body>
 
 </html>

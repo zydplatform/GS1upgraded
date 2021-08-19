@@ -47,6 +47,9 @@ $(document).ready(function () {
           }
 
         });*/
+
+        // alert messages
+         $("#success-alert").hide();
    // Validate Password
     $('#passcheck').hide();
     let passwordError = true;
@@ -157,7 +160,12 @@ $(document).ready(function () {
                     return false;
                    }else{
                     window.location.href ="verificationcode.html";
-                    alert("Please use the given passcode for verification "+emailCode);
+                    
+                     // $("#success-alert").html(emailCode).fadeIn("slow");
+                     //  $('#success-alert').delay(5000).fadeOut('slow');
+
+                     alert(emailCode)
+                     
                     
                   }
                    
@@ -249,7 +257,25 @@ $(document).ready(function () {
          
         }
     });
+//select district 
+ $.ajax({
+        url: 'http://83.136.248.89:1701/districts/all',
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        },
+        dataType: 'json',
+        success: function (result) {
+           // console.log(result.data);
+            for (var d in result.data) {
+           var districtData = result.data[d];         
+          $('#district').append('<option value="' + districtData.districtCode + '">' + districtData.districtName + '</option>');                      
+        }
 
+         
+        }
+    });
 
 //get all item catalogue
 
@@ -335,36 +361,25 @@ $(document).ready(function () {
 
 
 //select and add country
-$("#country").load(function(){
-        var countryCode = $(this).val();
-
-        $.ajax({
-            url: 'http://83.136.248.89:1701/countries',
-            type: 'post',
-            data: {countryCode:countryCode},
-             headers:{'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                    'Authorization': 'Bearer '+localStorage.getItem('myToken')
-                },
-            dataType: 'json',
-            success:function(response){
-
-                var len = response.countryName.length;
-                console.log(len)
-
-                $("#country").empty();
-                for( var i = 0; i<len; i++){
-                    var id = response[i]['id'];
-                    var countryName = response[i]['countryName'];
-                    
-                    $("#country").append("<option value='"+id+"'>"+countryName+"</option>");
-
-                }
-            }
-        });
+ $.ajax({
+        url: 'http://83.136.248.89:1701/countries/all',
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        },
+        dataType: 'json',
+        success: function (result) {
+          // var count = result.data.length;
+          console.log(result.data);
+          for (var d in result.data) {
+           var countryData = result.data[d];         
+          $('#country').append('<option value="' + countryData.countryCode + '">' + countryData.countryName + '</option>');                      
+        }
+        }
     });
                    
-
+//get all countries
         $.ajax({
         url: 'http://83.136.248.89:1701/countries/all',
         type: "GET",
