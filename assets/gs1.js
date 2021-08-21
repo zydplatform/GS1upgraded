@@ -120,6 +120,7 @@ $(document).ready(function () {
                    }
                    else{
                     window.location.href ="views/clients/welcome.html";
+
                    }
                    }
                
@@ -127,6 +128,8 @@ $(document).ready(function () {
           }
 
           });
+        //get user name
+         $('#user').html("user")
 
         //Active user token
         const token = localStorage.getItem('myToken');
