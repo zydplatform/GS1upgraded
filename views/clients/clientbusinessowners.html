@@ -30,6 +30,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript">alert('business created'+localStorage.getItem('businessId'));</script>
 </head>
 
 <body>
@@ -168,7 +169,7 @@
 
                 <div class="table-responsive">
               <!-- Projects table -->
-              <table class="table table-bordered table-striped">
+              <table class="table table-bordered table-striped" id="ownersTable">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">First Name</th>
@@ -179,18 +180,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">
-                       kasoma 
-                    </th>
-                    <td>
-                      fredrick
-                    </td>
-                    <td>+256-676-453-224</td>
-                    <td>kfredrick@gmail.com</td>
-                    <td><button class="btn btn-warning">Update</button><button class="btn btn-warning">Delete</button></td>
-                  </tr>
-                   
+                                  
                   
                 </tbody>
               </table>
@@ -243,7 +233,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                      <input type="text" class="form-control" id="telephone" email="telephone" placeholder="telephone">
+                      <input type="text" class="form-control" id="telephone" name="telephone" placeholder="telephone">
                   </div>
                 </div>
                 <div class="form-group">

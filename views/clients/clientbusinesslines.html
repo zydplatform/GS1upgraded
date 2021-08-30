@@ -169,7 +169,7 @@
 
                 <div class="table-responsive">
               <!-- Projects table -->
-              <table class="table table-bordered table-striped">
+              <table class="table table-bordered table-striped" id="businesslineTable">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Business Line Name</th>
@@ -179,16 +179,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">
-                       IT Industry
-                    </th>
-                    <td>
-                      7790787
-                    </td>
-                    <td><button class="btn btn-warning">Update</button><button class="btn btn-warning">Delete</button></td>
-                  </tr>
-                   
+                                   
                   
                 </tbody>
               </table>
@@ -219,21 +210,15 @@
         </button>
       </div>
       <div class="modal-body">
-        <form role="form">
+        <form role="form">selectline
+              
                 <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                      <input type="text" class="form-control" id="code" name="code" placeholder="Business Line Code" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="businessLineName" name="businessLineName" placeholder="businessLineName" required>
+                    <select class="form-control"  id="selectline" name="selectline" required>  
+                  </select>
                   </div>
                 </div>
                

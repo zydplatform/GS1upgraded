@@ -310,9 +310,10 @@ $(document).ready(function () {
 
 
 //get business type
-
+getBusinesstypes();
+function getBusinesstypes(){
         $.ajax({
-        url: 'http://83.136.248.89:1701/businessTypes/all',
+        url: "http://83.136.248.89:1701/businessTypeMappings/businessProfile/"+localStorage.getItem('businessId'),
         type: "GET",
         dataType: "json",
         headers: {
@@ -325,8 +326,8 @@ $(document).ready(function () {
           for (var d in result.data) {
           var data = result.data[d];
           $('#businesstypeTable tbody').append($('<tr>')
-              .append($('<td>', { text: data.code }))
-              .append($('<td>', { text: data.type }))
+              .append($('<td>', { text: data.businessType.code }))
+              .append($('<td>', { text: data.businessType.type }))
               .append($('<td>', {html:'<button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button>'}))
           )
        }
@@ -334,12 +335,13 @@ $(document).ready(function () {
         }
     });
 
-
+}
   //get business line
-
+  getBusinessLine();
+function getBusinessLine(){
 
         $.ajax({
-        url: 'http://83.136.248.89:1701/businessLines/all',
+        url: "http://83.136.248.89:1701/businessLineMappings/businessProfile/"+localStorage.getItem('businessId'),
         type: "GET",
         dataType: "json",
         headers: {
@@ -352,8 +354,8 @@ $(document).ready(function () {
           for (var d in result.data) {
           var data = result.data[d];
           $('#businesslineTable tbody').append($('<tr>')
-              .append($('<td>', { text: data.code }))
-              .append($('<td>', { text: data.businessLineName }))
+              .append($('<td>', { text: data.businessLine.code }))
+              .append($('<td>', { text: data.businessLine.businessLineName }))
               .append($('<td>', {html:'<button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button>'}))
           )
        }
@@ -361,7 +363,7 @@ $(document).ready(function () {
         }
     });
 
-
+}
 
 //select and add country
  $.ajax({
@@ -381,6 +383,80 @@ $(document).ready(function () {
         }
         }
     });
+
+
+//select business types
+// businessTypeMappings
+
+ $.ajax({
+        url: 'http://83.136.248.89:1701/businessTypes/all',
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        },
+        dataType: 'json',
+        success: function (result) {
+          // var count = result.data.length;
+          console.log(result.data);
+          for (var d in result.data) {
+           var businesstypeData = result.data[d];         
+          $('#selecttype').append('<option value="' + businesstypeData.id + '">' + businesstypeData.type + '</option>');                      
+        }
+                const mybusinesstypeId = businesstypeData.id;
+                localStorage.setItem('mybusinesstypeId',mybusinesstypeId);
+                alert(mybusinesstypeId)
+        }
+    });
+
+ //select business lines
+// businessLineMappings
+ $.ajax({
+        url: 'http://83.136.248.89:1701/businessLines/all',
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        },
+        dataType: 'json',
+        success: function (result) {
+          // var count = result.data.length;
+          console.log(result.data);
+          for (var d in result.data) {
+           var businesslineData = result.data[d];         
+          $('#selectline').append('<option value="' + businesslineData.id + '">' + businesslineData.businessLineName + '</option>');                      
+        }
+        }
+    });
+
+ //get business owners
+ getBusinessOwners();
+function getBusinessOwners(){
+        $.ajax({
+        url: "http://83.136.248.89:1701/businessOwners/businessProfile/"+localStorage.getItem('businessId'),
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        },
+        dataType: 'json',
+        success: function (result) {
+          console.log(result);
+          // $('#businesstypeTable tr').empty();
+          for (var d in result.data) {
+          var data = result.data[d];
+          $('#ownersTable tbody').append($('<tr>')
+              .append($('<td>', { text: data.firstName }))
+              .append($('<td>', { text: data.lastname }))
+              .append($('<td>', { text: data.telephone }))
+              .append($('<td>', { text: data.email }))
+              .append($('<td>', {html:'<button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button>'}))
+          )
+       }
+         
+        }
+    });
+      }
                    
 //get all countries
         $.ajax({
@@ -498,15 +574,46 @@ $.ajax({
           });
 
     //add business type
-$("#addbusinesstype").on('click', function (e) {
-            let code = $('#code').val().trim();
-            let type = $('#type').val().trim();
+// $("#addbusinesstype").on('click', function (e) {
+//             let code = $('#code').val().trim();
+//             let type = $('#type').val().trim();
            
 
+//             e.preventDefault();
+//             $.ajax({
+
+//                 url: "http://83.136.248.89:1701/businessTypes",
+//                 type: "POST",
+//                 dataType: "json",
+//                 headers:{'Accept': 'application/json',
+//                         'Content-Type': 'application/json',
+//                     "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+//                 },
+//                 contentType: 'application/json',
+//                 data: JSON.stringify({
+//                 "businessProfile": {"id" : localStorage.getItem('businessId')},
+//                   "code" : code,
+//                   "type" : type
+//                 }), 
+//                 success: function( result ) {
+//                    console.log(result)
+//                    alert(result);
+
+//                    }
+               
+//             })
+
+//           });
+
+
+//add business type
+$("#addbusinesstype").on('click', function (e) {
+            let typeId = $('#selecttype').val().trim();
+           debugger
             e.preventDefault();
             $.ajax({
 
-                url: "http://83.136.248.89:1701/businessTypes",
+                url: "http://83.136.248.89:1701/businessTypeMappings",
                 type: "POST",
                 dataType: "json",
                 headers:{'Accept': 'application/json',
@@ -515,20 +622,20 @@ $("#addbusinesstype").on('click', function (e) {
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
-                  "code" : code,
-                  "type" : type
+                "businessProfile": {"id" : localStorage.getItem('businessId')},
+                "businessType" : {"id" : typeId}
                 }), 
                 success: function( result ) {
                    console.log(result)
+                  
+                   getBusinesstypes();
 
                    }
                
             })
 
           });
-
-
-//add business type
+//add business owner
 $("#addbusinessowner").on('click', function (e) {
             let firstName = $('#firstName').val().trim();
             let lastname = $('#lastname').val().trim();
@@ -548,13 +655,15 @@ $("#addbusinessowner").on('click', function (e) {
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
+                  "businessProfile": {"id" : localStorage.getItem('businessId')},
                   "firstName":firstName,
                   "lastname":lastname,
                   "telephone":telephone,
                   "email":email
                 }), 
                 success: function( result ) {
-                   console.log(result)
+                   
+                   getBusinessOwners();
 
                    }
                
@@ -565,14 +674,12 @@ $("#addbusinessowner").on('click', function (e) {
 
 //add business line
       $("#addbusinessline").on('click', function (e) {
-            let code = $('#code').val().trim();
-            let businessLineName = $('#businessLineName').val().trim();
-           
+            let lineId = $('#selectline').val().trim();
 
             e.preventDefault();
             $.ajax({
 
-                url: "http://83.136.248.89:1701/businessLines",
+                url: "http://83.136.248.89:1701/businessLineMappings",
                 type: "POST",
                 dataType: "json",
                 headers:{'Accept': 'application/json',
@@ -581,11 +688,12 @@ $("#addbusinessowner").on('click', function (e) {
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
-                  "code" : code,
-                  "businessLineName" : businessLineName
+                "businessProfile": {"id" : localStorage.getItem('businessId')},
+                "businessLine" : {"id" : lineId}
                 }), 
                 success: function( result ) {
-                   console.log(result)
+                   // alert(result.message+localStorage.getItem('businessId'))
+                   getBusinessLine();
 
                    }
                
@@ -650,11 +758,20 @@ $("#addbusinessowner").on('click', function (e) {
                   "businessName" : businessName,
                   "businessOwnerShip" : businessOwnerShip,
                   "businessEmail" : businessEmail,
-                  "registrationNumber" : registrationNumber
+                  "registrationNumber" : registrationNumber,
+                  "physicalAdress" : physicalAdress,
+                  "postalAdress" : postalAdress,
+                  "tinNumber" : tinNumber
+
                 }), 
                 success: function( result ) {
                   // debugger
                    console.log(result)
+                   const businessId = result.data;
+                   localStorage.setItem('businessId', businessId);
+                   localStorage.getItem('businessId');
+                   // console.log(localStorage.getItem('businessId'))
+                   // alert('business created'+localStorage.getItem('businessId'));
 
                    }
                
