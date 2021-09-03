@@ -271,24 +271,16 @@ crossorigin="anonymous|use-credentials">
 
               <form role="form">
                 <div class="form-group">
-                  <label>Item Code</label>
+                  <label>Product Classification</label>
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                      <input type="text" class="form-control" id="itemCode" name="itemCode" placeholder="itemCode" required>
+                     <select class="form-control"  id="ProductClassification" name="ProductClassification"  required> </select>
                   </div>
                 </div>
                 
-                <div class="form-group">
-                  <label>Item Name</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="itemName" name="itemName" placeholder="itemName" required>
-                  </div>
-                </div>
+                
                 <div class="form-group">
                   <label>Item Description</label>
                   <div class="input-group input-group-merge input-group-alternative mb-3">
@@ -313,10 +305,18 @@ crossorigin="anonymous|use-credentials">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                      <input type="text" class="form-control" id="UsageDescription" name="UsageDescription" placeholder="Usage Description" required>
+                      <input type="text" class="form-control" id="usageDescription" name="usageDescription" placeholder="Usage Description" required>
                   </div>
                 </div>
-                
+                <div class="form-group"><label>Country of Origin </label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <select class="form-control"  id="country" name="country" required>  
+                  </select>
+                  </div>
+                </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
@@ -325,7 +325,8 @@ crossorigin="anonymous|use-credentials">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                      <input type="text" class="form-control" id="TargetMarket" name="TargetMarket" placeholder="Target Market" required>
+                    <select class="form-control"  id="countrycode" name="countrycode" required>  
+                  </select>
                   </div>
                 </div>
                 <div class="form-group">
@@ -334,7 +335,7 @@ crossorigin="anonymous|use-credentials">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                      <input type="text" class="form-control" id="UnitDescriptor" name="UnitDescriptor" placeholder="Unit Descriptor" required>
+                      <input type="text" class="form-control" id="unitDescriptor" name="unitDescriptor" placeholder="Unit Descriptor" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -343,7 +344,7 @@ crossorigin="anonymous|use-credentials">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                      <input type="text" class="form-control" id="ProductScope" name="ProductScope" placeholder="Product Scope" required>
+                      <input type="text" class="form-control" id="productScope" name="productScope" placeholder="Product Scope" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -352,20 +353,12 @@ crossorigin="anonymous|use-credentials">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                      <input type="date" class="form-control" id="EffectiveDate" name="EffectiveDate" placeholder="Effective Date" required>
+                      <input type="date" class="form-control" id="effectiveDate" name="effectiveDate" required pattern="\d{2}-\d{2}-\d{4}">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label>Country Of Origin</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="CountryOfOrigin" name="CountryOfOrigin" placeholder="Country Of Origin" required>
-                  </div>
-                </div>
+                
                 <div class="text-center">
-                  <button type="submit" class="btn btn-danger mt-4" id="addproduct">Add Product</button>
+                  <button type="submit" class="btn btn-danger mt-4" id="addbusinessproduct">Add Product</button>
                   <button type="submit" class="btn btn-warning mt-4"><a href="mydashboard.html" style="color: white;">Back</a></button>
                 </div>
                </div>
@@ -401,7 +394,11 @@ crossorigin="anonymous|use-credentials">
     </div>
   </div>
   <!-- Argon Scripts -->
-  
+   <script type="text/javascript">
+    if(localStorage.getItem('myToken') ==null && localStorage.getItem('businessId') == null ){
+    window.location.href ="../../index.html";
+  }
+  </script>
   <!-- Optional JS -->
   <!-- Argon JS -->
   

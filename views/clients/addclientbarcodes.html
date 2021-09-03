@@ -349,7 +349,11 @@ crossorigin="anonymous|use-credentials">
     </div>
   </div>
   <!-- Argon Scripts -->
-  
+   <script type="text/javascript">
+    if(localStorage.getItem('myToken') ==null && localStorage.getItem('businessId') == null ){
+    window.location.href ="../../index.html";
+  }
+  </script>
   <!-- Optional JS -->
   <!-- Argon JS -->
   

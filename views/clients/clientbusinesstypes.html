@@ -263,6 +263,11 @@
     </div>
   </div>
   <!-- Argon Scripts -->
+   <script type="text/javascript">
+    if(localStorage.getItem('myToken') ==null && localStorage.getItem('businessId') == null ){
+    window.location.href ="../../index.html";
+  }
+  </script>
   <!-- Core -->
   <script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

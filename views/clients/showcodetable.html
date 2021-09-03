@@ -263,31 +263,36 @@ crossorigin="anonymous|use-credentials">
       </div>
     </div>
     <div id="toolbar">
-  <button id="barcode" class="btn btn-secondary">Generate Barcode</button>
+  <button id="viewbarcode" class="btn btn-secondary">View Product Deatils</button>
 </div>
 
     <div class="card-body px-lg-5 py-lg-5">
-      <div class="col-md-12">
-        <button class="btn btn-default"><a href="addclientproduct.html" style="color: white;">Add Product</a></button>
-        <button class="btn btn-default"><a href="mydashboard.html" style="color: white;">Show Products</a></button>
-        
+      
         <hr>
         
               <!-- Projects table -->
-              <table id="table" class="table table-bordered table-striped"data-toggle="table"
+              <table id="$showcodeTable" class="table table-bordered table-striped"data-toggle="table"
   data-toolbar="#toolbar"
   data-height="460"
   data-search="true" data-click-to-select="true" data-single-select="true">
                 <thead class="thead-light">
                   <tr>
                     <th data-field="state" data-checkbox="true"></th>
-                    <th data-field="id">Product Id</th>
-                    <th data-field="itemName">itemName</th>
-                    <th data-field="itemDescription">itemDescription</th>
+                    <th data-field="barcode">Barcode</th>
+                    <th data-field="barcodeType">Barcode Type</th>
+                    <th data-field="gtin">Gtin</th>
+                    <th data-field="gpccode">Gpccode</th> 
+                    <th data-field="itemCode">Product Classification Code</th>
+                    <th data-field="itemName">Product Classification Name</th>
+                    <th data-field="itemDescription">Product Description</th>
                     <th data-field="targetMarket">TargetMarket</th>
                     <th data-field="brandName">BrandName</th>
                     <th data-field="unitDescriptor">Unit Descriptor</th>
-                    <th data-field="effectiveDate">EffectiveDate</th>                    
+                    <th data-field="effectiveDate">EffectiveDate</th>
+                    <th data-field="usageDescription">usageDescription</th>
+                    <th data-field="productScope">Product Scope</th>
+                    <th data-field="countryOfOrigin">Country Of Origin</th>                 
+                                       
 
                   </tr>
                 </thead>
