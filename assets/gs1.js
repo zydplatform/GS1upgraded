@@ -108,13 +108,15 @@ $(document).ready(function () {
                   "password" : password
                 }), 
                 success: function( result ) {
-                  
-                   let token = result.jwt;
+                  if(result.response ==true){
+                     let token = result.jwt;
                    let user = result.userName;
                    let userResponse = result.response;
                    let userMessage = result.message;
                    localStorage.setItem('myToken', token);
                    localStorage.getItem('myToken');
+                   localStorage.setItem('showname', user);
+                   localStorage.getItem('showname');
                    console.log(localStorage.getItem('myToken'))
                    var showname = result.userName;
                   $('#showname').append(showname);
@@ -125,14 +127,34 @@ $(document).ready(function () {
                       return false;
                    }
                    else{
-                    if(localStorage.getItem('businessId') == null)
-                    {
-                    window.location.href ="views/clients/welcome.html";
-                  }else{
-                       window.location.href ="views/clients/mydashboard.html";
+                     $.ajax({
+                  url: 'http://83.136.248.89:1701/logedinuserprofile',
+                  type: "GET",
+                  dataType: "json",
+                  headers: {
+                      "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+                  },
+                  dataType: 'json',
+                  success: function (result) {
+                    if(result.status == true){
+                      localStorage.setItem('mybusinessId', result.data.id)
+                      window.location.href ="views/clients/mydashboard.html";
                     }
+                    else{
+                      window.location.href ="views/clients/welcome.html";
+                    }
+                  }
+                });
+
+                   
 
                    }
+
+                  }else{
+                    // alert(result.message);
+                  }
+                  
+
                    }
                
             })
@@ -173,7 +195,7 @@ $(document).ready(function () {
                    
                    if(emailCode === "null"){
                     return false;
-                   }else{debugger
+                   }else{
 
                      
                     // window.location.href ="verificationcode.html";
@@ -185,6 +207,7 @@ $(document).ready(function () {
                      // $('#showPasscode').show().innerText(emailCode);
                      $("#success-alert").show();
                      $('#myModal').modal('show');
+                     alert(emailCode)
                    
                   }
                    
@@ -312,8 +335,7 @@ $(document).ready(function () {
         dataType: 'json',
         success: function (result) {
           console.log(result);
-          var countItems = result.data.length;
-          $('#countItems').append(countItems);
+          
           // $('#prodTable tr').empty();
           for (var d in result.data) {
           var data = result.data[d];
@@ -577,7 +599,7 @@ $.ajax({
             e.preventDefault();
             var myData = JSON.stringify({
                     "itemCatelogue":{"id":itemCatelogueId},
-                  "businessProfile":{"id":"2c91808978b128970178b14bd4580003"},
+                  "businessProfile":{"id":localStorage.getItem('mybusinessId')},
                   "itemDescription":itemDescription,
                   "targetMarket":{"id":targetMarket},
                    "unitDescriptor":unitDescriptor,
@@ -600,7 +622,8 @@ $.ajax({
                 contentType: 'application/json',
                 data: myData, 
                 success: function( result ) {
-                   alert(result.message)
+                  
+                   // alert(result.message)
 
                    }
                
@@ -727,7 +750,8 @@ $.ajax({
 
         }
         console.log(tableData.length)
-
+        var countItems = result.data.length;
+                  $('#countItems').append(countItems);
       //   $('table').bootstrapTable({
       //   data: tableData
       // });
@@ -774,12 +798,7 @@ $.ajax({
 
         }
         console.log(tableCodeData.length)
-        var codeId = codedata.id;
-        localStorage.setItem('mycodeId',codeId);
-        // alert(localStorage.getItem('mycodeId'));
-        var barcodeId = codedata.barcode;
-        localStorage.setItem('barcodeId',barcodeId);
-        alert(localStorage.getItem('barcodeId'));
+      
       // window
         $codeTable.bootstrapTable('append', tableCodeData)
     
@@ -790,36 +809,7 @@ $.ajax({
        // show data for product
 
          
-       $.ajax({
-        url: "http://83.136.248.89:1701/businessProductCodes/id/"+localStorage.getItem('mycodeId'),
-        type: "GET",
-        dataType: "json",
-        headers: {
-            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
-        },
-        dataType: 'json',
-        success: function (result) {       
-         
-            var showcodedata = result.data;
-            $('#barcode').val(showcodedata.barcode);
-            $('#gtin').val(showcodedata.gtin);
-            $('#gpccode').val(showcodedata.gpccode);
-            $('#barcodeType').val(showcodedata.barcodeType);
-            $('#itemCode').val(showcodedata.businessProduct.itemCatelogue.itemCode);
-             $('#itemName').val(showcodedata.businessProduct.itemCatelogue.itemName);
-              $('#itemDescription').val(showcodedata.businessProduct.itemCatelogue.itemDescription);
-               $('#itemCode').val(showcodedata.businessProduct.itemCatelogue.itemCode);
-                $('#brandName').val(showcodedata.businessProduct.brandName);
-                 $('#usageDescription').val(showcodedata.businessProduct.usageDescription);
-                  $('#unitDescriptor').val(showcodedata.businessProduct.unitDescriptor);
-                  $('#effectiveDate').val(showcodedata.businessProduct.effectiveDate);
-                  $('#itemCode').val(showcodedata.businessProduct.itemCatelogue.itemCode);
-                  $('#itemCode').val(showcodedata.businessProduct.itemCatelogue.itemCode);
-                  $('#itemCode').val(showcodedata.businessProduct.itemCatelogue.itemCode);                
-            }
-
-    });
-
+      
 
       //add district
         $("#adddistrict").on('click', function (e) {
@@ -873,7 +863,7 @@ $.ajax({
                 }), 
                 success: function( result ) {
                    // console.log(result)
-                   alert(result.message)
+                   // alert(result.message)
 
                    }
                
@@ -881,7 +871,20 @@ $.ajax({
 
           });
         
+        // select product to generate barcode image
 
+         //generate barcodes
+         $("#selectbarcode").on('click', function (e) {
+          // alert("working")
+            var productData = $codeTable.bootstrapTable('getSelections');
+            // alert(JSON.stringify(productData));
+           var codeId = productData[0].id;
+        localStorage.setItem('mycodeId',codeId);
+        
+        window.location.href ="printbusinessbarcodes.html";
+           
+
+          });
     //add business type
 // $("#addbusinesstype").on('click', function (e) {
 //             let code = $('#code').val().trim();
@@ -1055,7 +1058,7 @@ $("#addbusinessowner").on('click', function (e) {
             e.preventDefault();
             $.ajax({
 
-                url: "http://83.136.248.89:1701/businessProfiles",
+                url: "http://83.136.248.89:1701/userbusinessProfiles",
                 type: "POST",
                 dataType: "json",
                 headers:{
@@ -1081,7 +1084,7 @@ $("#addbusinessowner").on('click', function (e) {
                    localStorage.getItem('businessId');
                    // console.log(localStorage.getItem('businessId'))
                    // alert('business created'+localStorage.getItem('businessId'));
-
+                   window.location.href="clientbusinessowners.html";
                    }
                
             })
@@ -1092,9 +1095,12 @@ $("#addbusinessowner").on('click', function (e) {
 $('#logout').on('click', function (e) {
   debugger
   e.preventDefault();
-  localStorage.removeItem('businessId');  
+  localStorage.removeItem('businessId'); 
+  localStorage.removeItem('mybusinessId');
+  localStorage.removeItem('mycodeId'); 
   localStorage.removeItem('myToken');
-  if(localStorage.getItem('myToken') ==null && localStorage.getItem('businessId') == null ){
+  localStorage.removeItem('showname');
+  if(localStorage.getItem('showname') == null && localStorage.getItem('myToken') ==null && localStorage.getItem('businessId') == null && localStorage.getItem('mycodeId')== null && localStorage.getItem('mybusinessId')== null ){
     window.location.href ="../../index.html";
   }
 

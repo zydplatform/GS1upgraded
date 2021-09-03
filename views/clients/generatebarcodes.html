@@ -55,19 +55,14 @@ crossorigin="anonymous|use-credentials">
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item">
+           <li class="nav-item">
                     <a class="nav-link" href="#navbar-examples4" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples4">
                         <i class="fa fa-briefcase" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">Profile</span>
                     </a>
                     <div class="collapse show" id="navbar-examples4">
                       <ul class="nav nav-sm flex-column">
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">
-                            <i class="ni ni-tag text-orange"></i>
-                            <span class="nav-link-text">User Details</span>
-                          </a>
-                        </li>
+                        
                         <li class="nav-item">
                           <a class="nav-link" href="#">
                             <i class="ni ni-tag text-primary"></i>
@@ -89,27 +84,43 @@ crossorigin="anonymous|use-credentials">
                         <li class="nav-item">
                           <a class="nav-link" href="mydashboard.html">
                             <i class="ni ni-tag text-orange"></i>
-                            <span class="nav-link-text">Show Products</span>
+                            <span class="nav-link-text">Business Products</span>
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="addclientproduct.html">
                             <i class="ni ni-tag text-orange"></i>
-                            <span class="nav-link-text">Add Product</span>
+                            <span class="nav-link-text">Add Products</span>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="requestclientbarcodes.html">
+                          <a class="nav-link" href="generatebarcodes.html">
                             <i class="ni ni-tag text-orange"></i>
-                            <span class="nav-link-text">Get Barcodes</span>
+                            <span class="nav-link-text">Product Barcodes</span>
+                          </a>
+                        </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#navbar-examples6" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples1">
+                        <i class="fa fa-briefcase" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">Payments</span>
+                    </a>
+                  
+                  
+                    <div class="collapse show" id="navbar-examples6">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Payment History</span>
                           </a>
                         </li>
                         
-                        
-                                  </ul>
+                        </ul>
                     </div>
                 </li>
-                
                            
 
                        
@@ -165,7 +176,7 @@ crossorigin="anonymous|use-credentials">
                     <img alt="Image placeholder" src="../../assets/img/theme/uganda1.jpg">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold" id="showname"></span>
+                    <span class="mb-0 text-sm  font-weight-bold"><script type="text/javascript">document.write(localStorage.getItem('showname'));</script></span>
                   </div>
                 </div>
               </a>
@@ -263,7 +274,7 @@ crossorigin="anonymous|use-credentials">
       </div>
     </div>
     <div id="toolbar">
-  <button id="viewbarcode" class="btn btn-secondary">View Product Deatils</button>
+  <button id="selectbarcode" class="btn btn-secondary">View Product Deatils</button>
 </div>
 
     <div class="card-body px-lg-5 py-lg-5">
@@ -355,6 +366,7 @@ crossorigin="anonymous|use-credentials">
   
  <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
  <script src="../../assets/gs1.js"></script>
+
 </body>
 
 </html>
