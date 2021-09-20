@@ -1101,7 +1101,7 @@ $('#logout').on('click', function (e) {
   localStorage.removeItem('myToken');
   localStorage.removeItem('showname');
   if(localStorage.getItem('showname') == null && localStorage.getItem('myToken') ==null && localStorage.getItem('businessId') == null && localStorage.getItem('mycodeId')== null && localStorage.getItem('mybusinessId')== null ){
-    window.location.href ="../../app/login.html";
+    window.location.href ="../../login.html";
   }
 
 });
