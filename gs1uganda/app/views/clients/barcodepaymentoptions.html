@@ -28,6 +28,9 @@
   <link rel="stylesheet" href="../../assets/css/argon.css?v=1.2.0" type="text/css">
   <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
@@ -61,6 +64,7 @@
       </div>
     </div>
   </nav>
+
   <!-- Main content -->
   <div class="main-content" id="panel">
     <!-- Topnav -->
@@ -128,141 +132,94 @@
     </nav>
     <!-- Header -->
     <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0"></h6>
-              
-            </div>
-            
-          </div>
-         
-    <!-- Page content -->
-    <div class="container-fluid mt--6">
-      <div class="row">
-        <div class="col-xl-12">
-          <div class="card bg-secondary">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <h6 class="h2 text-default d-inline-block mb-0">Business Registration</h6>
-               
-              
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-       <div class="text-center">
-                  <button type="button" class="btn btn-md btn-warning mt-4"  style="float: right;"><a href="clientbusinessowners.html" style="color: white;">Next <i class="fa fa-arrow-right"></i></a></button>
-                </div>
-      <div class="row">
-        <div class="col-xl-8">
-          <div class="card bg-secondary">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <div class="col-md-6 offset-md-3">
-              <h2 class="text-lead">Business Registration</h2>
-            </div>
-      <div class="col-md-6 offset-md-3">
+  <div class="container">
+    <div class='row'>
+      <div class="m-4">
+         <h1>Select Payment Options</h1>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <button id="mobile" class="btn btn-secondary">Mobile Money Payments</button>
+        </li>
+        <li class="nav-item">
+            <button id="cardvisa" class="btn btn-secondary">Visa Card Payments</button>
+        </li>
+        
+    </ul>
+</div>
+    </div>
+  </div>
+  <section id="mob">
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
 
-              <form role="form">
-                <div class="form-group"><label>Business Name</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="businessName" name="businessName" placeholder="businessName" required>
-                  </div>
-                </div>
-                <div class="form-group"><label>Business Ownership</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <select class="form-control"  id="businessOwnerShip" name="businessOwnerShip" required>  
-     
-                    <option value="Government">Government</option>
-                    <option value="Corporate">Corporate</option>
-                    <option value="SoleProprietorship">SoleProprietorship</option>
-                    <option value="LimitedByShares">LimitedByShares</option>
-                    
-                  </select>
-                  </div>
-                </div>
-                <div class="form-group"><label>Physical Address</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="physicalAdress" name="physicalAdress" placeholder="physicalAddress" required>
-                  </div>
-                </div>
-                <div class="form-group"><label>Business Email</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="email" class="form-control" id="businessEmail" name="businessEmail" placeholder="businessEmail" required>
-                  </div>
-                </div>
-                <div class="form-group"><label>Business Registration Number</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="registrationNumber" name="registrationNumber" placeholder="registrationNumber" required>
-                  </div>
-                </div>
-                <div class="form-group"><label>TIN Number</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                     <input type="text" class="form-control" id="tinNumber" name="tinNumber" placeholder="tinNumber" required>
-                  </div>
-                </div>
-                <div class="form-group"><label>Postal Address</label>
-                  <div class="input-group input-group-merge input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="postalAdress" name="postalAdress" placeholder="postalAdress" required>
-                  </div>
-                </div>
-                <div class="form-group"><label>Country</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <select class="form-control"  id="country" name="country" required>  
-                  </select>
-                  </div>
-                </div>
-                <div class="form-group"><label>District</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <select class="form-control"  id="district" name="district" required>  
-                  </select>
-                  </div>
-                
-                <div class="text-center">
-                  <button type="submit" class="btn btn-warning mt-4"><a href="welcome.html" style="color: white;">Back</a></button>
-                  <button type="submit" class="btn btn-danger mt-4" id="addbusiness">Next</button>
-                  
-                </div>
-              </form>
-            </div>
+        <h3>Mobile Money Payments</h3>
+        <img src="../../assets/img/brand/newlogo1.png" width="100px">
+        <form>
+          <div class="form-group">
+            <label>Amount to be paid</label>
+            <input type="number" name="amount" placeholder="150,000UGX" class="form-control" readonly>
           </div>
-              </div>
-            </div>
+          <div class="form-group">
+            <label>Enter Your Mobile Money Number</label>
+            <input type="number" name="phoneno" class="form-control">
           </div>
-        </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary"><a href="generatebarcodes.html" style="color:white;">Make Payment</a></button>
+          </div>
+        </form>
       </div>
+    </div>    
+  </section>
+  <section id="card">
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <h3>Visa/Master Card Payments</h3>
+        <img src="../../assets/img/brand/newlogo1.png" width="100px">
+        <form>
+         <div class="form-group">
+            <label>Amount to be paid</label>
+            <input type="number" name="amount" placeholder="150,000UGX" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label>Enter Your Card Name</label>
+            <input type="text" name="cardname" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Enter Your Card Number</label>
+            <input type="number" name="cardno" class="form-control" placeholder="XXXX-XXXX-XXXX-XXXX">
+          </div>
+          <div class="form-group">
+            <label>Enter Your CVC</label>
+            <input type="number" name="CVC" class="form-control" maxlength="3" placeholder="XXX">
+          </div>
+          <div class="form-group">
+            <label>Enter Year of Expiry </label>
+            <input type="number" name="phoneno" class="form-control" maxlength="5" placeholder="02/25">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary"><a href="generatebarcodes.html" style="color:white;">Make Payment</a></button>
+          </div>
+        </form>
       </div>
+    </div>    
+  </section>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#mob").hide();
+        $("#card").hide();
+      $("#mobile").on('click', function (e) {
+        e.preventDefault();
+        debugger
+            $("#mob").show();
+            $("#card").hide();
+     });
+      $("#cardvisa").on('click', function (e) {
+              e.preventDefault();
+            $("#card").show();
+            $("#mob").hide();
+     });
+          });
+    </script>
       <!-- Footer -->
       <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">
@@ -290,7 +247,7 @@
   </div>
   <!-- Argon Scripts -->
    <script type="text/javascript">
-    if(localStorage.getItem('myToken') ==null){
+    if(localStorage.getItem('myToken') ==null{
     window.location.href ="../../index.html";
   }
   </script>

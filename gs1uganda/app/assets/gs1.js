@@ -749,14 +749,19 @@ $.ajax({
                      
 
         }
-        console.log(tableData.length)
-        var countItems = result.data.length;
+        console.log(tableData.length);
+        if(result.status == true){
+          var countItems = result.data.length;
                   $('#countItems').append(countItems);
       //   $('table').bootstrapTable({
       //   data: tableData
       // });
         $table.bootstrapTable('append', tableData)
-    }
+
+        }else{
+          $('#countItems').append(0);
+        }
+            }
 
     });
 
@@ -864,6 +869,7 @@ $.ajax({
                 success: function( result ) {
                    // console.log(result)
                    // alert(result.message)
+                   window.location.href = "barcodepaymentoptions.html"
 
                    }
                
@@ -881,7 +887,8 @@ $.ajax({
            var codeId = productData[0].id;
         localStorage.setItem('mycodeId',codeId);
         
-        window.location.href ="printbusinessbarcodes.html";
+        window.location.href ="paymentoptions.html";
+        // if()
            
 
           });
@@ -1047,6 +1054,7 @@ $("#addbusinessowner").on('click', function (e) {
 
         //register new business profile
     $("#addbusiness").on('click', function (e) {
+      debugger
             let businessName = $('#businessName').val().trim();
             let businessOwnerShip = $('#businessOwnerShip').val().trim();
             let physicalAdress = $('#physicalAdress').val().trim();
