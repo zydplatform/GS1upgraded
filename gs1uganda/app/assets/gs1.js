@@ -586,14 +586,15 @@ $.ajax({
 
       //add business products
       $("#addbusinessproduct").on('click', function (e) {
+        debugger
             let itemCatelogueId = $('#ProductClassification').val().trim();
             let itemDescription = $('#itemDescription').val().trim();
             let brandName = $('#brandName').val().trim();
-           let usageDescription = $('#usageDescription').val().trim();
+           // let usageDescription = $('#usageDescription').val().trim();
           let targetMarket = $('#countrycode').val().trim();
           let unitDescriptor = $('#unitDescriptor').val().trim();
           let productScope = $('#productScope').val().trim();
-          let effectiveDate = $('#effectiveDate').val().trim();
+          // let effectiveDate = $('#effectiveDate').val().trim();
           let country = $('#country').val().trim();
 
             e.preventDefault();
@@ -887,7 +888,7 @@ $.ajax({
            var codeId = productData[0].id;
         localStorage.setItem('mycodeId',codeId);
         
-        window.location.href ="paymentoptions.html";
+        window.location.href ="printbusinessbarcodes.html";
         // if()
            
 
