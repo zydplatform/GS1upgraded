@@ -30,102 +30,149 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 
-<body class="bg-default">
+<body>
 
   <!-- Main content -->
   <div class="main-content">
     <!-- Header -->
-    <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
+    <div class="header">
       <div class="container">
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
-            <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-              <h1 class="text-white">Visible Trace Services Uganda Limited VTS</h1>
-              <p class="text-lead text-white">Please Create Account</p>
-            </div>
+            
           </div>
         </div>
       </div>
-      <div class="separator separator-bottom separator-skew zindex-100">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
-      </div>
+      
     </div>
     <!-- Page content -->
-    <div class="container mt--8 pb-5">
+    <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-8">
+        <div class="col-lg-5 col-md-5">
           <div class="card bg-secondary border-0 mb-0">
             <div class="card-header bg-transparent pb-5">
                <div class="alert alert-success" id="success-newuser">
                   <button type="button" class="close" data-dismiss="alert">x</button>
                    <strong>Verification code sent successfully!</strong>
              </div>
-              <div class="text-center mt-2 mb-4"><h1 class="text-lead">Create Account</h1>
-                <h4 class="text-primary">Please register with us to create your secret password. Your password will be sent to your Email Address shortly</h4>
+              <div class="text-center mt-2 mb-4">
+                <h4 class="text-primary"></h4>
               </div>
               <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
                 <img src="../../assets/img/brand/newlogo1.png" style="width: 100px;">
+                <h1 class="text-lead">Company Registration</h1>
               </div>
+              <strong>Please Fill in All Company information to become a Member. </strong>
+              <p class="text-teal"> Compulsory fields are marked red</p>
               <form role="form">
                  <div class="form-group">
-                  <label>Client Email</label>
+                  <label>Company Name <span style="color: rgb(255, 20, 51);">*</span></label>
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="kigere@gmail.com" value="kigere@gmail.com" type="text" id="emailAdress" name="emailAdress" required >
+                    <input class="form-control" placeholder="company name" value="" type="text" id="businessName" name="businessName" required >
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>First Name</label>
+                  <label>Company Registration Number <span style="color: rgb(255, 20, 51);">*</span></label>
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="First Name" type="text" id="firstName" name="firstName" required>
+                    <input class="form-control" placeholder="Business Registration Number" type="text" id="registrationNumber" name="registrationNumber" required>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Last Name</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="Last Name" type="text" id="lastName" name="lastName" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Phone Number</label>
+                  <label>Company Email <span style="color: rgb(255, 20, 51);">*</span></label>
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="phone" type="text" id="phoneNumber" name="phoneNumber" required>
+                    <input class="form-control" placeholder="Company Email" type="email" id="businessEmail" name="businessEmail" required>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label>National Id</label>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- column -->
+      <div class="col-lg-5 col-md-5">
+        <div class="card bg-secondary border-0 mb-0">
+            <div class="card-header bg-transparent pb-5">
+              <div class="form-group">
+                  <label>Company TIN  <span style="color: rgb(255, 20, 51);">*</span></label>
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="tinNumber" type="text" id="tinNumber" name="tinNumber" required>
+                  </div>
+                </div>
+            <div class="form-group">
+                  <label>Company Address</label>
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="National Id" type="text" name="nationalId" id="nationalId" required>
+                    <input class="form-control" placeholder="Company Address" type="text" name="physicalAdress" id="physicalAddress" required>
                   </div>
                 </div>
-
+                            <div class="form-group">
+                  <label>Country of Registration  <span style="color: rgb(255, 20, 51);">*</span></label>
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <select class="form-control"  id="country" name="country" required>  
+                  </select>
+                  </div>
+                </div>
+                            <div class="form-group">
+                  <label>Company Ownership</label>
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <select class="form-control"  id="businessOwnerShip" name="businessOwnerShip" required>  
+     
+                    <option value="Government">Government</option>
+                    <option value="Corporate">Corporate</option>
+                    <option value="SoleProprietorship">SoleProprietorship</option>
+                    <option value="LimitedByShares">LimitedByShares</option>
+                    
+                  </select>
+                  </div>
+                </div>
+                            <div class="form-group">
+                  <label>Nature of Business  <span style="color: rgb(255, 20, 51);">*</span></label>
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <select class="form-control"  id="selectline" name="selectline" required>  
+                  </select>
+                  </div>
+                </div>
+                            <div class="form-group">
+                  <label>Business Sector</label>
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <select class="form-control"  id="selecttype" name="selecttype" required>  
+                  </select>
+                  </div>
+                </div>
                 <div class="text-center">
-
-                  <button type="button" class="btn btn-block btn-warning mt-4" id="registerClient">Submit</button>
-                  <button type="button" class="btn btn-block btn-default mt-4" id="registerClient"><a href="../../login.html" style="color: white;">Login</a></button><!-- 
-                  <button type="button" class="btn btn-block btn-warning mt-4"><a href="clientlogsin.html" style="color: white;"> Create Account</a></button> -->
+                  <button type="button" class="btn btn-block btn-warning mt-4" id="addbusiness"><a href="registercontactperson.html" style="color:white;">NEXT</a></button>                  
                 </div>
               </form>
+              </div>
             </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
