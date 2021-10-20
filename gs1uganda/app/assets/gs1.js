@@ -716,6 +716,15 @@ $.ajax({
               .append($('<td>', {html:'<button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button>'}))
           )
        }
+
+        if(result.status ==true ){
+          var countProducts = result.data.length;
+          alert(countProducts);
+                  $('#countProducts').append(countProducts);
+     
+        }else{
+          $('#countProducts').append(0);
+        }
           
         }
     });
@@ -888,7 +897,7 @@ $.ajax({
            var codeId = productData[0].id;
         localStorage.setItem('mycodeId',codeId);
         
-        window.location.href ="printbusinessbarcodes.html";
+        // window.location.href ="printbusinessbarcodes.html";
         // if()
            
 
