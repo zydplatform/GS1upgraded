@@ -1,4 +1,5 @@
  $(document).ready(function () {
+
 // alert(localStorage.getItem('mycodeId'))
  $.ajax({
         url: "http://83.136.248.89:1701/businessProductCodes/id/"+localStorage.getItem('mycodeId'),

@@ -1,4 +1,25 @@
 $(document).ready(function () {
+       var businessName;
+          var businessOwnerShip;
+          var physicalAdress;
+          var businessEmail;
+          var registrationNumber;
+          var tinNumber;
+          var businesslines;
+          var business ;
+          var postalAdress ;
+          var natureofbusiness;
+          var businesssector;
+          var password;
+          var confirmPassword;
+
+          // contact person info
+          var firstName;
+          var lastName;
+          var phoneNumber;
+          var email;
+   
+
   var $table=$('#table');
   var $codeTable = $('#codeTable');
   // alert messages
@@ -1063,51 +1084,94 @@ $("#addbusinessowner").on('click', function (e) {
 
 
         //register new business profile
+
     $("#addbusiness").on('click', function (e) {
       debugger
-            let businessName = $('#businessName').val().trim();
-            let businessOwnerShip = $('#businessOwnerShip').val().trim();
-            let physicalAdress = $('#physicalAdress').val().trim();
-            let businessEmail = $('#businessEmail').val().trim();
-            let registrationNumber = $('#registrationNumber').val().trim();
-            let tinNumber = $('#tinNumber').val().trim();
-            let postalAdress = $('#postalAdress').val().trim();
+          localStorage.setItem('businessName', $('#businessName').val().trim());
+          localStorage.setItem('businessOwnerShip',$('#businessOwnerShip').val().trim());
+          localStorage.setItem('physicalAdress', $('#physicalAdress').val().trim());
+          localStorage.setItem('businessEmail', $('#businessEmail').val().trim());
+          localStorage.setItem('registrationNumber', $('#registrationNumber').val().trim());
+          localStorage.setItem('tinNumber', $('#tinNumber').val().trim());
+          localStorage.setItem('natureofbusiness', $('#selectline').val().trim());
+          localStorage.setItem('businesssector',$('#selecttype').val().trim());
+          localStorage.setItem('password', $('#password').val().trim());          
+          localStorage.setItem('confirmPassword',$('#confirmPassword').val().trim());
+          // alert(businessName);
+          window.location.href ="registercontactperson.html";
+          
+            // e.preventDefault();
+            // $.ajax({
 
-            e.preventDefault();
-            $.ajax({
+            //     url: "http://83.136.248.89:1701/userbusinessProfiles",
+            //     type: "POST",
+            //     dataType: "json",
+            //     headers:{
+            //             'Accept': 'application/json',
+            //             'Content-Type': 'application/json',
+            //             'Authorization': 'Bearer '+localStorage.getItem('myToken')   
+            //            },
+            //     data: JSON.stringify({
+            //       "businessName" : businessName,
+            //       "businessOwnerShip" : businessOwnerShip,
+            //       "businessEmail" : businessEmail,
+            //       "registrationNumber" : registrationNumber,
+            //       "physicalAdress" : physicalAdress,
+            //       "postalAdress" : postalAdress,
+            //       "tinNumber" : tinNumber
 
-                url: "http://83.136.248.89:1701/userbusinessProfiles",
-                type: "POST",
-                dataType: "json",
-                headers:{
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer '+localStorage.getItem('myToken')   
-                       },
-                data: JSON.stringify({
-                  "businessName" : businessName,
-                  "businessOwnerShip" : businessOwnerShip,
-                  "businessEmail" : businessEmail,
-                  "registrationNumber" : registrationNumber,
-                  "physicalAdress" : physicalAdress,
-                  "postalAdress" : postalAdress,
-                  "tinNumber" : tinNumber
-
-                }), 
-                success: function( result ) {
-                  // debugger
-                   console.log(result)
-                   const businessId = result.data;
-                   localStorage.setItem('businessId', businessId);
-                   localStorage.getItem('businessId');
-                   // console.log(localStorage.getItem('businessId'))
-                   // alert('business created'+localStorage.getItem('businessId'));
-                   window.location.href="clientbusinessowners.html";
-                   }
+            //     }), 
+            //     success: function( result ) {
+            //       // debugger
+            //        console.log(result)
+            //        const businessId = result.data;
+            //        localStorage.setItem('businessId', businessId);
+            //        localStorage.getItem('businessId');
+            //        // console.log(localStorage.getItem('businessId'))
+            //        // alert('business created'+localStorage.getItem('businessId'));
+            //        window.location.href="clientbusinessowners.html";
+            //        }
                
-            })
+            // })
 
           });
+     $("#contactperson").on('click', function (e) {
+      debugger
+      localStorage.setItem('firstName',$('#firstName').val().trim());
+      localStorage.setItem('lastName', $('#lastname').val().trim());
+      localStorage.setItem('phoneNumber', $('#phoneno').val().trim());
+      localStorage.setItem('email', $('#email').val().trim());
+          alert(localStorage.getItem('tinNumber'));
+           window.location.href ="clientpayment.html";
+       });
+     // activate
+     $("#activate").on('click', function (e) {
+      debugger
+      var businessAccount = { "businessName":localStorage.getItem('businessName'),
+"businessEmail":localStorage.getItem('businessEmail'),
+"businessOwnerShip":localStorage.getItem('businessOwnerShip'),
+"registrationNumber":localStorage.getItem('registrationNumber'),
+"tinNumber":localStorage.getItem(localStorage.getItem('tinNumber'),
+"physicalAdress":localStorage.getItem('physicalAdress'),
+   "country":{"id":localStorage.getItem('country')},
+   "district":{"id":localStorage.getItem('district')}, 
+
+  "businessSectors":[{"id":localStorage.getItem('businesssector')}];
+ "natureOfbusinesses":[{"id":localStorage.getItem('natureofbusiness')}];
+
+ "contactPerson":{
+"firstName":localStorage.getItem('firstName'),
+   "lastName":localStorage.getItem('lastName'),
+   "phoneNumber":localStorage.getItem('phoneNumber'),
+   "email":localStorage.getItem('email')
+ };
+}
+var business = JSON.stringify(businessAccount);
+console(business);
+// window.location.href= "approval.html"
+}
+
+      );
 
 //logout
 $('#logout').on('click', function (e) {
