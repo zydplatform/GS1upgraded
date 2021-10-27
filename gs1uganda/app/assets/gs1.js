@@ -158,7 +158,9 @@ $(document).ready(function () {
                   dataType: 'json',
                   success: function (result) {
                     if(result.status == true){
-                      localStorage.setItem('mybusinessId', result.data.id)
+                      localStorage.setItem('mybusinessId', result.data.id);
+                      localStorage.setItem('businessName', result.data.businessName);
+                      $('#companyName').append(localStorage.getItem('businessName'))
                       window.location.href ="views/clients/mydashboard.html";
                     }
                     else{
@@ -571,7 +573,7 @@ $.ajax({
           )
        }
          
-         $('#companyName').append(data.businessName);
+         // $('#companyName').append(data.businessName);
         }
     });
 
@@ -877,26 +879,6 @@ $.ajax({
             })
 
           });
-// sendbarcoderequest
-$("#sendbarcoderequest").on('click', function (e) {
-debugger
-localStorage.setItem('firstName',$('#firstName').val().trim());
-   $.ajax({
-
-        url: 'http://83.136.248.89:1701/gTins/number/2',
-        type: "GET",
-        dataType: "json",
-        headers: {
-            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
-        },
-        dataType: 'json',
-        success: function (result) {
-          console.log(result.message);
-          
-        }
-    });
-
-});
         //generate barcodes
          $("#barcode").on('click', function (e) {
           // var $table = $('table');
