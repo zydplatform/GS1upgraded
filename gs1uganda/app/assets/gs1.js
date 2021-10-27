@@ -571,6 +571,7 @@ $.ajax({
           )
        }
          
+         $('#companyName').append(data.businessName);
         }
     });
 
@@ -879,7 +880,7 @@ $.ajax({
 // sendbarcoderequest
 $("#sendbarcoderequest").on('click', function (e) {
 debugger
-var numberofBarcodes = localStorage.setItem('firstName',$('#firstName').val().trim());
+localStorage.setItem('firstName',$('#firstName').val().trim());
    $.ajax({
 
         url: 'http://83.136.248.89:1701/gTins/number/2',
