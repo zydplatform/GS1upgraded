@@ -432,9 +432,9 @@ function getBusinessLine(){
         url: 'http://83.136.248.89:1701/countries/all',
         type: "GET",
         dataType: "json",
-        headers: {
-            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
-        },
+        // headers: {
+        //     "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        // },
         dataType: 'json',
         success: function (result) {
           // var count = result.data.length;
@@ -454,9 +454,9 @@ function getBusinessLine(){
         url: 'http://83.136.248.89:1701/businessTypes/all',
         type: "GET",
         dataType: "json",
-        headers: {
-            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
-        },
+        // headers: {
+        //     "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        // },
         dataType: 'json',
         success: function (result) {
           // var count = result.data.length;
@@ -477,9 +477,10 @@ function getBusinessLine(){
         url: 'http://83.136.248.89:1701/businessLines/all',
         type: "GET",
         dataType: "json",
-        headers: {
-            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
-        },
+        // headers: {
+        //     "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        // }
+
         dataType: 'json',
         success: function (result) {
           // var count = result.data.length;
@@ -628,8 +629,7 @@ $.ajax({
                    "productScope":productScope,
                     "brandName":brandName,
                     "effectiveDate":"01/01/2019",
-                    "countryOfOrigin":{"id":country},
-                    "usageDescription":usageDescription
+                    "countryOfOrigin":{"id":country}
                 });
             console.log(myData);
             $.ajax({
@@ -876,7 +876,26 @@ $.ajax({
             })
 
           });
+// sendbarcoderequest
+$("#sendbarcoderequest").on('click', function (e) {
+debugger
+var numberofBarcodes = localStorage.setItem('firstName',$('#firstName').val().trim());
+   $.ajax({
 
+        url: 'http://83.136.248.89:1701/gTins/number/2',
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        },
+        dataType: 'json',
+        success: function (result) {
+          console.log(result.message);
+          
+        }
+    });
+
+});
         //generate barcodes
          $("#barcode").on('click', function (e) {
           // var $table = $('table');
@@ -1093,6 +1112,7 @@ $("#addbusinessowner").on('click', function (e) {
           localStorage.setItem('businessEmail', $('#businessEmail').val().trim());
           localStorage.setItem('registrationNumber', $('#registrationNumber').val().trim());
           localStorage.setItem('tinNumber', $('#tinNumber').val().trim());
+          localStorage.setItem('country',$('#country').val().trim());
           localStorage.setItem('natureofbusiness', $('#selectline').val().trim());
           localStorage.setItem('businesssector',$('#selecttype').val().trim());
           localStorage.setItem('password', $('#password').val().trim());          
@@ -1145,30 +1165,52 @@ $("#addbusinessowner").on('click', function (e) {
            window.location.href ="clientpayment.html";
        });
      // activate
-     $("#activate").on('click', function (e) {
+     $("#activationcode").on('click', function (e) {
       debugger
       var businessAccount = { "businessName":localStorage.getItem('businessName'),
 "businessEmail":localStorage.getItem('businessEmail'),
 "businessOwnerShip":localStorage.getItem('businessOwnerShip'),
 "registrationNumber":localStorage.getItem('registrationNumber'),
-"tinNumber":localStorage.getItem(localStorage.getItem('tinNumber'),
+"tinNumber":localStorage.getItem('tinNumber'),
 "physicalAdress":localStorage.getItem('physicalAdress'),
    "country":{"id":localStorage.getItem('country')},
    "district":{"id":localStorage.getItem('district')}, 
 
-  "businessSectors":[{"id":localStorage.getItem('businesssector')}];
- "natureOfbusinesses":[{"id":localStorage.getItem('natureofbusiness')}];
+  "businessSectors":[{"id":localStorage.getItem('businesssector')}],
+ "natureOfbusinesses":[{"id":localStorage.getItem('natureofbusiness')}],
 
  "contactPerson":{
 "firstName":localStorage.getItem('firstName'),
    "lastName":localStorage.getItem('lastName'),
    "phoneNumber":localStorage.getItem('phoneNumber'),
    "email":localStorage.getItem('email')
- };
+ }
 }
 var business = JSON.stringify(businessAccount);
-console(business);
-// window.location.href= "approval.html"
+console.log(business);
+
+$.ajax({
+
+                url: "http://83.136.248.89:1701/membershipapplication",
+                type: "POST",
+                dataType: "json",
+                // headers:{'Accept': 'application/json',
+                //         'Content-Type': 'application/json',
+                //     'Authorization': 'Bearer '+localStorage.getItem('myToken')
+                // },
+                contentType: 'application/json',
+                data: business,
+                success: function( result ) {
+                   console.log(result)
+                   if(result.status == true){
+                    alert("Data set succesfully");
+                    window.location.href="approval.html";
+                   }
+
+                   }
+               
+            })
+
 }
 
       );
