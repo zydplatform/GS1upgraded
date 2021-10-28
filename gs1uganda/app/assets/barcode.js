@@ -14,6 +14,7 @@ $("#barcoderequest").on('click', function (e) {
         },
         success: function (result) {
                   console.log(result.message);
+                  window.location.href="clientpayforbarcodes.html"
           
         }
     })
