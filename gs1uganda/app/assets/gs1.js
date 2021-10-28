@@ -230,7 +230,7 @@ $(document).ready(function () {
                      // $('#showPasscode').show().innerText(emailCode);
                      $("#success-alert").show();
                      $('#myModal').modal('show');
-                     alert(emailCode)
+                     // alert(emailCode)
                    
                   }
                    
@@ -257,7 +257,7 @@ $(document).ready(function () {
                     }
                     else
                     {
-                      alert("client not verified")
+                      // alert("client not verified")
                     }
                     });
         //register new user 
@@ -289,7 +289,7 @@ $(document).ready(function () {
                     
                   }
                   else{
-                    alert("client not succesfully registered");
+                    // alert("client not succesfully registered");
                   }
 
                    }
@@ -645,7 +645,7 @@ $.ajax({
                 contentType: 'application/json',
                 data: myData, 
                 success: function( result ) {
-                  alert(result);
+                  // alert(result);
                    console.log(result);
 
                    }
@@ -898,7 +898,7 @@ $.ajax({
                 }), 
                 success: function( result ) {
                    // console.log(result)
-                   alert(result.message)
+                   // alert(result.message)
                    // window.location.href = "barcodepaymentoptions.html"
 
                    }
@@ -1141,7 +1141,7 @@ $("#addbusinessowner").on('click', function (e) {
       localStorage.setItem('lastName', $('#lastname').val().trim());
       localStorage.setItem('phoneNumber', $('#phoneno').val().trim());
       localStorage.setItem('email', $('#email').val().trim());
-          alert(localStorage.getItem('tinNumber'));
+          // alert(localStorage.getItem('tinNumber'));
            window.location.href ="clientpayment.html";
        });
      // activate
