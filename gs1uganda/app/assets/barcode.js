@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+$tablebarcode =$('#tablebarcodes');
 	// barcoderequest
 $("#barcoderequest").on('click', function (e) {
   console.log("hello i need")
@@ -29,28 +29,55 @@ $.ajax({
             "Authorization" : 'Bearer '+localStorage.getItem('myToken')
         },
         success: function (result) {
-                  // console.log(JSON.stringify(result.data));
-                  var tableDataBarcodes = [];
-                    for (var x in result.data) {
-          var dataforbarcodes = result.data[x];
-          $('#tablebarcodes tbody').append($('<tr>')
-              .append($('<td>', { text: dataforbarcodes.gtin }))
-              .append($('<td>', { text: dataforbarcodes.barcodeType }))
-              .append($('<td>', { text: dataforbarcodes.activationStatus }))
-              // .append($('<td>', {html:'<button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button>'}))
-          )
-       }
+
+                    console.log(result.data);
+          var tableDataBarcodes = [];
+          var count =0;
+          for (var d in result.data) {
+            var data = result.data[d];
+            var mydata ={
+                    "gtin":data.gtin ,
+                    "barcodeType" : data.barcodeType ,
+                    "activationStatus":data.activationStatus
+                     }
+                     tableDataBarcodes.push(mydata);
+                     
+
+        }
+        console.log(tableDataBarcodes.length);
         if(result.status == true){
           var countBarcodes = result.data.length;
                   $('#countBarcodes').append(countBarcodes);
       //   $('table').bootstrapTable({
       //   data: tableData
       // });
-        $table.bootstrapTable('append', tableData)
+        $tablebarcode.bootstrapTable('append', tableDataBarcodes)
 
         }else{
           $('#countBarcodes').append(0);
         }
+                  // console.log(JSON.stringify(result.data));
+      //             var tableDataBarcodes = [];
+      //               for (var x in result.data) {
+      //     var dataforbarcodes = result.data[x];
+      //     $('#tablebarcodes tbody').append($('<tr>')
+      //         .append($('<td>', { text: dataforbarcodes.gtin }))
+      //         .append($('<td>', { text: dataforbarcodes.barcodeType }))
+      //         .append($('<td>', { text: dataforbarcodes.activationStatus }))
+      //         // .append($('<td>', {html:'<button class="btn btn-sm btn-warning">update</button><button class="btn btn-sm btn-danger">delete</button>'}))
+      //     )
+      //  }
+      //   if(result.status == true){
+      //     var countBarcodes = result.data.length;
+      //             $('#countBarcodes').append(countBarcodes);
+      // //   $('table').bootstrapTable({
+      // //   data: tableData
+      // // });
+      //   $table.bootstrapTable('append', tableData)
+
+      //   }else{
+      //     $('#countBarcodes').append(0);
+      //   }
           
         }
     })
@@ -66,7 +93,7 @@ $.ajax({
         },
         dataType: 'json',
         success: function (result) {
-           alert(result.data);
+           // alert(result.data);
             for (var d in result.data) {
            var barcodesData = result.data[d];         
           $('#selectgtin').append('<option value="' + barcodesData.gtin + '">' + barcodesData.gtin + '</option>');                      
