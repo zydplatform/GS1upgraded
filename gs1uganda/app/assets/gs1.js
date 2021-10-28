@@ -614,30 +614,28 @@ $.ajax({
         debugger
             let itemCatelogueId = $('#ProductClassification').val().trim();
             let itemDescription = $('#itemDescription').val().trim();
+            let itemName = $('#itemName').val().trim();
             let brandName = $('#brandName').val().trim();
            // let usageDescription = $('#usageDescription').val().trim();
-          let targetMarket = $('#countrycode').val().trim();
-          let unitDescriptor = $('#unitDescriptor').val().trim();
-          let productScope = $('#productScope').val().trim();
+          let netContent = $('#netContent').val().trim();
+          // let unitDescriptor = $('#unitDescriptor').val().trim();
+          let netContentUOM = $('#netContentUOM').val().trim();
           // let effectiveDate = $('#effectiveDate').val().trim();
-          let country = $('#country').val().trim();
+          // let country = $('#country').val().trim();
 
             e.preventDefault();
             var myData = JSON.stringify({
                     "itemCatelogue":{"id":itemCatelogueId},
-                  "businessProfile":{"id":localStorage.getItem('mybusinessId')},
+                    "itemName": itemName,
                   "itemDescription":itemDescription,
-                  "targetMarket":{"id":targetMarket},
-                   "unitDescriptor":unitDescriptor,
-                   "productScope":productScope,
-                    "brandName":brandName,
-                    "effectiveDate":"01/01/2019",
-                    "countryOfOrigin":{"id":country}
+                  "netContentUOM":netContentUOM,
+                   "netContent":netContent,
+                    "brandName":brandName
                 });
             console.log(myData);
             $.ajax({
 
-                url: "http://83.136.248.89:1701/businessProducts",
+                url: "http://83.136.248.89:1701/businessProducts/logedInCompany",
                 type: "POST",
                 dataType: "json",
                 headers:{'Accept': 'application/json',
@@ -647,8 +645,8 @@ $.ajax({
                 contentType: 'application/json',
                 data: myData, 
                 success: function( result ) {
-                  
-                   // alert(result.message)
+                  alert(result);
+                   console.log(result);
 
                    }
                
@@ -743,7 +741,7 @@ $.ajax({
 
         if(result.status ==true ){
           var countProducts = result.data.length;
-          alert(countProducts);
+          // alert(countProducts);
                   $('#countProducts').append(countProducts);
      
         }else{
@@ -774,10 +772,9 @@ $.ajax({
                     "id":data.id ,
                     "itemName" : data.itemCatelogue.itemName ,
                     "itemDescription": data.itemDescription,
-                    "targetMarket":"---",
+                    "netContent":data.netContent,
                     "brandName" :  data.brandName ,
-                    "unitDescriptor":data.unitDescriptor,
-                    "effectiveDate": data.effectiveDate
+                    "netContentUOM":data.netContentUOM
                      }
                      tableData.push(mydata);
                      
@@ -901,8 +898,8 @@ $.ajax({
                 }), 
                 success: function( result ) {
                    // console.log(result)
-                   // alert(result.message)
-                   window.location.href = "barcodepaymentoptions.html"
+                   alert(result.message)
+                   // window.location.href = "barcodepaymentoptions.html"
 
                    }
                
