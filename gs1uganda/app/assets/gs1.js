@@ -449,6 +449,27 @@ function getBusinessLine(){
         }
     });
 
+
+//select units of measure
+ $.ajax({
+        url: 'http://83.136.248.89:1701/measurementUnits/all',
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        },
+        dataType: 'json',
+        success: function (result) {
+          // var count = result.data.length;
+          console.log(result.data);
+          for (var d in result.data) {
+           var netContentUOMData = result.data[d];    
+          $('#netContentUOM').append('<option value="' + netContentUOMData.code + '">' + netContentUOMData.name + '</option>');     
+          // $('#netContentUOM').append('<option value="' + netContentUOMData.id + '">' + netContentUOMData.name + '</option>');                    
+        }
+        }
+    });
+
 //select business types
 // businessTypeMappings
 
