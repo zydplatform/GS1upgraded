@@ -63,7 +63,7 @@ crossorigin="anonymous|use-credentials">
                       <ul class="nav nav-sm flex-column">
                         
                         <li class="nav-item">
-                          <a class="nav-link" href="#">
+                          <a class="nav-link" href="companyprofile.html">
                             <i class="ni ni-tag text-primary"></i>
                             <span class="nav-link-text">Company Information</span>
                           </a>
@@ -107,10 +107,15 @@ crossorigin="anonymous|use-credentials">
                         <li class="nav-item">
                           <a class="nav-link" href="requestbarcodes.html">
                             <i class="ni ni-tag text-orange"></i>
-                            <span class="nav-link-text">Request Barcodes</span>
+                            <span class="nav-link-text">My Barcodes</span>
                           </a>
                         </li>
-                       
+                                               <li class="nav-item">
+                          <a class="nav-link" href="showassignedbarcodes.html">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Assigned Barcodes</span>
+                          </a>
+                        </li>
                         </ul>
                     </div>
                 </li>
@@ -191,6 +196,7 @@ crossorigin="anonymous|use-credentials">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
                     <span class="mb-0 text-sm  font-weight-bold"><script type="text/javascript">document.write(localStorage.getItem('showname'));</script></span>
+                    <br><span id="businessName"></span>
                   </div>
                 </div>
               </a>
@@ -254,7 +260,7 @@ crossorigin="anonymous|use-credentials">
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Membership Status</h5>
-                      <span class="h2 font-weight-bold mb-0">365 Days Left</span>
+                      <span class="h2 font-weight-bold mb-0" id="membershipStatus"></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">

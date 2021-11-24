@@ -23,14 +23,15 @@ crossorigin="anonymous|use-credentials">
   <link rel="stylesheet" href="../../assets/vendor/nucleo/css/nucleo.css" type="text/css">
   <link rel="stylesheet" href="../../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Page plugins -->
+
   <!-- Argon CSS -->
+
   <link rel="stylesheet" href="../../assets/css/argon.css?v=1.2.0" type="text/css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
   
    <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+   <link href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -54,7 +55,7 @@ crossorigin="anonymous|use-credentials">
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item">
+           <li class="nav-item">
                     <a class="nav-link" href="#navbar-examples4" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples4">
                         <i class="fa fa-briefcase" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">Company</span>
@@ -111,18 +112,33 @@ crossorigin="anonymous|use-credentials">
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="purchasedbarcodes.html">
+                          <a class="nav-link" href="showassignedbarcodes.html">
                             <i class="ni ni-tag text-orange"></i>
-                            <span class="nav-link-text">Purchased Barcodes</span>
+                            <span class="nav-link-text">Assigned Barcodes</span>
                           </a>
                         </li>
                        
                         </ul>
                     </div>
                 </li>
-                         
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#navbar-examples6" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples1">
+                        <i class="fa fa-briefcase" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">Payments</span>
+                    </a>
+                  
+                  
+                    <div class="collapse show" id="navbar-examples6">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Payment History</span>
+                          </a>
+                        </li>
                         
-                                  </ul>
+                        </ul>
                     </div>
                 </li>
                            
@@ -180,7 +196,8 @@ crossorigin="anonymous|use-credentials">
                     <img alt="Image placeholder" src="../../assets/img/theme/uganda1.jpg">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold">User Name</span>
+                    <span class="mb-0 text-sm  font-weight-bold"><script type="text/javascript">document.write(localStorage.getItem('showname'));</script></span>
+                    <br><span id="businessName"></span>
                   </div>
                 </div>
               </a>
@@ -224,7 +241,7 @@ crossorigin="anonymous|use-credentials">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Products</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Products Registered</h5>
                       <span class="h2 font-weight-bold mb-0" id="countItems"></span>
                     </div>
                     <div class="col-auto">
@@ -243,8 +260,8 @@ crossorigin="anonymous|use-credentials">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Membership</h5>
-                      <span class="h2 font-weight-bold mb-0">0</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Membership Status</h5>
+                      <span class="h2 font-weight-bold mb-0" id="membershipStatus"></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -261,8 +278,8 @@ crossorigin="anonymous|use-credentials">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Barcodes</h5>
-                      <span class="h2 font-weight-bold mb-0">0</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Barcodes Issued</h5>
+                      <span class="h2 font-weight-bold mb-0" id="countBarcodes"></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
@@ -277,69 +294,42 @@ crossorigin="anonymous|use-credentials">
         </div>
       </div>
     </div>
-    <div class="card-body px-lg-5 py-lg-5">
-      <div class="col-md-10 offset-md-1">
-        <button class="btn btn-default"><a href="addclientproduct.html" style="color: white;">Add Product</a></button>
-        <button class="btn btn-default"><a href="mydashboard.html" style="color: white;">Show Products</a></button>
-        <button class="btn btn-default"><a href="requestclientbarcodes.html" style="color: white;">Get Barcodes</a></button>
-        <hr>
-        <div class="card-body px-lg-5 py-lg-5">
-      <div class="col-md-6 offset-md-3">
-              <h2 class="text-lead">Item Catalogue</h2>
-            </div>
-      <div class="col-md-6 offset-md-3">
+    <div id="toolbar">
+  <!-- <button id="barcode" class="btn btn-secondary">Generate Barcode</button> -->
+</div>
 
-              <form role="form">
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="businessName" name="businessName" placeholder="businessName" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="itemName" name="itemName" placeholder="itemName" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="itemDescription" name="itemDescription" placeholder="itemDescription" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="barcodeType" name="barcodeType" placeholder="barcodeType" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="barcode" name="barcode" placeholder="barcode" required>
-                  </div>
-                </div>
-               
-                <div class="text-center">
-                  <button type="submit" class="btn btn-danger mt-4" id="assignbarcodes">Assign Barcodes</button>
-                  <button type="submit" class="btn btn-warning mt-4"><a href="mydashboard.html" style="color: white;">Back</a></button>
-                </div>
-              </form>
-            </div>
-          </div>
+    <div class="card-body px-lg-5 py-lg-5">
+      <div class="col-md-12">
+       <strong>Assigned Barcodes to Products</strong>
+     
+        <hr>
+        
+
+              <!-- Projects table -->
+              <table id="assignedbarcodes" class="table table-bordered table-striped"data-toggle="table"
+  data-toolbar="#toolbar"
+  data-height="460"
+  data-search="true" data-click-to-select="true" data-single-select="true">
+                <thead class="thead-light">
+                  <tr>
+                    <!-- <th data-field="id">Product Id</th> -->
+                    <th data-field="itemName">itemName</th>
+                    <th data-field="itemDescription">itemDescription</th>
+                    <th data-field="gtin">Barcode/GTIN</th>
+                    <th data-field="barcodeType">Barcode Type</th>
+                    <th data-field="activationStatus">Activation Status</th>
+                    
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>
+              
           </div>
         </div>
+       
       <!-- Footer -->
       <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">
@@ -366,15 +356,18 @@ crossorigin="anonymous|use-credentials">
     </div>
   </div>
   <!-- Argon Scripts -->
-   <script type="text/javascript">
+  
+  <!-- Optional JS -->
+  <!-- Argon JS -->
+  <script type="text/javascript">
     if(localStorage.getItem('myToken') ==null && localStorage.getItem('businessId') == null ){
     window.location.href ="../../index.html";
   }
   </script>
-  <!-- Optional JS -->
-  <!-- Argon JS -->
-  
   <!-- Core -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../assets/vendor/js-cookie/js.cookie.js"></script>
@@ -385,9 +378,10 @@ crossorigin="anonymous|use-credentials">
   <script src="../../assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
   <script src="../../assets/js/argon.js?v=1.2.0"></script>
-
-  <script src="../../assets/gs1.js"></script>
- 
+  
+ <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+ <script src="../../assets/gs1.js"></script>
+ <script src="../../assets/barcode.js"></script>
 </body>
 
 </html>

@@ -63,7 +63,7 @@ crossorigin="anonymous|use-credentials">
                       <ul class="nav nav-sm flex-column">
                         
                         <li class="nav-item">
-                          <a class="nav-link" href="#">
+                          <a class="nav-link" href="companyprofile.html">
                             <i class="ni ni-tag text-primary"></i>
                             <span class="nav-link-text">Company Information</span>
                           </a>
@@ -107,7 +107,13 @@ crossorigin="anonymous|use-credentials">
                         <li class="nav-item">
                           <a class="nav-link" href="requestbarcodes.html">
                             <i class="ni ni-tag text-orange"></i>
-                            <span class="nav-link-text">Request Barcodes</span>
+                            <span class="nav-link-text">My Barcodes</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="showassignedbarcodes.html">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Assigned Barcodes</span>
                           </a>
                         </li>
                        
@@ -191,6 +197,7 @@ crossorigin="anonymous|use-credentials">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
                     <span class="mb-0 text-sm  font-weight-bold"><script type="text/javascript">document.write(localStorage.getItem('showname'));</script></span>
+                    <br><span id="businessName"></span>
                   </div>
                 </div>
               </a>
@@ -254,7 +261,7 @@ crossorigin="anonymous|use-credentials">
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Membership Status</h5>
-                      <span class="h2 font-weight-bold mb-0">365 Days Left</span>
+                      <span class="h2 font-weight-bold mb-0" id="membershipStatus"></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -307,6 +314,8 @@ crossorigin="anonymous|use-credentials">
         <img src="../../assets/img/brand/newlogo1.png" width="150px">
          <h1>Barcode Subscription & Approval</h1>
          Please Purcahse Barcodes for your company. <br><h2>Note</h2>
+         <p>You have requested for <strong><script type="text/javascript">document.write(localStorage.getItem('barcodetotal'))</script> Barcodes</strong></p>
+         <p>Payabel amount is <strong><script type="text/javascript">document.write(localStorage.getItem('barcodetotal')*120000)</script></strong></p>
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <button id="mobile" class="btn btn-secondary">Mobile Money Payments</button>
@@ -330,7 +339,7 @@ crossorigin="anonymous|use-credentials">
         <form>
           <div class="form-group">
             <label>Amount to be paid</label>
-            <input type="number" name="amount" placeholder="120,000UGX" class="form-control" readonly>
+            <input type="number" name="amount" id="amount" class="form-control" readonly value="">
           </div>
           <div class="form-group">
             <label>Enter Your Mobile Money Number</label>
@@ -338,7 +347,7 @@ crossorigin="anonymous|use-credentials">
           </div>
           <div class="form-group">
                 <button class="btn btn-secondary"><a href="mydashboard.html">Back</a></button>
-            <button type="submit" class="btn btn-primary"><a href="requestbarcodes.html" style="color:white;">Make Payment</a></button>
+            <button type="button" class="btn btn-primary" id="payforBarcodes">Make Payment</button>
           </div>
         </form>
       </div>
@@ -352,7 +361,7 @@ crossorigin="anonymous|use-credentials">
         <form>
          <div class="form-group">
             <label>Amount to be paid</label>
-            <input type="number" name="amount" placeholder="120,000UGX" class="form-control" readonly>
+            <input type="number"  name="amount" id="amount" class="form-control" readonly>
           </div>
           <div class="form-group">
             <label>Enter Your Card Name</label>
@@ -372,7 +381,7 @@ crossorigin="anonymous|use-credentials">
           </div>
           <div class="form-group">
                 <button class="btn btn-secondary"><a href="mydashboard.html">Back</a></button>
-            <button type="submit" class="btn btn-primary"><a href="requestbarcodes.html" style="color:white;">Make Payment</a></button>
+            <button type="button" class="btn btn-primary" id="payforBarcodes">Make Payment</button>
           </div>
         </form>
       </div>
@@ -446,6 +455,7 @@ crossorigin="anonymous|use-credentials">
 
   <script src="../../assets/gs1.js"></script>
    <script src="../../assets/barcode.js"></script>
+      <script src="../../assets/paymentbarcode.js"></script>
  
 </body>
 

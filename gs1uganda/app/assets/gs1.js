@@ -21,6 +21,7 @@ $(document).ready(function () {
    
 
   var $table=$('#table');
+  var $companyInfo = $('#companyTable');
   var $codeTable = $('#codeTable');
   // alert messages
          $("#success-alert").hide();
@@ -599,6 +600,33 @@ $.ajax({
     });
 
 
+//company profile 
+
+$.ajax({
+        url: "http://83.136.248.89:1701/businessProfiles/loggedInUser",
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        },
+        success: function (result) {
+          debugger
+
+        if(result.status == true){
+          document.getElementById('businessName').innerHTML = result.data.businessName;
+          document.getElementById('businessEmail').innerHTML = result.data.businessEmail;
+          document.getElementById('registrationNumber').innerHTML = result.data.registrationNumber;
+          document.getElementById('tinNumber').innerHTML = result.data.tinNumber;
+          document.getElementById('physicalAdress').innerHTML = result.data.physicalAdress;
+          document.getElementById('verificationStatus').innerHTML = result.data.verificationStatus;
+          document.getElementById('membershipStatus').innerHTML = result.data.membershipStatus;
+          document.getElementById('companyCode').innerHTML = result.data.companyCode;
+
+        }
+            }
+    });
+
+
 
  //add item caatalogue
       $("#addproduct").on('click', function (e) {
@@ -666,7 +694,7 @@ $.ajax({
                 contentType: 'application/json',
                 data: myData, 
                 success: function( result ) {
-                  // alert(result);
+                  alert(result.message);
                    console.log(result);
 
                    }
@@ -782,7 +810,7 @@ $.ajax({
         },
         dataType: 'json',
         success: function (result) {
-
+debugger
           // var count = result.data.length;
           console.log(result.data);
           var tableData = [];
@@ -933,10 +961,40 @@ $.ajax({
          //generate barcodes
          $("#selectbarcode").on('click', function (e) {
           // alert("working")
-            var productData = $codeTable.bootstrapTable('getSelections');
+            var productData = $table.bootstrapTable('getSelections');
             // alert(JSON.stringify(productData));
            var codeId = productData[0].id;
         localStorage.setItem('mycodeId',codeId);
+        alert(codeId)
+
+        var selectedGtin = $('#selectgtin').val();
+        alert(selectedGtin);
+        $.ajax({
+
+                url: "http://83.136.248.89:1701/productBarcodeAllocations",
+                type: "POST",
+                dataType: "json",
+                headers:{'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+                },
+                contentType: 'application/json',
+                data: JSON.stringify({
+                 
+                    "businessProduct":{
+                    "id":codeId
+                    },
+                    "businessGTin":{
+                    "id":selectedGtin
+                    }
+                }), 
+                success: function( result ) {
+                   console.log(result)
+                  alert(result.message);
+                   window.location.href ="showassignedbarcodes.html";
+                   }
+               
+            });
         
         // window.location.href ="printbusinessbarcodes.html";
         // if()
@@ -1103,7 +1161,7 @@ $("#addbusinessowner").on('click', function (e) {
 
 
 
-        //register new business profile
+        //CAPTURING COMPANY DETAILS
 
     $("#addbusiness").on('click', function (e) {
       debugger
@@ -1121,64 +1179,31 @@ $("#addbusinessowner").on('click', function (e) {
           // alert(businessName);
           window.location.href ="registercontactperson.html";
           
-            // e.preventDefault();
-            // $.ajax({
-
-            //     url: "http://83.136.248.89:1701/userbusinessProfiles",
-            //     type: "POST",
-            //     dataType: "json",
-            //     headers:{
-            //             'Accept': 'application/json',
-            //             'Content-Type': 'application/json',
-            //             'Authorization': 'Bearer '+localStorage.getItem('myToken')   
-            //            },
-            //     data: JSON.stringify({
-            //       "businessName" : businessName,
-            //       "businessOwnerShip" : businessOwnerShip,
-            //       "businessEmail" : businessEmail,
-            //       "registrationNumber" : registrationNumber,
-            //       "physicalAdress" : physicalAdress,
-            //       "postalAdress" : postalAdress,
-            //       "tinNumber" : tinNumber
-
-            //     }), 
-            //     success: function( result ) {
-            //       // debugger
-            //        console.log(result)
-            //        const businessId = result.data;
-            //        localStorage.setItem('businessId', businessId);
-            //        localStorage.getItem('businessId');
-            //        // console.log(localStorage.getItem('businessId'))
-            //        // alert('business created'+localStorage.getItem('businessId'));
-            //        window.location.href="clientbusinessowners.html";
-            //        }
-               
-            // })
+          
 
           });
+
+    //CAPTURE CONTACT PERSON 
+
      $("#contactperson").on('click', function (e) {
       debugger
       localStorage.setItem('firstName',$('#firstName').val().trim());
       localStorage.setItem('lastName', $('#lastname').val().trim());
       localStorage.setItem('phoneNumber', $('#phoneno').val().trim());
       localStorage.setItem('email', $('#email').val().trim());
-          // alert(localStorage.getItem('tinNumber'));
-           window.location.href ="clientpayment.html";
-       });
-     // activate
-     $("#activationcode").on('click', function (e) {
-      debugger
+          
       var businessAccount = { "businessName":localStorage.getItem('businessName'),
 "businessEmail":localStorage.getItem('businessEmail'),
 "businessOwnerShip":localStorage.getItem('businessOwnerShip'),
 "registrationNumber":localStorage.getItem('registrationNumber'),
 "tinNumber":localStorage.getItem('tinNumber'),
+"password" :localStorage.getItem('password'),
 "physicalAdress":localStorage.getItem('physicalAdress'),
    "country":{"id":localStorage.getItem('country')},
    "district":{"id":localStorage.getItem('district')}, 
 
-  "businessSectors":[{"id":localStorage.getItem('businesssector')}],
- "natureOfbusinesses":[{"id":localStorage.getItem('natureofbusiness')}],
+  "businessSectors":[{"id":localStorage.getItem('natureofbusiness')}],
+ "natureOfbusinesses":[{"id":localStorage.getItem('businesssector')}],
 
  "contactPerson":{
 "firstName":localStorage.getItem('firstName'),
@@ -1187,6 +1212,8 @@ $("#addbusinessowner").on('click', function (e) {
    "email":localStorage.getItem('email')
  }
 }
+
+
 var business = JSON.stringify(businessAccount);
 console.log(business);
 
@@ -1204,17 +1231,23 @@ $.ajax({
                 success: function( result ) {
                    console.log(result)
                    if(result.status == true){
-                    alert("Data set succesfully");
-                    window.location.href="approval.html";
+                    // alert(result.message);
+                    window.location.href="confirmclientregistration.html";
+                   }
+                   else{
+                    alert(result.message);
                    }
 
                    }
                
             })
 
-}
 
-      );
+});
+
+
+
+      
 
 //logout
 $('#logout').on('click', function (e) {
