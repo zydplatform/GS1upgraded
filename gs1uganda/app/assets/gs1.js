@@ -107,7 +107,7 @@ $(document).ready(function () {
        
   //login user to get token
         $("#form1").on('submit', function (e) {
-          debugger
+          
             e.preventDefault();     
             validateUsername();
             validatePassword();
@@ -195,7 +195,7 @@ $(document).ready(function () {
          //email subscription
 
         $("#emailAddressForm").on('submit', function (e) {
-          // debugger
+          // 
             e.preventDefault();     
                
             let emailAdress = $('#emailAddress').val().trim();
@@ -248,7 +248,7 @@ $(document).ready(function () {
 
         //verify Email Code
          $('#verifyEmailCode').on('click',function(){
-          // debugger
+          // 
 
                       let clientCode = $('#clientCode').val().trim();
                       const emailCode = localStorage.getItem('applicationCode');
@@ -263,7 +263,7 @@ $(document).ready(function () {
                     });
         //register new user 
           $("#registerClient").on('click', function (e) {
-            // debugger
+            // 
             let firstName = $('#firstName').val().trim();
             let lastName = $('#lastName').val().trim();
             let phoneNumber = $('#phoneNumber').val().trim();
@@ -601,7 +601,6 @@ $.ajax({
 
 
 //company profile 
-
 $.ajax({
         url: "http://83.136.248.89:1701/businessProfiles/loggedInUser",
         type: "GET",
@@ -610,16 +609,19 @@ $.ajax({
             "Authorization" : 'Bearer '+localStorage.getItem('myToken')
         },
         success: function (result) {
-          debugger
 
         if(result.status == true){
           document.getElementById('businessName').innerHTML = result.data.businessName;
+		  document.getElementById('Bname').innerHTML = result.data.businessName;
           document.getElementById('businessEmail').innerHTML = result.data.businessEmail;
           document.getElementById('registrationNumber').innerHTML = result.data.registrationNumber;
           document.getElementById('tinNumber').innerHTML = result.data.tinNumber;
           document.getElementById('physicalAdress').innerHTML = result.data.physicalAdress;
           document.getElementById('verificationStatus').innerHTML = result.data.verificationStatus;
           document.getElementById('membershipStatus').innerHTML = result.data.membershipStatus;
+		  document.getElementById('myStatus').innerHTML = result.data.membershipStatus;
+		  document.getElementById('myStatus1').innerHTML = result.data.membershipStatus;
+		  document.getElementById('myStatus2').innerHTML = result.data.membershipStatus;
           document.getElementById('companyCode').innerHTML = result.data.companyCode;
 
         }
@@ -660,7 +662,7 @@ $.ajax({
 
       //add business products
       $("#addbusinessproduct").on('click', function (e) {
-        debugger
+        
             let itemCatelogueId = $('#ProductClassification').val().trim();
             let itemDescription = $('#itemDescription').val().trim();
             let itemName = $('#itemName').val().trim();
@@ -810,7 +812,7 @@ $.ajax({
         },
         dataType: 'json',
         success: function (result) {
-debugger
+
           // var count = result.data.length;
           console.log(result.data);
           var tableData = [];
@@ -965,10 +967,10 @@ debugger
             // alert(JSON.stringify(productData));
            var codeId = productData[0].id;
         localStorage.setItem('mycodeId',codeId);
-        alert(codeId)
+        //alert(codeId)
 
         var selectedGtin = $('#selectgtin').val();
-        alert(selectedGtin);
+        //alert(selectedGtin);
         $.ajax({
 
                 url: "http://83.136.248.89:1701/productBarcodeAllocations",
@@ -1037,7 +1039,7 @@ debugger
 //add business type
 $("#addbusinesstype").on('click', function (e) {
             let typeId = $('#selecttype').val().trim();
-           debugger
+           
             e.preventDefault();
             $.ajax({
 
@@ -1164,7 +1166,7 @@ $("#addbusinessowner").on('click', function (e) {
         //CAPTURING COMPANY DETAILS
 
     $("#addbusiness").on('click', function (e) {
-      debugger
+      
           localStorage.setItem('businessName', $('#businessName').val().trim());
           localStorage.setItem('businessOwnerShip',$('#businessOwnerShip').val().trim());
           localStorage.setItem('physicalAdress', $('#physicalAdress').val().trim());
@@ -1186,7 +1188,7 @@ $("#addbusinessowner").on('click', function (e) {
     //CAPTURE CONTACT PERSON 
 
      $("#contactperson").on('click', function (e) {
-      debugger
+      
       localStorage.setItem('firstName',$('#firstName').val().trim());
       localStorage.setItem('lastName', $('#lastname').val().trim());
       localStorage.setItem('phoneNumber', $('#phoneno').val().trim());
@@ -1251,7 +1253,7 @@ $.ajax({
 
 //logout
 $('#logout').on('click', function (e) {
-  debugger
+  
   e.preventDefault();
   localStorage.removeItem('businessId'); 
   localStorage.removeItem('mybusinessId');

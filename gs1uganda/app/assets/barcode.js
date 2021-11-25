@@ -123,6 +123,7 @@ $.ajax({
 // const now = new Date();
 // alert(now.getTime())
 
+document.getElementById('mobileAmount').innerHTML =1200;
 });
 
 

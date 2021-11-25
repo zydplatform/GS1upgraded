@@ -121,25 +121,6 @@ crossorigin="anonymous|use-credentials">
                     </div>
                 </li>
                 
-                <li class="nav-item">
-                    <a class="nav-link" href="#navbar-examples6" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples1">
-                        <i class="fa fa-briefcase" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">Payments</span>
-                    </a>
-                  
-                  
-                    <div class="collapse show" id="navbar-examples6">
-                      <ul class="nav nav-sm flex-column">
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">
-                            <i class="ni ni-tag text-orange"></i>
-                            <span class="nav-link-text">Payment History</span>
-                          </a>
-                        </li>
-                        
-                        </ul>
-                    </div>
-                </li>
                 
                            
 
@@ -278,7 +259,7 @@ crossorigin="anonymous|use-credentials">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Barcodes Issued</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Barcodes Generated</h5>
                       <span class="h2 font-weight-bold mb-0" id="countBarcodes"></span>
                     </div>
                     <div class="col-auto">
@@ -314,8 +295,8 @@ crossorigin="anonymous|use-credentials">
         <img src="../../assets/img/brand/newlogo1.png" width="150px">
          <h1>Barcode Subscription & Approval</h1>
          Please Purcahse Barcodes for your company. <br><h2>Note</h2>
-         <p>You have requested for <strong><script type="text/javascript">document.write(localStorage.getItem('barcodetotal'))</script> Barcodes</strong></p>
-         <p>Payabel amount is <strong><script type="text/javascript">document.write(localStorage.getItem('barcodetotal')*120000)</script></strong></p>
+         <p>You have requested for <strong id="total"></strong></p>
+         <p>Payabel amount is <strong></strong></p>
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <button id="mobile" class="btn btn-secondary">Mobile Money Payments</button>
@@ -339,7 +320,7 @@ crossorigin="anonymous|use-credentials">
         <form>
           <div class="form-group">
             <label>Amount to be paid</label>
-            <input type="number" name="amount" id="amount" class="form-control" readonly value="">
+            <input type="number" name="mobileAmount" id="mobileAmount" class="form-control" readonly value="">
           </div>
           <div class="form-group">
             <label>Enter Your Mobile Money Number</label>
@@ -361,7 +342,7 @@ crossorigin="anonymous|use-credentials">
         <form>
          <div class="form-group">
             <label>Amount to be paid</label>
-            <input type="number"  name="amount" id="amount" class="form-control" readonly>
+            <input type="number"  name="amountBank" id="amountBank" class="form-control" readonly>
           </div>
           <div class="form-group">
             <label>Enter Your Card Name</label>
