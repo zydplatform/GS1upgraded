@@ -436,8 +436,20 @@ crossorigin="anonymous|use-credentials">
 
   <script src="../../assets/gs1.js"></script>
    <script src="../../assets/barcode.js"></script>
-      <script src="../../assets/paymentbarcode.js"></script>
- 
+  <script type="text/javascript">
+    $.ajax({
+        url: 'http://83.136.248.89:1701/productBarcodeAllocations/loggedinuser',
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        },
+        dataType: 'json',
+        success: function (result) {
+       
+        }
+    });
+  </script>
 </body>
 
 </html>

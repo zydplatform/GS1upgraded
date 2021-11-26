@@ -3,9 +3,22 @@ $tablebarcode =$('#tablebarcodes');
 $assignedbarcodes = $('#assignedbarcodes')
 	// barcoderequest
 $("#barcoderequest").on('click', function (e) {
-  console.log("hello i need")
-  var numberofBarcodes = $("#barcodetotal").val();
-   window.location.href="clientpayforbarcodes.html";
+    debugger
+      var numberofBarcodes = $("#barcodetotal").val();
+     $.ajax({
+
+        url: "http://83.136.248.89:1701/gTins/number/"+numberofBarcodes,
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
+        },
+        success: function (result) {
+                  console.log(result.message);
+                  window.location.href="requestbarcodes.html"
+          
+        }
+    })
 
 });
 
@@ -81,9 +94,6 @@ $.ajax({
         }
         console.log(tableassignBarcodes.length);
         if(result.status == true){
-      //   $('table').bootstrapTable({
-      //   data: tableData
-      // });
         $assignedbarcodes.bootstrapTable('append', tableassignBarcodes)
 
         }
@@ -114,15 +124,7 @@ $.ajax({
         }
     });
            var productData = $table.bootstrapTable('getSelections');
-         
-// function expiryDays(date_string) {
-//   var b = date_string.split(/\D/);
-//   var expiry = new Date(b[2],--b[0],b[1]);
-//   return Math.round((expiry - new Date().setHours(0,0,0,0)) / 8.64e7);
-// }
-// const now = new Date();
-// alert(now.getTime())
-
+ 
 document.getElementById('mobileAmount').innerHTML =1200;
 });
 

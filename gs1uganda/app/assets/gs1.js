@@ -301,9 +301,6 @@ $(document).ready(function () {
 
           
 
-// "Authorization" : 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE2Mjc5NDUzNDgsImlhdCI6MTYyNzkwOTM0OH0.UwbFrqWN0xF8gkCFHT_iR10BJUJnCIf4X0LmMZKvkM4'
-         //get district
-
         $.ajax({
         url: 'http://83.136.248.89:1701/districts/all',
         type: "GET",
@@ -704,50 +701,6 @@ $.ajax({
             })
 
           });
-  // var table = document.getElementById('businessproductsTable');
-  //          for(var i = 1; i < table.rows.length; i++)
-  //               {
-  //                   table.rows[i].onclick = function()
-  //                   {
-  //                        //rIndex = this.rowIndex;
-                         
-  //                   };
-  //               }
-
-   // $("#businessproductsTable").on('click',"button.generateBarcodes", function (e) {
-   //      alert('working')
-      
-   //      var data = $("#businessproductsTable").row({selected:true}).data();
-   //      alert(data);
-
-   //      alert('getSelections: ' + JSON.stringify($("#table").bootstrapTable('getSelections')));
-     
-   //        var productId = document.getElementById('productId').value();
-   //        alert(productId);
-   //          e.preventDefault();
-   //          $.ajax({
-
-   //              url: "http://83.136.248.89:1701/businessProductCodes",
-   //              type: "POST",
-   //              dataType: "json",
-   //              headers:{'Accept': 'application/json',
-   //                      'Content-Type': 'application/json',
-   //                  "Authorization" : 'Bearer '+localStorage.getItem('myToken')
-   //              },
-   //              contentType: 'application/json',
-   //                              data: JSON.stringify({
-   //                                "businessProduct":{"id": productId},
-                                 
-   //              }), 
-   //              success: function( result ) {
-   //                 console.log(result)
-
-   //                 }
-               
-   //          })
-
-   //        });
-
       //get business productsCatalogue
       $.ajax({
         url: "http://83.136.248.89:1701/itemCatelogues/all",
@@ -948,9 +901,6 @@ $.ajax({
                                  
                 }), 
                 success: function( result ) {
-                   // console.log(result)
-                   // alert(result.message)
-                   // window.location.href = "barcodepaymentoptions.html"
 
                    }
                
@@ -997,45 +947,9 @@ $.ajax({
                    }
                
             });
-        
-        // window.location.href ="printbusinessbarcodes.html";
-        // if()
            
 
           });
-    //add business type
-// $("#addbusinesstype").on('click', function (e) {
-//             let code = $('#code').val().trim();
-//             let type = $('#type').val().trim();
-           
-
-//             e.preventDefault();
-//             $.ajax({
-
-//                 url: "http://83.136.248.89:1701/businessTypes",
-//                 type: "POST",
-//                 dataType: "json",
-//                 headers:{'Accept': 'application/json',
-//                         'Content-Type': 'application/json',
-//                     "Authorization" : 'Bearer '+localStorage.getItem('myToken')
-//                 },
-//                 contentType: 'application/json',
-//                 data: JSON.stringify({
-//                 "businessProfile": {"id" : localStorage.getItem('businessId')},
-//                   "code" : code,
-//                   "type" : type
-//                 }), 
-//                 success: function( result ) {
-//                    console.log(result)
-//                    alert(result);
-
-//                    }
-               
-//             })
-
-//           });
-
-
 //add business type
 $("#addbusinesstype").on('click', function (e) {
             let typeId = $('#selecttype').val().trim();
@@ -1224,10 +1138,6 @@ $.ajax({
                 url: "http://83.136.248.89:1701/membershipapplication",
                 type: "POST",
                 dataType: "json",
-                // headers:{'Accept': 'application/json',
-                //         'Content-Type': 'application/json',
-                //     'Authorization': 'Bearer '+localStorage.getItem('myToken')
-                // },
                 contentType: 'application/json',
                 data: business,
                 success: function( result ) {
