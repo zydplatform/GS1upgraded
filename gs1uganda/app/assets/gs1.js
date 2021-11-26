@@ -695,6 +695,7 @@ $.ajax({
                 success: function( result ) {
                   alert(result.message);
                    console.log(result);
+                   window.location.href ="mydashboard.html";
 
                    }
                
