@@ -608,6 +608,8 @@ $.ajax({
         success: function (result) {
 
         if(result.status == true){
+          var memberDays = result.data.membershipStatus;
+          $('#membershipStatus').append(memberDays);
           document.getElementById('businessName').innerHTML = result.data.businessName;
 		  document.getElementById('Bname').innerHTML = result.data.businessName;
           document.getElementById('businessEmail').innerHTML = result.data.businessEmail;
