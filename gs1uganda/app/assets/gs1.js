@@ -618,9 +618,6 @@ $.ajax({
           document.getElementById('physicalAdress').innerHTML = result.data.physicalAdress;
           document.getElementById('verificationStatus').innerHTML = result.data.verificationStatus;
           document.getElementById('membershipStatus').innerHTML = result.data.membershipStatus;
-		  document.getElementById('myStatus').innerHTML = result.data.membershipStatus;
-		  document.getElementById('myStatus1').innerHTML = result.data.membershipStatus;
-		  document.getElementById('myStatus2').innerHTML = result.data.membershipStatus;
           document.getElementById('companyCode').innerHTML = result.data.companyCode;
 
         }
