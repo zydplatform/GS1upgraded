@@ -162,7 +162,7 @@ $(document).ready(function () {
                       localStorage.setItem('mybusinessId', result.data.id);
                       localStorage.setItem('businessName', result.data.businessName);
                       $('#companyName').append(localStorage.getItem('businessName'))
-                      window.location.href ="views/clients/mydashboard.html";
+                      window.location.href ="views/clients/companyprofile.html";
                     }
                     else{
                       window.location.href ="views/clients/welcome.html";
