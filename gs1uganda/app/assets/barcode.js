@@ -126,6 +126,10 @@ $.ajax({
            var productData = $table.bootstrapTable('getSelections');
  
 document.getElementById('mobileAmount').innerHTML =1200;
+
+
+
+
 });
 
 

@@ -1076,6 +1076,17 @@ $("#addbusinessowner").on('click', function (e) {
           });
 
 
+//show barcode products assigned
+// selectproductCodeModal
+$('#selectproductCodeModal').on('click', function(e){
+  var selectedrecord = $assignedbarcodes.bootstrapTable('getSelections');
+           console.log(JSON.stringify(selectedrecord[0]))
+           var x = selectedrecord[0].gtin
+            document.getElementById("add_after_me").insertAdjacentHTML("afterend",
+                "<img  src='http://216.104.200.10:9001/barbecue/ean13/"+x+"' />");
+           // window.location.href="printbusinessbarcodes.html";
+});
+
 
         //CAPTURING COMPANY DETAILS
 

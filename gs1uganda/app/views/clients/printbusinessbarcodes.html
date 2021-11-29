@@ -10,7 +10,7 @@
   <meta http-equiv="Access-Control-Allow-Origin" content="*" />
   <meta http-equiv="Access-Control-Allow-Headers" content="X-Requested-With" />
 
-  <title>GS1 Standards Uganda</title>
+  <title>Visible Trace Services Uganda Limited VTS</title>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 crossorigin="anonymous|use-credentials">
@@ -23,24 +23,15 @@ crossorigin="anonymous|use-credentials">
   <link rel="stylesheet" href="../../assets/vendor/nucleo/css/nucleo.css" type="text/css">
   <link rel="stylesheet" href="../../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Page plugins -->
+
   <!-- Argon CSS -->
+
   <link rel="stylesheet" href="../../assets/css/argon.css?v=1.2.0" type="text/css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
   
    <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <script src="https://cdn.jsdelivr.net/jsbarcode/3.5.8/JsBarcode.all.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script>
-    JsBarcode("#barcode", "1234", {
-  format: "pharmacode",
-  lineColor: "#0aa",
-  width: 4,
-  height: 40,
-  displayValue: true
-});
-  </script>
+   <link href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -64,24 +55,24 @@ crossorigin="anonymous|use-credentials">
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item">
+           <li class="nav-item">
                     <a class="nav-link" href="#navbar-examples4" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples4">
                         <i class="fa fa-briefcase" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">Profile</span>
+                        <span class="nav-link-text" style="color: #f4645f;">Company</span>
                     </a>
                     <div class="collapse show" id="navbar-examples4">
                       <ul class="nav nav-sm flex-column">
                         
                         <li class="nav-item">
-                          <a class="nav-link" href="#">
+                          <a class="nav-link" href="companyprofile.html">
                             <i class="ni ni-tag text-primary"></i>
-                            <span class="nav-link-text">Business Details</span>
+                            <span class="nav-link-text">Company Information</span>
                           </a>
                         </li>
                                   </ul>
                     </div>
                 </li>
-                       <li class="nav-item">
+            <li class="nav-item">
                     <a class="nav-link" href="#navbar-examples1" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples1">
                         <i class="fa fa-briefcase" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">Products</span>
@@ -93,44 +84,45 @@ crossorigin="anonymous|use-credentials">
                         <li class="nav-item">
                           <a class="nav-link" href="mydashboard.html">
                             <i class="ni ni-tag text-orange"></i>
-                            <span class="nav-link-text">Business Products</span>
+                            <span class="nav-link-text">Registered Products</span>
                           </a>
                         </li>
-                       <li class="nav-item">
+                        <li class="nav-item">
                           <a class="nav-link" href="addclientproduct.html">
                             <i class="ni ni-tag text-orange"></i>
                             <span class="nav-link-text">Add Products</span>
                           </a>
                         </li>
+                        </ul>
+                    </div>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="#navbar-examples11" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples11">
+                        <i class="fa fa-briefcase" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">Barcodes</span>
+                    </a>
+                  
+                  
+                    <div class="collapse show" id="navbar-examples11">
+                      <ul class="nav nav-sm flex-column">
                         <li class="nav-item">
-                          <a class="nav-link" href="generatebarcodes.html">
+                          <a class="nav-link" href="requestbarcodes.html">
                             <i class="ni ni-tag text-orange"></i>
-                            <span class="nav-link-text">Product Barcodes</span>
+                            <span class="nav-link-text">My Barcodes</span>
                           </a>
                         </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="showassignedbarcodes.html">
+                            <i class="ni ni-tag text-orange"></i>
+                            <span class="nav-link-text">Assigned Barcodes</span>
+                          </a>
+                        </li>
+                       
                         </ul>
                     </div>
                 </li>
                 
-                     <li class="nav-item">
-                    <a class="nav-link" href="#navbar-examples6" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples1">
-                        <i class="fa fa-briefcase" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">Payments</span>
-                    </a>
-                  
-                  
-                    <div class="collapse show" id="navbar-examples6">
-                      <ul class="nav nav-sm flex-column">
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">
-                            <i class="ni ni-tag text-orange"></i>
-                            <span class="nav-link-text">Payment History</span>
-                          </a>
-                        </li>
-                        
-                        </ul>
-                    </div>
-                </li>      
+                           
 
                        
           </ul>
@@ -186,6 +178,7 @@ crossorigin="anonymous|use-credentials">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
                     <span class="mb-0 text-sm  font-weight-bold"><script type="text/javascript">document.write(localStorage.getItem('showname'));</script></span>
+                    <br><span id="businessName"></span>
                   </div>
                 </div>
               </a>
@@ -198,7 +191,7 @@ crossorigin="anonymous|use-credentials">
                   <span>My profile</span>
                 </a>
                 
-               <a href="#" class="dropdown-item" id="logout">
+                <a href="#" class="dropdown-item" id="logout">
                   <i class="ni ni-user-run"></i>
                   <span>Logout</span>
                 </a>
@@ -229,7 +222,7 @@ crossorigin="anonymous|use-credentials">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Products</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Products Registered</h5>
                       <span class="h2 font-weight-bold mb-0" id="countItems"></span>
                     </div>
                     <div class="col-auto">
@@ -248,8 +241,8 @@ crossorigin="anonymous|use-credentials">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Membership</h5>
-                      <span class="h2 font-weight-bold mb-0">0</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Membership Status</h5>
+                      <span class="h2 font-weight-bold mb-0" id="membershipStatus"></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -266,8 +259,8 @@ crossorigin="anonymous|use-credentials">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Barcodes</h5>
-                      <span class="h2 font-weight-bold mb-0">0</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Barcodes Generated</h5>
+                      <span class="h2 font-weight-bold mb-0" id="countBarcodes"></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
@@ -282,164 +275,22 @@ crossorigin="anonymous|use-credentials">
         </div>
       </div>
     </div>
+    <div id="toolbar">
+  <!-- <button id="barcode" class="btn btn-secondary">Generate Barcode</button> -->
+</div>
+
     <div class="card-body px-lg-5 py-lg-5">
-        
+      <div class="col-md-12">
+       <strong>View & Print Products-Barcode Details</strong>
+     
         <hr>
-        <form role="form" id="productform">
-      <div class="row">
-      <div class="col-md-4">
-                <div class="form-group">
-                  <label>Item Code</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="itemCode" name="itemCode" placeholder="itemCode" value="" required readonly>
-                  </div>
-                </div>
-                
-                <div class="form-group">
-                  <label>Item Name</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="itemName" name="itemName" placeholder="itemName" value="" required readonly>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Item Description</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="itemDescription" name="itemDescription" placeholder="itemDescription" value="" required readonly>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Brand Name</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="brandName" name="brandName" placeholder="brandName" value="" required readonly>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Usage Description</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="UsageDescription" name="UsageDescription" placeholder="Usage Description" value="" required readonly>
-                  </div>
-                </div>
-                
-              </div>
-                <div class="col-md-4">
-               
-                <div class="form-group">
-                  <label>Target Market</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="TargetMarket" name="TargetMarket" placeholder="Target Market" value="" required readonly>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Unit Descriptor</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="UnitDescriptor" name="UnitDescriptor" placeholder="Unit Descriptor" value="" required readonly>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Product Scope</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="ProductScope" name="ProductScope" placeholder="Product Scope" required readonly>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Effective Date</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="date" class="form-control" id="EffectiveDate" name="EffectiveDate" placeholder="Effective Date" required readonly>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Barcode Type</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="barcodeType" name="barcodeType" placeholder="Barcode Type" value="" required readonly>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                
-                
-                <div class="form-group">
-                  <label>Barcode </label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="barcode" name="barcode" placeholder="Barcode" value="" required readonly>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Status</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="Status" name="Status" placeholder="Status" value="pending" required readonly>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>GTIN</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="gtin" name="gtin" placeholder="GTIN" required value="" readonly>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>GPCcode</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                      <input type="text" class="form-control" id="gpccode" name="gpccode" placeholder="GPCcode" value="76790780707070" required readonly>
-                  </div>
-                </div>
-                  <div class="form-group">
-                  <label>Barcode Image</label>
-                  <div id="barcodeImage"></div>
-                </div>
-              </div>
-               
-               </div>
-                
-              </form>
-            </div>
-          </div>
-           <div class="text-center">
-                  <button type="submit" class="btn btn-secondary mt-4"><a href="barcodes.pdf" target="_blank" style="color: black;"> Print Product Barcodes</a></button>
-                  <button type="submit" class="btn btn-warning mt-4"><a href="generatebarcodes.html" style="color: white;">Back</a></button>
-                </div>
+                <button type="button" class="btn btn-default" id="printBarcode"  class="btn btn-primary" style="float: left;">Print Details</button><br>
+                   
+
+              
           </div>
         </div>
+       
       <!-- Footer -->
       <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">
@@ -466,21 +317,18 @@ crossorigin="anonymous|use-credentials">
     </div>
   </div>
   <!-- Argon Scripts -->
-
-  <script type="text/javascript">
-    function productPrint(productform) {
-            var printdata = document.getElementById(productform);
-            newwin = window.open("");
-            newwin.document.write(printdata.outerHTML);
-            newwin.print();
-            newwin.close();
-        }
-
-  </script>
+  
   <!-- Optional JS -->
   <!-- Argon JS -->
-  
+  <script type="text/javascript">
+    if(localStorage.getItem('myToken') ==null && localStorage.getItem('businessId') == null ){
+    window.location.href ="../../index.html";
+  }
+  </script>
   <!-- Core -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../assets/vendor/js-cookie/js.cookie.js"></script>
@@ -491,13 +339,10 @@ crossorigin="anonymous|use-credentials">
   <script src="../../assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
   <script src="../../assets/js/argon.js?v=1.2.0"></script>
-
-<script src="../../assets/JSBarcode.all.min.js"></script> 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.4/dist/JsBarcode.all.min.js"></script>
-  <!-- <script src="../../assets/gs1.js"></script> -->
-  <script src="../../assets/gs1.js"></script>
-  <script src="../../assets/gs12.js"></script>
-
+  
+ <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+ <script src="../../assets/gs1.js"></script>
+ <script src="../../assets/barcode.js"></script>
 </body>
 
 </html>
