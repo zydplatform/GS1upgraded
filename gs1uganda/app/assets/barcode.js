@@ -5,20 +5,11 @@ $assignedbarcodes = $('#assignedbarcodes')
 $("#barcoderequest").on('click', function (e) {
     debugger
       var numberofBarcodes = $("#barcodetotal").val();
-     $.ajax({
+      localStorage.setItem("numberofBarcodes", numberofBarcodes);
+          window.location.href="clientpayforbarcodes.html"
 
-        url: "http://83.136.248.89:1701/gTins/number/"+numberofBarcodes,
-        type: "GET",
-        dataType: "json",
-        headers: {
-            "Authorization" : 'Bearer '+localStorage.getItem('myToken')
-        },
-        success: function (result) {
-                  console.log(result.message);
-                  window.location.href="requestbarcodes.html"
-          
-        }
-    })
+
+    
 
 });
 
