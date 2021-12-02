@@ -610,6 +610,8 @@ $.ajax({
         if(result.status == true){
           var memberDays = result.data.membershipStatus;
           $('#membershipStatus').append(memberDays);
+          var statusforMeber = result.data.membershipStatus;
+          $('#membershipStatus1').append(statusforMeber);
           document.getElementById('businessName').innerHTML = result.data.businessName;
 		  document.getElementById('Bname').innerHTML = result.data.businessName;
           document.getElementById('businessEmail').innerHTML = result.data.businessEmail;
