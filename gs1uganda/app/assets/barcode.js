@@ -119,6 +119,10 @@ $.ajax({
 document.getElementById('mobileAmount').innerHTML =1200;
 
 
+$('#printme').on('click', function(e){
+  debugger
+  window.print();
+});
 
 
 });
