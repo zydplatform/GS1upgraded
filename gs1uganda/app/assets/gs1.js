@@ -658,13 +658,14 @@ $.ajax({
 
       //add business products
       $("#addbusinessproduct").on('click', function (e) {
+        debugger
         
             let itemCatelogueId = $('#ProductClassification').val().trim();
             let itemDescription = $('#itemDescription').val().trim();
             let itemName = $('#itemName').val().trim();
             let brandName = $('#brandName').val().trim();
            // let usageDescription = $('#usageDescription').val().trim();
-          let netContent = $('#netContent').val().trim();
+          // let netContent = $('#netContent').val().trim();
           // let unitDescriptor = $('#unitDescriptor').val().trim();
           let netContentUOM = $('#netContentUOM').val().trim();
           // let effectiveDate = $('#effectiveDate').val().trim();
@@ -676,7 +677,6 @@ $.ajax({
                     "itemName": itemName,
                   "itemDescription":itemDescription,
                   "netContentUOM":netContentUOM,
-                   "netContent":netContent,
                     "brandName":brandName
                 });
             console.log(myData);
