@@ -1,6 +1,8 @@
 $(document).ready(function () {
 	var numberofBarcodes = localStorage.getItem("numberofBarcodes");
+  document.getElementById('total').innerHTML = numberofBarcodes;
 	var amount = numberofBarcodes*20000;
+  document.getElementById('paynow').innerHTML = amount;
 	$('#amountBank').val(amount);
 	// mobileAmount
 	$('#mobileAmount').val(amount);
