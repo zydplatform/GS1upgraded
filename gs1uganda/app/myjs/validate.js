@@ -16,10 +16,10 @@ $(document).ready(function () {
 		return false;
 	}
 	else if((BnameValue.length < 3)||
-			(BnameValue.length > 20)) {
+			(BnameValue.length > 50)) {
 		$('#businessnamecheck').show();
 		$('#businessnamecheck').html
-("length of Business Name must be between 3 and 20");
+("length of Business Name must be between 3 and 50");
 		BnameError = false;
 		return false;
 	}
@@ -74,7 +74,7 @@ $(document).ready(function () {
 		}
 	})
 
-	// Validate Businessno
+	// Validate BusinessTin
 	$('#tinnocheck').hide();
 	let tinError = true;
 	$('#tinNumber').keyup(function () {
@@ -119,7 +119,7 @@ $(document).ready(function () {
 			(passwordValue.length > 10)) {
 			$('#passcheck').show();
 			$('#passcheck').html
-("**length of your password must be between 3 and 10");
+("length of your password must be between 3 and 10");
 			$('#passcheck').css("color", "red");
 			passwordError = false;
 			return false;
@@ -131,18 +131,18 @@ $(document).ready(function () {
 // Validate Confirm Password
 	$('#conpasscheck').hide();
 	let confirmPasswordError = true;
-	$('#conpassword').keyup(function () {
+	$('#confirmPassword').keyup(function () {
 		validateConfirmPassword();
 	});
 	function validateConfirmPassword() {
 		let confirmPasswordValue =
-			$('#conpassword').val();
+			$('#confirmPassword').val();
 		let passwordValue =
 			$('#password').val();
 		if (passwordValue != confirmPasswordValue) {
 			$('#conpasscheck').show();
 			$('#conpasscheck').html(
-				"**Password didn't Match");
+				"Password didn't Match");
 			$('#conpasscheck').css(
 				"color", "red");
 			confirmPasswordError = false;
@@ -154,11 +154,13 @@ $(document).ready(function () {
 	
 // Submit button
 	$('#submitbtn').click(function () {
-		validateUsername();
+		validateBname();
+		validateBno();
+		validateTin();
 		validatePassword();
 		validateConfirmPassword();
 		validateEmail();
-		if ((usernameError == true) &&
+		if ((BnameError == true) &&
 			(passwordError == true) &&
 			(confirmPasswordError == true) &&
 			(emailError == true)) {
